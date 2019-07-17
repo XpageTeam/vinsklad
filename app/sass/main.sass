@@ -62,16 +62,33 @@ $output-bourbon-deprecation-warnings: false;
 
 		&-list
 			display: flex
+			width: 100%
 
 		&-item
 			position: relative
-			display: flex;
+			display: flex
 			align-items: flex-end
+			justify-content: flex-end
 			background: #fff
+			width: 50%
 
 			&:not(:first-child)
 				border:
 					left: 1px solid #e4e8ea
+
+			.app-btn
+				display: flex
+				flex-direction: column
+				margin-top: 25px
+
+				img
+					display: block
+
+				.app__one
+
+					&:not(:first-child)
+						margin-top: 8px
+
 		&-img
 			img
 				object-fit: contain;

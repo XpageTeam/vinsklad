@@ -196,6 +196,15 @@ $output-bourbon-deprecation-warnings: false;
 
 @media screen and (max-width: 1000px)
 
+	.main-slider__bot
+		&-item 
+
+			.app-btn
+				margin-top: 15px
+
+		&-info
+			padding: 25px
+
 	.wrapper-index-top
 		flex-direction: column-reverse
 		
@@ -937,6 +946,25 @@ $output-bourbon-deprecation-warnings: false;
 
 
 @media screen and (max-width: 667px)
+
+	html.bx-android 
+		.app-btn
+			.app__one[href*=apple]
+				display: none
+
+	html.bx-ios 
+		.app-btn
+			.app__one[href*=google]
+				display: none
+
+	.main-slider__bot-info
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+
+
+	.main-slider__bot-item
+		width: 100%
 
 	.main-slider__bot-list
 		flex-direction: column
