@@ -1,0 +1,26 @@
+html
+	head
+		meta(charset="utf-8")
+		title Магазины
+		include inc/head.jade
+		include inc/css.jade
+	body.inner
+		#page-wr
+			#content
+				include inc/header.jade
+				.content
+					.wrapper
+						.inner-cont
+							.title-block__cont
+								.titile-block
+									.title-block__crumbs
+										.bread-crumbs
+											a.bread-crumbs__link(href="#") Главная
+											a.bread-crumbs__link(href="#") Покупателям
+											span.bread-crumbs__this Магазины
+									h1.title-block__title Магазины
+							.p-shops__cont
+								.p-shops
+									shops
+			include inc/footer.jade
+		include inc/scripts.jade

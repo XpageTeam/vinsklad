@@ -1,0 +1,448 @@
+
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Формы</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="description"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,700&amp;amp;subset=cyrillic" rel="stylesheet"/>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/jquery.fancybox.css"/>
+    <link rel="stylesheet" href="css/jquery.jscrollpane.css"/>
+    <link rel="stylesheet" href="css/ui-slider.css"/>
+    <link rel="stylesheet" href="css/fonts.css"/>
+    <link rel="stylesheet" href="css/slick.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="css/forms.css"/>
+    <link rel="stylesheet" href="css/main_data.css"/>
+  </head>
+  <body class="inner">
+    <div id="page-wr">
+      <div id="content">
+        <transition name="head-message__transition">
+          <div :class="headMessageClass" v-if="headMessageShow" class="head-message">
+            <div v-html="headMessage" class="head-message__text"></div>
+          </div>
+        </transition>
+        <header class="head">
+          <div class="wrapper">
+            <div class="head__top">
+              <div v-cloak="" class="head__shop">
+                <div class="head__shop-city">
+                  <div class="city">{{ userCity.name || "Выберите город" }}</div>
+                </div>
+                <div class="head__shop-address">
+                  <address class="address">{{ mainShop.address || "Выберите магазин" }}</address>
+                </div>
+              </div>
+              <div class="head-top__right">
+                <div class="head-links">
+                  <div class="head-links__phone">
+                    <address class="top-phone"><a href="tel: 8 800 000 00 00">8 800 000 00 00</a></address>
+                  </div>
+                  <div class="head-links__feedback"><a href="#" class="feedback-link">Обратная связь</a></div>
+                  <div class="head-links__lc"><a href="#" class="lc-link">Личный кабинет</a></div>
+                </div>
+              </div>
+            </div>
+            <div class="head__mid">
+              <div class="head__logo"><a href="/" class="logo"><img src="img/logo.png" alt="" class="logo__img"/></a></div>
+              <div class="head__search">
+                <div class="search">
+                  <form>
+                    <div class="search-wrap">
+                      <div class="search__input-cont">
+                        <input type="text" placeholder="Поиск по товарам" class="search__input"/>
+                        <input type="submit" class="search__submit"/>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="head__fc"><a href="#" class="head__favorite"></a><a href="#" class="head__cart"><span class="head__cart-count">2 товара</span><span class="head__cart-price">4 879.60 <i class="rub">₽</i></span></a></div>
+            </div>
+            <nav class="head__menu">
+              <ul class="menu">
+                <li class="menu__el"><a href="#" data-id='580' class="menu__link">Крепкие напитки</a></li>
+                <li class="menu__el"><a href="#" data-id='360' class="menu__link">Вина</a></li>
+                <li class="menu__el"><a href="#" data-id='140' class="menu__link">Игристые вина и шампанское</a></li>
+                <li class="menu__el"><a href="#" data-id='80' class="menu__link">Пиво</a></li>
+                <li class="menu__el"><a href="#" data-id='10' class="menu__link">Разное</a></li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+        <div class="content">
+          <div class="wrapper">
+            <div class="inner-cont">
+              <div class="title-block__cont">
+                <div class="titile-block">
+                  <div class="title-block__crumbs">
+                    <div class="bread-crumbs"><a href="#" class="bread-crumbs__link">Главная</a><a href="#" class="bread-crumbs__link">Личный кабинет</a><span class="bread-crumbs__this">Формы</span></div>
+                  </div>
+                  <h1 class="title-block__title">Формы</h1>
+                </div>
+              </div>
+              <div class="cart__cont">
+                <div class="form-list"><a href="#register-user" class="btn  fancybox">Регистрация нового пользователя</a></div><br><br>
+                <div class="form-list"><a href="#message" class="btn  fancybox">Отправить сообщение</a></div><br><br>
+                <div class="form-list"><a href="#pass" class="btn  fancybox">Запрос пароля</a></div><br><br>
+                <div class="form-list"><a href="#city" class="btn  fancybox">Выбор города</a></div><br><br>
+                <div class="form-list"><a href="#resume" class="btn  fancybox">Отправить резюме</a></div><br><br>
+                <div class="form-list"><a href="#thanks-forms" class="btn  fancybox">18 лет</a></div>
+
+
+                <div class="forms forms__register-user" id="register-user">
+                  <form action="">
+                    <div class="forms__title">Регистрация нового пользователя</div>
+                    <div class="forms-wrap ">
+                      
+
+                      <div class="forms__input-wrap">
+                        <div class="forms-input-cont">
+                          <input id="form-name" type="text" name="PROPERTY[4][0]" size="25" value="" class="forms__input" required="required" placeholder="">
+                           <label for="form-name" class="forms-label forms__label">ФИО</label>
+                          <div class="forms__error-message"></div>
+                        </div>
+
+                        <div class="forms-input-cont">
+                          <input id="form-name" type="text" name="PROPERTY[4][0]" size="25" value="" class="forms__input" required="required" placeholder="">
+                           <label for="form-name" class="forms-label forms__label">E-mail</label>
+                          <div class="forms__error-message"></div>
+                        </div>
+
+                         <div class="forms-input-cont">
+                          <input id="form-name" type="tel" name="PROPERTY[4][0]" size="25" value="" class="forms__input"  placeholder="">
+                           <label for="form-name" class="forms-label forms__label">Дата рождения</label>
+                          <div class="forms__error-message"></div>
+                        </div>
+
+                        <div class="forms-input-cont">
+                          <input id="form-name" type="tel" name="PROPERTY[4][0]" size="25" value="" class="forms__input" required="required" placeholder="">
+                           <label for="form-name" class="forms-label forms__label">Пароль</label>
+                          <div class="forms__error-message"></div>
+                        </div>
+
+                        <div class="forms-input-cont">
+                          <input id="form-name" type="tel" name="PROPERTY[4][0]" size="25" value="" class="forms__input" required="required" placeholder="">
+                           <label for="form-name" class="forms-label forms__label">Подтверждение пароля</label>
+                          <div class="forms__error-message"></div>
+                        </div>
+
+                        <div class="forms-input-cont">
+                          <input id="form-name" type="tel" name="PROPERTY[4][0]" size="25" value="" class="forms__input" placeholder="">
+                           <label for="form-name" class="forms-label forms__label">Номер карты клиента</label>
+                          <div class="forms__error-message"></div>
+                        </div>
+
+                        <div class="forms-input-cont">
+                          <input id="form-name" type="tel" name="PROPERTY[4][0]" size="25" value="" class="forms__input" placeholder="">
+                           <label for="form-name" class="forms-label forms__label">Код подтверждения</label>
+                          <div class="forms__error-message"></div>
+                        </div>
+
+                        <div class="forms-input-cont">
+                          <a href="#" class="forms-input-link">Отправить код подтверждения</a>
+                        </div>
+                      </div>
+
+                      <div class="forms__recaptcha-wrap">
+                    
+                        <div class="forms-checkbox-wrap">
+                          
+                          <div class="forms-checkbox">
+                            <input required="" type="checkbox" class="forms__checkbox" id="checkbox1">
+                            <label for="checkbox1" class="forms__checkbox-label">Подписаться на SMS рассылку</label>
+                          </div>
+
+                          <div class="forms-checkbox">
+                            <input required="" type="checkbox" class="forms__checkbox" id="checkbox">
+                            <label for="checkbox" class="forms__checkbox-label">Подписаться на e-mail рассылку</label>
+                          </div>
+
+                          <div class="forms-checkbox">
+                            <input required="" type="checkbox" class="forms__checkbox" id="checkbox2">
+                            <label for="checkbox2" class="forms__checkbox-label">Даю согласие на обработку моих персональных данных</label>
+                          </div>
+                        </div>
+
+                          <div class="forms__recaptcha">
+                          <div class="recaptcha-wrapper">
+                              <img src="img/recaptcha.jpg" style="min-width: 302" alt="">
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="forms__submit">
+                        <input type="submit" class="btn btn-form" name="callback_topiblock_submit" value="Зарегистрироваться" data-form-id="">
+                      </div>
+
+                    </div>
+                    
+                  </form>
+                </div>
+
+
+
+                <div class="forms forms__message" id="message">
+                  <form action="">
+                    <div class="forms__title">Отправить сообщение</div>
+                    <div class="forms-wrap ">
+                      
+                        <p class="forms__dop-info">Заполните, пожалуйста, форму и мы свяжемся с вами в ближайшее время</p>
+                      <div class="forms__input-wrap">
+                        
+                        <div class="forms-input-cont">
+                          <input id="form-name" type="text" name="PROPERTY[4][0]" size="25" value="" class="forms__input" required="required" placeholder="">
+                           <label for="form-name" class="forms-label forms__label">ФИО</label>
+                          <div class="forms__error-message"></div>
+                        </div>
+
+                        <div class="forms-input-cont">
+                          <input id="form-name" type="tel" name="PROPERTY[4][0]" size="25" value="" class="forms__input"  placeholder="">
+                           <label for="form-name" class="forms-label forms__label">Телефон</label>
+                          <div class="forms__error-message"></div>
+                        </div>
+
+                        <div class="forms-input-cont">
+                          <input id="form-name" type="text" name="PROPERTY[4][0]" size="25" value="" class="forms__input" required="required" placeholder="">
+                           <label for="form-name" class="forms-label forms__label">E-mail</label>
+                          <div class="forms__error-message"></div>
+                        </div>
+
+                        <div class="forms-input-cont">
+                          <input id="form-name" type="text" name="PROPERTY[4][0]" size="25" value="" class="forms__input" required="required" placeholder="">
+                           <label for="form-name" class="forms-label forms__label">Город</label>
+                          <div class="forms__error-message"></div>
+                        </div>
+
+
+                        <div class="forms-input-cont forms-input-cont--file">
+                          <input required="" type="file" class="forms__input forms__input--file" id="file-1">
+                          <label for="file-1" class="forms__label forms__label--file" data-btn-text="">Прикрепить файл:</label>
+                          <input readonly="" type="text" class="forms__input forms__input--file-support" placeholder="">
+                          <div class="forms__error-message forms__error-message--file">
+                            <i class="forms__error-message-icon"></i>
+                          </div>
+                          <div class="forms__file-formats">Поддерживаемые форматы: doc, docx, txt, rtf, xls, xlsx, jpeg, jpg, png, png, avi, mp4</div>
+                          </script>
+                        </div>
+
+                        <div class="forms-input-cont--full forms-input-cont--textarea">
+                          <textarea class="forms__input forms__input--textarea" required="required"></textarea>
+                          <label class="forms__label">Комментарий</label>
+                          <div class="forms__error-message">
+                            <i class="forms__error-message-icon"></i>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="forms__recaptcha-wrap">
+                        <div class="forms__recaptcha">
+                          <div class="recaptcha-wrapper">
+                              <img src="img/recaptcha.jpg" style="min-width: 302" alt="">
+                          </div>
+                        </div>
+                    
+                        <div class="forms-checkbox-wrap">
+                          <div class="forms-checkbox">
+                            <input required="" type="checkbox" class="forms__checkbox" id="checkbox8">
+                            <label for="checkbox8" class="forms__checkbox-label">Даю согласие на обработку моих персональных данных</label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="forms__submit">
+                        <input type="submit" class="btn btn-form" name="callback_topiblock_submit" value="Отправить" data-form-id="">
+                      </div>
+
+                    </div>
+                    
+                  </form>
+                </div>
+
+
+                <div class="forms forms__pass" id="pass">
+                  <form action="">
+                    <div class="forms__title">Запрос пароля</div>
+                    <div class="forms-wrap ">
+                      
+                        <p class="forms__dop-info">Если вы забыли пароль, введите E-Mail,<br> 
+                        на который будет выслана ссылка <br>
+                        для восстановления пароля</p>
+                      <div class="forms__input-wrap">
+
+                        <div class="forms-input-cont">
+                          <input id="form-name" type="text" name="PROPERTY[4][0]" size="25" value="" class="forms__input" required="required" placeholder="">
+                           <label for="form-name" class="forms-label forms__label">E-mail</label>
+                          <div class="forms__error-message"></div>
+                        </div>
+
+                      </div>
+
+                      <div class="forms__submit">
+                        <input type="submit" class="btn btn-form" name="callback_topiblock_submit" value="Запросить пароль" data-form-id="">
+                      </div>
+
+                    </div>
+                    
+                  </form>
+                </div>
+
+
+                 <div class="forms forms__resume" id="resume">
+                  <form action="">
+                    <div class="forms__title">Отправить резюме</div>
+                    <div class="forms-wrap ">
+                      
+                      
+                      <div class="forms__input-wrap">
+                        
+                        <div class="forms-input-cont">
+                          <input id="form-name" type="text" name="PROPERTY[4][0]" size="25" value="" class="forms__input" required="required" placeholder="">
+                           <label for="form-name" class="forms-label forms__label">ФИО</label>
+                          <div class="forms__error-message"></div>
+                        </div>
+
+                        <div class="forms-input-cont">
+                          <input id="form-name" type="tel" name="PROPERTY[4][0]" size="25" value="" class="forms__input"  placeholder="">
+                           <label for="form-name" class="forms-label forms__label">Телефон</label>
+                          <div class="forms__error-message"></div>
+                        </div>
+
+                        <div class="forms-input-cont">
+                          <input id="form-name" type="text" name="PROPERTY[4][0]" size="25" value="" class="forms__input" required="required" placeholder="">
+                           <label for="form-name" class="forms-label forms__label">E-mail</label>
+                          <div class="forms__error-message"></div>
+                        </div>
+
+
+                        <div class="forms-input-cont forms-input-cont--file">
+                          <input required="" type="file" class="forms__input forms__input--file" id="file-1">
+                          <label for="file-1" class="forms__label forms__label--file" data-btn-text="">Прикрепить файл:</label>
+                          <input readonly="" type="text" class="forms__input forms__input--file-support" placeholder="">
+                          <div class="forms__error-message forms__error-message--file">
+                            <i class="forms__error-message-icon"></i>
+                          </div>
+                          <div class="forms__file-formats">Поддерживаемые форматы: doc, docx, txt, rtf, xls, xlsx, jpeg, jpg, png, png, avi, mp4</div>
+                          </script>
+                        </div>
+
+                      </div>
+
+                      <div class="forms__recaptcha-wrap">
+                        <div class="forms__recaptcha">
+                          <div class="recaptcha-wrapper">
+                              <img src="img/recaptcha.jpg" style="min-width: 302" alt="">
+                          </div>
+                        </div>
+                    
+                        <div class="forms-checkbox-wrap">
+                          <div class="forms-checkbox">
+                            <input required="" type="checkbox" class="forms__checkbox" id="checkbox9">
+                            <label for="checkbox9" class="forms__checkbox-label">Даю согласие на обработку моих персональных данных</label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="forms__submit">
+                        <input type="submit" class="btn btn-form" name="callback_topiblock_submit" value="Отправить" data-form-id="">
+                      </div>
+
+                    </div>
+                    
+                  </form>
+                </div>
+
+
+
+                <div id="thanks-forms" class="forms thanks-forms">
+                  <div class="thanks__wrap">
+                    <h2>Спасибо за честный ответ</h2>
+                    <p>Мы заботимся о здоровье будущего поколения, поэтому не демонстрируем алкоголь и сигареты  лицам младше 18 лет.</p>
+                  </div>
+                </div>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="wrapper">
+          <nav class="footer__top">
+            <div class="footer-menu__cont">
+              <div class="footer-menu__title">О Компании</div>
+              <ul class="footer-menu">
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">О нас</a></li>
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">Контакты</a></li>
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">Обратная связь</a></li>
+              </ul>
+            </div>
+            <div class="footer-menu__cont">
+              <div class="footer-menu__title">Покупателям</div>
+              <ul class="footer-menu">
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">Карта постоянного покупателя</a></li>
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">Каталог</a></li>
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">Магазины</a></li>
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">Акции</a></li>
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">Новости</a></li>
+              </ul>
+            </div>
+            <div class="footer-menu__cont">
+              <div class="footer-menu__title">Вакансии</div>
+              <ul class="footer-menu">
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">Заполнить форму</a></li>
+              </ul>
+              <div class="footer__msgs">
+                <div class="msgs">
+                  <div class="soc"><span href="#" style="background-image: url('img/photos/tel.png')" class="soc__link"></span><span href="#" style="background-image: url('img/photos/wa.png')" class="soc__link"></span><span href="#" style="background-image: url('img/photos/vb.png')" class="soc__link"></span>
+                  </div>
+                  <div class="msgs__phone"><span>+7 922 333 22 01</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="footer-menu__cont">
+              <div class="footer-menu__title">Помощь</div>
+              <ul class="footer-menu">
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">Как зарезервировать товар?</a></li>
+              </ul>
+              <div class="footer__soc">
+                <div class="soc"><a href="#" style="background-image: url('img/ico-soc-1.png')" class="soc__link"></a><a href="#" style="background-image: url('img/ico-soc-2.png')" class="soc__link"></a><a href="#" style="background-image: url('img/ico-soc-3.png')" class="soc__link"></a>
+                </div>
+              </div>
+            </div>
+          </nav>
+          <div class="footer__bot">
+            <div class="footer__copy">
+              <div class="copy">&copy; 2017 <br /> Винный склад «Изобилие»</div>
+            </div>
+            <div class="footer__text">
+              <div class="footer-text">
+                <div>Все материалы на сайте носят информационный характер и не являются рекламой.</div>
+                <div> <a href="#">Политика конфиденциальности</a></div>
+              </div>
+            </div>
+            <div class="footer__dev"><a href="http://xpage.ru" traget="_blank" class="dev"><span class="dev__text">Сделано в</span><img src="img/ico-dev.png" alt="" class="dev__img"/></a></div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <div id="shops" class="forms">
+      <div class="froms__title">Выбрать магазин</div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/cookie.js"></script>
+    <script src="js/jquery.jscrollpane.min.js"></script>
+    <script src="js/vuex.js"></script>
+    <script src="js/vue.min.js"></script>
+    <script src="js/jquery.ui-slider.js"></script>
+    <script src="js/slick.js"></script>
+    <script src="js/jquery.fancybox.js"></script>
+    <script src="js/common.js"></script>
+  </body>
+</html>

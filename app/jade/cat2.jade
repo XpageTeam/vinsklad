@@ -1,0 +1,37 @@
+html
+	head
+		meta(charset="utf-8")
+		title Крепкие напитки
+		include inc/head.jade
+		include inc/css.jade
+	body.inner
+		#page-wr
+			#content
+				include inc/header.jade
+				.content
+					.wrapper
+						.inner-cont
+							.title-block__cont
+								.titile-block
+									.title-block__crumbs
+										.bread-crumbs
+											a.bread-crumbs__link(href="#") Главная
+											a.bread-crumbs__link(href="#") Каталог
+											span.bread-crumbs__this Крепкие напитки
+									h1.title-block__title Крепкие напитки
+							.cat2__cont
+								.cat1.cat1--cat2
+									each title, i in ["Вермут", "Виски, Бурбоны", "Водка, Настойки", "Коньяк, Арманьяк, Бренди", "Текила, Ром, Ликер", "Прочее"]
+										a.cat1__one(href="#" style="background-image: url('img/photos/cat-2-bg-"+(i+1)+".jpg')")
+											span.cat1__one-title-cont
+												span.cat1__one-title=title
+											img.cat1__one-arrow(src="img/ico-cat-arrow.png", alt="")
+								.bot-text__cont
+									.bot-text
+										button.bot-text__btn
+										.text-page
+											p Wild Turkey использует больше ржи, чем обычно. Рожь придает бурбону уникальные пряные ноты во вкусе. Согласно Законодательству, бурбон должен содержать как минимум 51% кукурузы. У Wild Turkey кукуруза сладкая и без ГМО, что придает напитку насыщенный вкус. 
+											p Wild Turkey использует больше ржи, чем обычно. Рожь придает бурбону уникальные пряные ноты во вкусе. Согласно Законодательству, бурбон должен содержать как минимум 51% кукурузы. У Wild Turkey кукуруза сладкая и без ГМО, что придает напитку насыщенный вкус. 
+											p Wild Turkey использует больше ржи, чем обычно. Рожь придает бурбону уникальные пряные ноты во вкусе. Согласно Законодательству, бурбон должен содержать как минимум 51% кукурузы. У Wild Turkey кукуруза сладкая и без ГМО, что придает напитку насыщенный вкус. 
+			include inc/footer.jade
+		include inc/scripts.jade

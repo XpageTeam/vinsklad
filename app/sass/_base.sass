@@ -1,0 +1,514 @@
+$output-bourbon-deprecation-warnings: false;
+@import "bourbon"
+@import "vars"
+@import "functions"
+
+.slick-list, .slick-track
+	min-width: 100%
+.tovar-slider, .tovar-img__cont
+	max-width: 100%
+.tovar-slider
+	.slick-slide
+		text-align: center
+		img
+			display: inline-block !important
+			text-align: center
+	.slick-prev:before
+		position: absolute
+		left: 0
+		background: url(../img/chevron-gray.svg) no-repeat center
+
+	.slick-next:before
+		position: absolute
+		right: 0
+		background: url(../img/chevron-gray.svg) no-repeat center
+#menu-toggle *
+	transition: .25s ease-in-out
+	box-sizing: border-box
+
+
+
+	span 
+		display: block
+		background: #000
+		border-radius: 0
+
+
+
+#menu-toggle 
+	width: 40px
+	height: 40px
+	//position: absolute
+	cursor: pointer
+	z-index: 30
+
+	&:hover
+
+	#hamburger 
+		position: absolute
+		height: 40px
+		width: 40px
+		padding: 10px
+		span 
+			width: 17px
+			height: 2px
+			position: relative
+			// top: 24px
+			// left: 20px
+			margin: 4px 0
+			&:nth-child(1)
+				transition-delay: .5s;
+	      
+			&:nth-child(2)
+				transition-delay: .625s;
+	      
+			&:nth-child(3)
+				transition-delay: .75s;
+
+	#cross 
+		position: absolute
+		height: 40px
+		width: 40px
+		transform: rotate(45deg)
+
+		span
+			&:nth-child(1)
+				height: 0%
+				width: 2px
+				position: absolute
+				top: 14px
+				left: 6px
+				transition-delay: 0s
+	  
+			&:nth-child(2)
+				width: 0%
+				height: 2px
+				position: absolute
+				left: 0px
+				top: 20px
+				transition-delay: .25s
+
+
+#menu-toggle.open 
+	#hamburger 
+		span 
+			width: 0%;
+			&:nth-child(1)
+				transition-delay: 0s
+ 
+			&:nth-child(2)
+				transition-delay: .125s
+  
+			&:nth-child(3)
+				transition-delay: .25s
+
+	#cross 
+		span 
+			&:nth-child(1)
+				height: 14px
+				transition-delay: .625s
+		span 
+			&:nth-child(2)
+				width: 14px
+				transition-delay: .375s
+*::-webkit-input-placeholder
+	color: #afafaf
+	opacity: 1
+
+*:-moz-placeholder
+	color: #afafaf
+	opacity: 1
+
+*::-moz-placeholder
+	color: #afafaf
+	opacity: 1
+
+*:-ms-input-placeholder
+	color: #afafaf
+	opacity: 1
+.forms
+	input, textarea
+		-webkit-appearance: none
+
+		&:ms-expand
+			display: none
+html
+	font-size: 100%
+
+input, a, button, textarea, select
+	outline: none
+
+*, *:after, *:before
+	box-sizing: border-box
+
+[v-cloak]
+	display: none
+
+%clear-text
+	overflow: hidden
+	text-indent: -9999px
+
+%clearfix
+	
+	&:after
+		display: table
+		clear: both
+		content: ""
+
+%slide
+
+	&:not(.slick-slide):not(:first-child)
+		display: none !important
+
+%clear-select, select
+	-webkit-appearance: none;
+	/* for FF */
+	-moz-appearance: none;
+	text-indent: 0.01px; 
+	text-overflow: '';
+	/* for IE */
+	-ms-appearance: none;
+	appearance: none!important;
+
+	&::-ms-expand 
+		display: none;
+
+address
+	font-weight: 300
+
+body
+	min-width: 320px
+	line-height: 1.2
+	font-family: $default-font
+	font-weight: 300
+	font-size: rem(16)
+	background: $second-color
+	color: #000
+	overflow-x: hidden
+
+	&.inner
+
+		#content
+			// padding-bottom: 100px
+
+a
+	color: $main-color
+	text-decoration: underline
+	font-weight: 300
+
+	&[href^="tel"], &[href^="mail"]
+		white-space: nowrap
+
+#content
+	background: #fff
+	max-width: 1685px
+	margin: 0 auto
+	width: 100%
+	// padding-bottom: 65px
+	z-index: 40
+	transition: .5s
+
+.wrapper
+	max-width: $base-width + px
+	padding: 0 2rem
+	margin: 0 auto
+	box-sizing: content-box
+
+input[type="submit"], button
+	cursor: pointer
+
+img
+	max-width: 100%
+
+li
+	list-style: none
+
+#page-wr
+	position: relative
+	display: flex
+	flex-direction: column
+	min-height: 100vh
+	z-index: 40
+	background: $second-color
+	transition: .5s
+
+.footer
+	margin-top: auto
+	z-index: 40
+
+.soc
+	display: flex
+
+	&__link
+		+size(34px)
+		// border-radius: 50%
+		background: 
+			position: center
+			repeat: no-repeat
+			color: #e1e5e7
+
+		&:not(:last-child)
+			margin-right: 11px
+
+.msgs
+	display: flex
+	align-items: center
+	
+	.soc__link
+		background-color: transparent
+
+.btn
+	background: $main-color
+	color: #fff
+	text-decoration: none
+	display: inline-block
+	border-radius: 35px
+	padding: 15px 34px
+	border: none
+	cursor: pointer
+
+	&--rectangle
+		border-radius: 0
+
+.input-group
+	display: flex
+	justify-content: space-between
+	align-items: center
+
+	&:before
+		content: ""
+		display: inline-block
+		+size(5px 2px)
+		background: #9b9d9f
+		order: 0
+
+	&__input
+		width: persent(81, 191)
+
+		&:first-child
+			order: -1
+.image
+	margin-bottom: 50px
+	&--right 
+		float: right
+		margin-left: 40px
+		
+	&--left 
+		float: left
+		margin-right: 40px
+	&--figcaption
+		padding: 30px 20px
+		background: $second-color
+		text-align: center
+		margin-top: 30px
+
+.base-page__inner 
+	max-width: 940px
+
+%text-page, .text-page
+
+	> *:not(:first-child)
+		margin-top: 25px
+
+
+	h2, h3, h4, h5, h6, strong
+		//font-weight: bold
+
+	h2
+		font-size: rem(22)
+		line-height: rem(28)
+
+	h3
+		font-size: rem(20)
+		line-height: rem(26)
+
+	h4, h5
+		line-height: rem(24)
+
+	h4
+		font-size: rem(18)
+	
+	h5
+		font-size: rem(16)
+
+	img[align="right"]
+		float: right
+		margin-left: 20px
+
+	img[align="left"]
+		float: left
+		margin-right: 20px
+
+	blockquote
+		border-left: 2px solid $main-color
+		padding-left: 21px
+
+	table
+		width: 100%
+		table-layout: fixed
+		color: #000
+
+		td, th
+			padding: 15px 23px
+			font-weight: 300
+			vertical-align: middle
+
+	table[border="1"]
+
+		td, th
+			border: 1px solid $border-color
+
+	ul, ol
+		max-width: 650px
+		margin-top: 0 !important
+
+	li
+		//padding-left: 20px
+		position: relative
+
+		&:before
+			display: inline-block
+
+		&:not(:first-child)
+			//margin-top: 21px
+
+		ul, ol
+			margin-bottom: 20px
+
+		li
+			padding-left: 20px
+
+			&:not(:first-child)
+				margin-top: 0
+
+	ul
+		margin-bottom: 30px
+
+		li
+
+			&:before
+				content: ""
+				background: #000
+				width: 12px
+				height: 1px
+				vertical-align: middle
+				margin: 0 14px 4px 0
+
+		ul
+
+			li
+				//padding-left: 20px
+
+				&:before
+					content: "-"
+					+size(auto)
+					background: none
+					margin: 0 5px 5px 0
+	
+	ol
+		counter-reset: i
+
+		li
+			counter-increment: i
+
+			&:before
+				content: counter(i) "."
+				margin-right: 4px
+	dt, dd 
+		display: inline
+		font-style: italic
+
+	blockquote
+		position: relative
+		display: inline
+		&:before
+			content: "\201c"
+			left: -20px
+			top: -15px
+			position: absolute
+			font-size: 40px
+			color: #323c8d
+		&:after
+			content: "\201c"
+			right: -20px
+			bottom: -40px
+			position: absolute
+			font-size: 40px
+			color: #323c8d
+
+.checkbox
+	
+	&__input
+		display: none
+
+		&:checked
+
+			+ label
+				
+				&:after
+					opacity: 1
+
+	&__label
+		position: relative
+		padding-left: 40px
+		cursor: pointer
+		min-height: 24px
+		display: flex
+		align-items: center
+
+		&:before, &:after
+			position: absolute
+			content: ""
+
+		&:before
+			background: #fff
+			+size(23px)
+			left: 0
+			top: 0px
+
+		&:after
+			transition: opacity .3s ease
+			+size(11px 6px)
+			left: 6px
+			top: 9px
+			background: url("../img/ico-checbox-check.png") no-repeat
+			opacity: 0
+
+.radio
+	
+	&__input
+		display: none
+
+		&:checked
+
+			+ label
+
+				&:after
+					opacity: 1
+
+	&__label
+		padding-left: 30px
+		min-height: 15px
+		position: relative
+		display: block
+		cursor: pointer
+
+		&:before, &:after
+			content: ""
+			position: absolute
+			display: block
+			border-radius: 50%
+
+		&:before
+			border: 1px solid $border-color
+			+size(15px)
+			left: 0
+			top: 0
+
+		&:after
+			top: 4px
+			left: 4px
+			background: $main-color
+			+size(7px)
+			transition: opacity .3s ease
+			opacity: 0

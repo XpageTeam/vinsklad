@@ -1,0 +1,26 @@
+html
+	head
+		meta(charset="utf-8")
+		title Формы
+		include inc/head.jade
+		include inc/css.jade
+	body.inner
+		#page-wr
+			#content
+				include inc/header.jade
+				.content
+					.wrapper
+						.inner-cont
+							.title-block__cont
+								.titile-block
+									.title-block__crumbs
+										.bread-crumbs
+											a.bread-crumbs__link(href="#") Главная
+											a.bread-crumbs__link(href="#") Личный кабинет
+											span.bread-crumbs__this Формы
+									h1.title-block__title Формы
+							.cart__cont
+								.form-list
+									a.btn(@click="showShopPopup" href="#shops") Магазины
+			include inc/footer.jade
+		include inc/scripts.jade

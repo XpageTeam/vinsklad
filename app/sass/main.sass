@@ -1,0 +1,2849 @@
+$output-bourbon-deprecation-warnings: false;
+@import "bourbon"
+@import "vars"
+@import "base"
+@import "functions"
+
+*[v-cloak]
+	display: none
+	opacity: 0
+
+.wrapper-index-top 
+	.main-slider__cont
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+
+	.menu__link
+		
+		&:after
+			display: none 
+
+
+			
+.main-slider
+	// min-height: calc(100% - 366px)
+
+	&__cont
+		display: flex
+		flex-direction: column
+		border:
+			top: 1px solid #e4e8ea
+			right: 1px solid #e4e8ea
+			bottom: 1px solid #e4e8ea
+
+		.soc
+			&-title
+				margin-bottom: 30px
+
+			&__list
+				display: flex
+				flex-wrap: wrap
+				margin: 0 0 -10px -20px
+				justify-content: center
+				max-width: 150px
+
+			&__item
+				flex: none
+				width: calc((100% - 35px * 2) / 2)
+				margin: 0 0 10px 35px
+
+		
+	&__bot
+		
+		width: 100%
+		flex: none
+		background: #fff
+		flex: 1 0 auto
+		display: flex
+		border:
+			top: 1px solid #e4e8ea
+		// display: none
+
+		&-list
+			display: flex
+
+		&-item
+			position: relative
+			display: flex;
+			align-items: flex-end
+			background: #fff
+
+			&:not(:first-child)
+				border:
+					left: 1px solid #e4e8ea
+		&-img
+			img
+				object-fit: contain;
+				object-position: center;
+				width: 100%;
+				height: 100%;
+				display: block;
+				
+
+		&-info
+			position: absolute
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+			text-decoration: none 
+			color: #000
+			padding: 40px 45px
+			font-size: rem(21)
+
+		&-text 
+			line-height: 1.4
+			text-align: left
+
+
+.forms__input_error
+	+ .forms__input
+		border-color: red
+.sale-max
+	opacity: 0
+	position: absolute
+	pointer-events: none
+	white-space: nowrap
+	bottom: calc(100% + 10px)
+	background: $second-color
+	padding: 5px
+	transition: opacity .2s ease
+
+	span 
+		color: $main-color
+
+.cat-plate__price-block--sale
+	&:hover 
+		.sale-max
+			opacity: 1
+
+
+
+
+#ok_group_widget, #vk_groups
+	iframe + iframe
+		display: none
+
+.soc__link
+	background-color: transparent !important
+	background-size: contain !important
+
+.menu-mobile
+	.soc__el
+		.soc__widget
+			display: none !important
+.soc
+	position: relative
+	&__el
+		display: flex
+		z-index: 10
+		&:hover 
+			.soc__widget 
+				display: block !important
+				position: absolute
+				bottom: 34px
+				width: 300px !important
+				left: -50%
+
+		#vk_groups
+			iframe 
+				height: 100% !important
+.smartfilter
+	position: relative
+
+#overlayFilter
+	display: none
+	position: absolute
+	top: 0
+	right: 0
+	bottom: 0
+	left: 0
+	z-index: 99999999
+
+.head__top
+	position: relative
+
+.head__shop
+	// position: relative
+
+	.qestion
+		padding-bottom: 10px
+		font-size: rem(14)
+
+	&--info
+		position: absolute
+		top: 100%
+		left: 0
+		background: #fff
+		padding: 13px 30px 16px
+		border: 1px solid $border-color
+		// box-shadow: 0 2px 22px rgba(0, 0, 0, 0.5)
+
+		&:before
+			content: ""
+			position: absolute
+			// +triangle(15px, #fff, up)
+			+size(16px)
+			bottom: calc(100% - 8px)
+			left: calc(50% - 8px)
+			background: #fff
+			transform: rotate(45deg)
+			border:
+				top: 1px solid $border-color
+				left: 1px solid $border-color
+
+	.btn 
+		padding: 10px 30px
+		font-size: rem(14)
+
+		&--no
+			background: $second-color
+			color: #000
+
+		&:not(:last-child)
+			margin-right: 15px
+
+		&-wrap
+			display: flex
+			justify-content: space-between
+
+.wrapper-index-top
+	position: relative
+	display: flex
+	max-width: 1200px
+	padding: 0 2rem
+	margin: 0 auto
+	box-sizing: content-box
+
+	.head__menu
+		width: 30%
+		background: $second-color
+		border: 1px solid $border-color
+		
+
+	.main-slider__cont
+		width: 70%
+		display: flex
+
+	.menu
+		flex-direction: column
+		padding: 15px 0
+
+	.menu__el
+		text-align: left
+		padding: 0
+		&:hover 
+			background: #fff
+
+	.menu__link
+		display: block
+		font-size: rem(16)
+		padding: 5px 40px
+		
+		&:after
+			background: transparent
+			color: #babcbd
+			left: calc(100% + 10px)
+			font-size: rem(13)
+			padding: 0
+
+.main-slider
+	width: 100%
+	display: flex
+
+	.slick
+
+		&-list, &-track
+			display: flex
+
+		&-list
+			width: 100%
+
+	&__slide
+		display: flex !important
+		flex: none
+		@extend %slide
+
+		img
+			+size(100%)
+			object:
+				fit: cover
+				position: center right
+
+#age-forms
+	overflow-x: hidden
+.js__dop-info
+	display: none
+.cat-price.status-price-1
+	position: relative
+	background: #e31e24
+	color: #fff
+	padding: 4px 20px 4px 11px
+	&:after 
+		content: ""
+		position: absolute
+		top: 0
+		right: 0
+		height: 0
+		width: 0
+		border-bottom: 19px solid transparent
+		border-right: 9px solid #fff
+		border-top: 19px solid transparent
+.cat-price.status-price-2
+	position: relative
+	background: #ffd800
+	color: #fff
+	padding: 4px 20px 4px 11px
+	&:after 
+		content: ""
+		position: absolute
+		top: 0
+		right: 0
+		height: 0
+		width: 0
+		border-bottom: 19px solid transparent
+		border-right: 9px solid #fff
+		border-top: 19px solid transparent
+	
+.catalog-sections
+	padding-bottom: 10px
+.catalog
+	.date
+		padding: 10px 0
+		// display: none
+
+	.title-block__cont
+		margin-bottom: 10px
+
+#modal_confirm a.btn 
+	display: flex 
+	max-width: 150px
+	justify-content: center
+#age-forms
+	.thanks__button
+		margin-bottom: 50px
+	.thanks__button
+		justify-content: center
+		a 
+			&:not(:first-child)
+				margin-left: 30px
+	.date
+		text-align: center
+		margin-bottom: 20px
+	.thanks__wrap
+		padding: 50px 0 20px 0
+.bx-forgotpass-table
+	border-collapse: separate
+	border-spacing: 20px
+	thead
+		margin-bottom: 20px
+	tbody
+		td 
+			padding-right: 20px
+		input 
+			height: 49px
+			border: 1px solid $border-color
+			padding: 10px
+			display: inline-block
+		tr 
+			margin-bottom: 20px
+	tfoot
+		input 
+			color: #fff
+			border: 0
+			cursor: pointer
+			border-radius: 0
+			margin-top: 20px
+			font-size: 0.875rem
+			padding: 16px 28px
+			background: #e31e24
+			text-decoration: none
+	+ p
+		margin: 20px 0 0 20px
+		a
+			color: #fff
+			border: 0
+			cursor: pointer
+			border-radius: 0
+			margin-top: 20px
+			font-size: 0.875rem
+			padding: 16px 28px
+			background: #e31e24
+			text-decoration: none
+.bx_my_order_cancel
+	margin-top: 0
+	font-size: 16px
+	padding: 1.4rem
+	textarea 
+		border: 1px solid $border-color
+		resize: none
+		padding: 10px
+	.blue-btn
+		color: #fff
+		border: 0
+		cursor: pointer
+		border-radius: 0
+		margin-top: 0
+		font-size: 0.875rem
+		padding: 16px 28px
+		background: #e31e24
+		text-decoration: none
+
+.bx-subscribe
+	max-width: 400px
+	.bx-input-group
+		margin-bottom: 15px
+		.bx-form-control
+			height: 49px !important
+			border: 1px solid $border-color !important
+			margin-bottom: 0 !important
+	&-desc
+		margin: 0 0 10px 0
+		font-size: rem(16)
+	&_checkbox_container
+		margin: 0 0 10px 0
+		font-size: rem(16)
+.ayth-link
+	margin-top: 25px
+	a 
+		color: #fff
+		border: 0
+		cursor: pointer
+		border-radius: 0
+		margin-top: 0
+		font-size: 0.875rem
+		padding: 16px 28px
+		background: #e31e24
+		text-decoration: none
+		b 
+			font-weight: 300
+
+
+.rating-wrap
+	margin-left: 35px
+.rate
+	input[type=radio]
+		display: none
+	
+	label 
+		display: block
+		color: #7d7d7d
+		margin: 0 0 9px
+	>label:before
+		display: inline-block
+		font-size: 1.1rem
+		padding: .3rem .2rem
+		margin: 0
+		cursor: pointer
+		font-family: FontAwesome
+		content: "\F005 "
+	>label
+		float: right
+.rate input:checked~label, .rate label.checked, .rate label:hover, .rate label:hover~label
+	color: #f4b400
+.review__rating
+	margin-left: 19px
+
+
+.filter-block.strana
+	.checkbox__label 
+		text-transform: capitalize
+.cat-from
+	img 
+		width: 26px
+.fancybox-type-image
+	.fancybox-close
+		top: 20px
+		right: 20px
+.footer-menu__cont > a 
+	line-height: rem(25)
+.bx-registration-table
+	border-spacing: 15px
+	border-collapse: initial
+	input[type="submit"]
+		display: block
+		font-size: 0.875rem
+		text-align: center
+		padding: 16px 27px
+		background: #e31e24
+		color: #fff
+		border: none
+.history-order__list > h3 
+	padding: 1.4rem
+
+.forms-shops
+	
+	.city-select
+
+		&__region, &__city
+			width: auto
+
+		div
+			display: flex
+			flex-direction: column
+
+			&:not(:last-child)
+				margin-right: 38px
+
+			&:before
+				display: block
+				margin-bottom: 1.33745vh
+
+			&:first-child
+
+				&:before
+					content: "Область"
+
+			&:last-child
+
+				&:before
+					content: "Город"
+
+
+.history-order__list
+	.top
+		max-width: 840px
+		display: flex 
+		justify-content: flex-start
+		padding: 1.4rem
+		a 
+			text-decoration: none
+			margin-right: 20px
+		span 
+			margin-right: 20px
+	.order__one-title
+		padding: 0 1.4rem
+		font-size: rem(18)
+		line-height: rem(22)
+		font-weight: bold
+	.order__one-desc
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+		// max-width: 465px
+		padding: 1.4rem
+	.order__one-row
+		display: flex
+		margin-bottom: 10px
+		&-left 
+			margin-right: 10px
+	.checkbox
+		margin: 0
+	.order-one__contents
+		padding: 1.4rem
+	.order-one__table
+		width: 100%
+		tr 
+			&:nth-child(odd)
+				background: rgba(232, 238, 245, 0.88)
+		th 
+			padding: 20px
+			&:last-child
+				// background: #aaaaa8
+		.order-one__table-name
+			padding: 20px
+			margin-right: 20px
+			figure
+				float: left
+				width: 100px
+				text-align: center
+			a 
+				text-decoration: none 
+				color: #000
+		.cat-price__kop
+			font-size: 16px
+
+		.order-one__table-price
+			text-align: left
+			padding: 20px
+		.order-one__table-count
+			text-align: left
+			padding: 20px
+		.order-one__table-type
+			text-align: left
+			padding: 20px
+			// background: #aaaaa8
+	.order-one__table-footer
+		td 
+			padding: 10px
+			font-weight: bold
+			&:last-child
+				// margin-bottom: #aaaaa8
+	tfoot
+		background: $second-color
+
+.history-order__item-top--right
+	// display: none
+.history-order__more-link
+	display: none
+.head__cart-price
+	.cat-price__kop
+		font-size: rem(16)
+.search__input-cont
+	input 
+		-webkit-appearance: none
+.content
+	margin-bottom: 90px
+.catalog-text--bot
+	margin-top: 80px
+
+.ajax_processed
+	position: relative
+
+	&:before
+		content: ""
+		position: absolute
+		display: block
+		+size(100%)
+		left: 0
+		top: 0
+		z-index: 2
+		background: url("../img/fancybox_loading.gif") center no-repeat, rgba(#fff, .6)
+
+.jsp
+	
+	&VerticalBar
+		width: 4px
+
+	&Track
+		background: $second-color
+
+	&Drag
+		background: $main-color
+.head-links__lc
+	a 
+		text-decoration: none 
+		color: #000
+		text-transform: capitalize
+		&:not(:last-child)
+			border-right: 1px solid #e4e8ea
+			padding-right: 23px
+			margin-right: 20px
+
+.head-links
+
+	&__feedback
+		border-right: 1px solid #e4e8ea;
+		padding-right: 23px;
+		margin-right: 20px;
+
+#menu-toggle 
+	display: none
+.menu-mobile
+	display: none
+.head-message
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	padding: 15px 1.4rem
+	text-align: center
+	z-index: 999
+
+	&__transition
+
+		&-enter, &-leave
+
+			&-active
+				transition: transform .3s $ease-in-out-circ
+
+		&-enter
+			//transform: translate3d(0, 0, 0)
+
+		&-leave-to, &-enter
+			transform: translate3d(0, -100%, 0)
+
+	&.error
+		background: #fff
+		border-bottom: 1px solid $border-color
+
+	&.notify
+		background: $main-color
+		color: #fff
+
+		a
+			color: inherit
+
+.rub
+	font-family: "Roboto"
+	font-style: normal
+	font-weight: inherit
+
+.head
+	
+	&__top, &__mid
+		display: flex
+		justify-content: space-between
+
+	&__menu
+		border-top: 1px solid $border-color
+
+	&__mid
+		padding: 27px 0
+		align-items: center
+		border-top: 1px solid $border-color
+
+	&__logo
+		width: persent(315)
+
+	&__search
+		width: persent(553)
+
+	&__shop, &-links
+		display: flex
+		align-items: center
+
+	&__top
+		padding: 19px 0
+
+	&__shop
+
+		&-address
+			border-left: 1px solid $border-color
+			margin-left: 30px
+			display: flex
+			align-items: center
+
+			.delete
+				margin-left: 15px
+				flex: none
+
+	.city, .address
+		font-size: rem(14)
+
+.city, .address
+	padding: 0 28px 0 25px
+	position: relative
+	cursor: pointer
+
+
+	&:after
+		content: ""
+		position: absolute
+		+size(9px 5px)
+		background: url("../img/ico-select-arrow-gray.png") no-repeat
+		top: calc(50% - 3px)
+		right: 0
+
+.city
+
+	&:before
+		content: ""
+		position: absolute
+		left: 0
+		top: calc(50% - 9px)
+		+size(11px 14px)
+		background: url("../img/ico-loc.png") no-repeat
+
+.top-phone, .feedback-link, .lc-link
+	color: #000
+	text-decoration: none
+	position: relative
+	
+	&:before
+		content: ""
+		position: absolute
+		left: 0
+
+
+
+.feedback-link, .lc-link
+	font-size: rem(14)
+.head-links__lc
+	a 
+		font-size: rem(14)
+
+.top-phone
+	padding-left: 28px
+	margin-right: 29px
+	
+	a
+		color: inherit
+		text-decoration: inherit
+
+
+	&:before
+		+size(14px 13px)
+		background: url("../img/ico-phone.png") no-repeat
+		top: calc(50% - 7px)
+
+.viber
+
+	.soc__link
+		width: 12px
+
+	.msgs__phone
+		margin: 0 0 0 14px
+		a 
+			position: relative
+			text-decoration: none
+			color: #000
+
+			&:hover 
+				border-bottom: 1px solid #000
+
+.feedback-link
+	padding: 0 19px 0 35px
+	border-right: 1px solid $border-color
+	margin-right: 23px
+
+	&:before
+		+size(20px 14px)
+		background: url("../img/ico-mail.png") no-repeat
+		top: calc(50% - 7px)
+.head-links__feedback
+	.feedback-link
+		padding: 0 0 0 35px
+		border-right: 0
+		margin-right: 0
+.lc-link
+	padding-left: 32px
+
+	&:before
+		+size(15px)
+		background: url("../img/ico-lc.png") no-repeat
+		top: calc(50% - 8px)
+
+.head__fc
+	display: flex
+	align-items: center
+
+.head__favorite
+	border-radius: 50%
+	+size(40px)
+	background: url("../img/ico-favorite.png") center no-repeat, $second-color
+	display: block
+
+	+ .head__cart
+		margin-left: 22px
+
+		ico-favorite-add.png
+.active.head__favorite
+	background: url("../img/ico-favorite-add-added.png") center no-repeat, $second-color
+.no-count
+	.head__cart
+		&:before
+			background: url("../img/ico-cart-black.png") center no-repeat
+
+.head__cart
+	padding-left: 56px
+	position: relative
+	line-height: rem(22)
+	display: block
+	color: #000
+	text-decoration: none
+
+	&:before
+		content: ""
+		position: absolute
+		left: 0
+		top: calc(50% - 20px)
+		border-radius: 50%
+		+size(40px)
+		background: url("../img/ico-cart.png") center no-repeat, $main-color
+
+	&-count, &-price
+		display: block
+		white-space: nowrap
+
+	&-count
+		font-weight: bold
+
+	&-price
+		font-weight: 300
+
+.search
+	
+	&-wrap
+		position: relative
+
+	&__input
+		+size(100% 42px)
+		padding: 0 45px 0 28px
+		border: 1px solid $border-color
+		border-radius: 27px
+
+	&__submit
+		position: absolute
+		overflow: hidden
+		text-indent: -9999px
+		background: url("../img/ico-search.png") center no-repeat, #fff
+		+size(44px calc(100% - 2px))
+		border-radius: 0 27px 27px 0
+		border: 0
+		top: 1px
+		right: 2px
+
+.menu
+	display: flex
+	
+	&__el
+		flex: 1 1 auto
+		text-align: center
+		padding: 24px vw(93) 24px vw(37)
+
+		// &:not(:first-child)
+		// 	border-top: 1px solid $border-color
+
+		&.hr
+			border-top: 1px solid $border-color
+
+
+	&__link
+		color: #000
+		text-decoration: none
+		position: relative
+		font-size: rem(18)
+		line-height: rem(22)
+		display: inline-block
+
+		&:after
+			content: attr(data-id)
+			position: absolute
+			background: $main-color
+			display: block
+			left: calc(100% + 17px)
+			border-radius: 3px
+			color: #fff
+			padding: 0 8px
+			top: 50%
+			transform: translateY(-50%)
+			font-size: rem(13)
+
+.main-slider
+
+	> .main-slider__slide:not(:first-child)
+		display: none
+	
+	&__slide
+		position: relative
+		height: auto
+
+		&.js__empty
+
+			&:before, .wrapper
+				display: none
+
+		&:before
+			content: ""
+			position: absolute
+			top: 0
+			left: 0
+			+size(100%)
+			background: rgba(#000, .5)
+
+		&-title
+			color: #fff
+			text-transform: uppercase
+			font-weight: bold
+			font-size: rem(44)
+
+			&-cont
+				position: absolute
+				z-index: 1
+				top: 0
+				left: 0
+				+size(100%)
+				display: flex
+				align-items: center
+				text-decoration: none
+
+		&-btn
+			margin-top: 35px
+
+		.wrapper
+			flex: 1 0 auto
+
+.footer
+	position: relative
+	background: $second-color
+	color: #666666
+
+
+	&__top, &__bot
+		display: flex
+
+	&__top
+		padding: 70px 0 45px
+
+	&__bot
+		padding: 39px 0 50px
+		border-top: 1px solid $border-color
+		font-size: rem(14)
+
+	&__dev
+		margin-left: auto
+
+	&__soc, &__msgs
+		margin-top: auto
+		padding-top: 15px
+	.soc__link 
+		background-repeat: no-repeat !important
+		background-position: center !important
+
+
+
+.footer-menu
+	
+	&__title
+		color: #000
+		font-size: rem(18)
+		margin-bottom: 25px
+
+	&__link
+		text-decoration: none
+		color: inherit
+
+	&__el
+
+		&:not(:first-child)
+			margin-top: 4px
+	
+	&__cont
+		display: flex
+		flex-direction: column
+
+		&:last-child
+			margin-left: auto
+
+		&:nth-child(3)
+			margin-left: persent(125)
+
+.footer
+	
+	&-menu__cont:first-child, &__copy
+		width: persent(230)
+
+	&__text, &-menu__cont:nth-child(2)
+		margin-left: persent(88)
+
+	&__text
+
+		a
+			text-decoration: none
+
+.msgs
+	
+	&__phone
+		margin-left: 22px
+		margin: 0 20px;
+		display: flex;
+		align-items: center;
+
+.head-links__phone
+	.soc__el
+		max-width: 20px
+
+	.msgs__phone
+		margin: 0 8px
+
+		a 
+			color: #000 
+			text-decoration: none 
+
+			&:hover 
+				border-bottom: 1px solid #000
+	.top-phone
+		a 
+			color: #000 
+			text-decoration: none 
+
+			&:hover 
+				border-bottom: 1px solid #000
+
+
+.dev
+	display: flex
+	color: #000
+	text-decoration: none
+	align-items: center
+
+	&__img
+		margin-left: 12px
+
+.cat-slider
+	margin-top: 85px
+	
+	&__cont
+		margin-top: 60px
+
+	&__title
+		font-weight: bold
+		text-transform: uppercase
+		font-size: rem(24)
+		// text-align: center
+
+		&-cont
+			display: flex
+			align-items: center
+			justify-content: space-between
+
+.price-none
+	.tovar
+		&-info
+			&__left
+				.cat__order
+					width: 100%
+	.tovar-price__block
+		justify-content: flex-start
+	.cat-list__info
+		margin-right: 10px
+.cat
+	&-list__price
+		position: relative
+		flex-direction: column
+	&-new
+		+size(38px 17px)
+		background: url("../img/ico-new.png") no-repeat
+		position: relative
+		z-index: 10
+
+	&-price
+		white-space: nowrap
+		font-size: rem(25)
+
+		&__kop
+			font-size: rem(20)
+
+	&-desc
+		color: #9fa2a3
+
+	&-count
+		background: $second-color
+		color: #9fa2a3
+		display: inline-block
+		padding: 4px 7px
+		white-space: nowrap
+	&-from
+
+	&__order
+		display: flex
+		align-items: center
+		justify-content: space-between
+
+	&-favorite, &-cart
+		cursor: pointer
+		position: relative
+		display: inline-block
+
+		&:before, &:after
+			content: ""
+			position: absolute
+			+size(100%)
+			transition: opacity .5s ease
+
+		&:after
+			opacity: 0
+
+		&.added
+
+			&:after
+				opacity: 1
+
+			&:before
+				opacity: 0
+
+	&-favorite
+		+size(20px 16px)
+
+		&:before
+			background: url("../img/ico-favorite-add.png") no-repeat
+
+		&:after
+			background: url("../img/ico-favorite-add-added.png") no-repeat
+
+	&-cart
+		+size(21px 17px)
+
+		&:before
+			background: url("../img/ico-cart-add.png") no-repeat
+
+		&:after
+			background: url("../img/ico-cart-add-added.png") no-repeat
+
+	&-counter
+		display: flex
+		align-items: center
+
+		&__link
+			+size(11px)
+
+			&--plus
+				background: url("../img/ico-plus.png") center no-repeat
+
+			&--minus
+				background: url("../img/ico-minus.png") center no-repeat
+
+		&__input
+			border: none
+			text-align: center
+			+size(40px 23px)
+			font-size: rem(20)
+			display: flex 
+			align-items: center 
+			justify-content: center
+
+	&-img
+		display: inline-block !important
+
+.likes
+	display: flex
+	background: $second-color
+	align-items: center
+
+	&__img
+		width: 34px 
+		height: 32px
+		border: 1px solid $border-color
+		background: url("../img/ico-like.png") center no-repeat, #fff
+
+	&__count
+		font-size: rem(14)
+		color: #babcbd
+		padding: 0 9px
+
+.cat-plate
+	display: flex
+	flex-wrap: wrap
+	margin: 50px 0 -73px
+
+.cat-list
+	margin-top: 32px
+
+	&__price, &__order
+
+		&-block
+			flex: none
+
+	&__order
+
+		&-block
+			width: 45%
+			margin-bottom: 10px
+
+	&__price
+
+		&-block
+			display: flex
+			justify-content: space-between
+			align-items: flex-end
+			width: 48%
+
+	&__info
+		margin-bottom: 6px
+	
+	&__one
+		display: flex
+		align-items: center
+		position: relative
+		padding-bottom: 52px
+
+		&-new
+			position: absolute
+			top: 0
+			left: 0
+
+		&-info
+			width: calc(100% - 175px)
+			margin-left: 36px
+			max-width: 415px
+
+		&:not(:first-child)
+			margin-top: 50px
+
+		&:not(:last-child)
+			border-bottom: 1px solid $border-color
+
+		&-title
+			color: #000
+			text-decoration: none
+			font-size: rem(24)
+			line-height: rem(24)
+
+		&-desc
+			margin-top: 12px
+
+			> div
+				display: inline-block
+				vertical-align: middle
+				line-height: rem(16)
+
+				&:not(:last-child)
+					margin-right: 11px
+
+			.cat-from
+				margin-top: -2px
+				width: 26px
+				img 
+					display: block
+
+		&-buy
+			margin-top: 25px
+			display: flex
+			align-items: flex-end
+			justify-content: space-between
+
+		&-img
+
+			&-cont
+				position: relative
+				width: 145px
+				flex: none
+				display: flex
+				justify-content: center
+				align-items: center
+
+				img
+					//костыль
+					max-height: 140px
+	
+.cat-plate
+	
+	&__one
+		position: relative
+		display: flex
+		flex-direction: column
+		align-items: center
+		width: 100%
+
+		&-wrap
+			width: 33.333%
+			padding: 0 rem(27)
+			margin-bottom: rem(73)
+			display: flex !important
+			height: auto
+
+		&-new, &-likes
+			position: absolute
+			top: 0
+
+		&-new
+			left: 0
+
+		&-likes
+			right: 0
+
+		&-img
+
+			&-cont
+				text-align: center
+				display: block
+				width: 100%
+				height: 210px
+
+		&-title
+			margin-top: 45px
+			color: #000
+			text-decoration: none
+			font-size: rem(18)
+			max-width: 210px
+			text-align: center
+
+		&-desc
+			margin-top: 15px
+			text-align: center
+
+	&__price
+		position: relative
+		margin-right: 24px
+
+		&-block
+			padding-top: 22px
+			margin-top: auto
+			display: flex
+			align-items: center
+			justify-content: space-between
+			margin-bottom: 7px
+
+			&--sale
+				margin-bottom: 0
+
+				.cat
+
+					&-plate__info
+						flex-direction: column
+						align-items: center
+						margin-top: 0
+
+					&-count
+
+						+ .cat-from
+							margin-left: 0 !important
+							margin-top: 15px
+
+					&__lastprice
+						text-decoration: line-through
+						font-size: rem(20)
+
+						&-kop
+							font-size: rem(16)
+
+						&-cont
+							display: flex
+							justify-content: space-between
+							align-items: center
+							color: #babcbd
+							margin-bottom: 5px
+
+					&-price
+						position: relative
+						background: $main-color
+						color: #fff
+						padding: 4px 20px 4px 11px
+
+						&:after
+							content: ""
+							position: absolute
+							top: 0
+							right: 0
+							+triangle(38px 9px, #fff, left)
+
+	&__order-block
+		margin-top: 25px
+		width: 100%
+
+	&__info
+		display: flex
+		align-items: center
+
+		.cat
+
+			&-count
+
+				+ .cat
+
+					&-from
+						margin-left: 21px
+						width: 26px
+						img 
+							display: block
+
+.cat-slider
+	position: relative
+	
+	.slick
+
+		&-track
+			display: flex
+
+		&-arrow
+			+size(11px 19px)
+			background: url("../img/ico-slider-arrow.png") no-repeat
+			position: absolute
+			top: calc(50% - 10px)
+			z-index: 2
+			border: none
+
+		&-prev
+			left: 0
+			transform: rotate(180deg)
+
+		&-next
+			right: 0
+	
+	&__slide
+		display: flex !important
+		height: auto
+		padding: 0 rem(27)
+
+.main-news, .main-advantages
+	display: flex
+	flex-direction: column
+	align-items: flex-end
+	position: relative
+	min-height: 360px
+
+.main-news
+	min-height: 543px
+	
+	&__cont
+		margin-top: 90px
+
+	&__important
+		position: absolute
+		top: 0
+		left: 0
+		width: persent(560)
+		height: 100%
+
+	&__one
+		width: 50%
+		background: $second-color
+		padding: rem(47) rem(100) rem(47) rem(40)
+		position: relative
+		color: #000
+		text-decoration: none
+
+		&:after
+			content: ""
+			position: absolute
+			+size(17px 13px)
+			background: url("../img/ico-news-arrow.png") no-repeat
+			right: rem(52)
+			top: calc(50% - 7px)
+
+		&:not(:last-child)
+			margin-bottom: 16px
+
+	&__date
+		display: block
+		color: #818181
+		margin-bottom: 10px
+
+	&__title
+		display: inline-block
+		font-size: rem(20)
+		color: #000
+		text-decoration: none
+
+.main-news__important
+	display: flex
+	flex-direction: column
+
+	&-img
+
+		&-cont
+			flex: none
+			img 
+				display: block
+	
+	&-desc
+		flex: 1 0 auto
+		background: $second-color
+		padding: rem(40) rem(48) rem(50)
+
+	&-text
+		margin-top: 18px
+		line-height: rem(22)
+
+.main-advantages
+
+	&__cont
+		margin-top: 74px
+
+	&__list
+		width: persent(560)
+		position: absolute
+		top: 0
+		left: 0
+		height: 100%
+		display: flex
+		align-items: center
+
+	&__subscribe, &__app
+		width: 50%
+
+		&:not(:last-child)
+			margin-bottom: 25px
+
+.subscribe, .app
+	background: $second-color
+	padding: rem(33) rem(56)
+
+.subscribe
+	
+	&__title
+		font-size: rem(26)
+		margin-bottom: 20px
+
+	&__form
+
+		&:not(:last-child)
+			margin-bottom: 22px
+
+
+.subscribe-form
+	display: flex
+	justify-content: space-between
+	form 
+		width: 100%
+	
+	&__input
+		+size(100% 49px)
+		border: none
+		padding: 0 22px
+
+		&-cont
+			width: persent(296, 476)
+
+	&__submit
+		width: persent(140, 476)
+		border: none
+		background: $main-color
+		color: #fff
+		font-size: rem(14)
+.subscribe__form:last-child
+	display: none
+
+.app
+	
+	&-list
+		display: flex
+		flex-wrap: wrap
+	
+	&__link
+
+		&:not(:last-child)
+			margin-right: 23px
+
+.main-advantages-list
+	
+	&__el
+		display: flex
+		align-items: center
+
+		&:not(:first-child)
+			margin-top: 32px
+
+		&-title
+			padding-left: rem(72)
+			font-size: rem(18)
+
+	&__img
+
+		&-cont
+			position: relative
+			flex: none
+			&:after
+				content: ""
+				position: absolute
+				+size(15px 1px)
+				background: #000
+				right: -40px
+				top: calc(50% - 1px)
+
+.inner-cont
+	border-top: 1px solid $border-color
+	padding-top: 51px
+
+.title-block
+	
+	&__cont
+		margin-bottom: 50px
+	
+	&__title
+		font-size: rem(24)
+		font-weight: bold
+		text-transform: uppercase
+	
+	&__crumbs
+		margin-bottom: 20px
+
+.bread-crumbs
+	font-size: rem(14)
+
+	&__link, &__this
+		display: inline-block
+
+	&__link
+		color: #000
+		text-decoration: none
+		margin-right: 16px
+		padding-right: 16px
+		border-right: 1px solid $border-color
+
+.cat1
+	display: flex
+	flex-wrap: wrap
+	margin: 0 0 -42px -42px
+	&__cont
+		.bot-text__cont
+			display: none
+
+
+	&--cat2
+
+		.cat1
+
+			&__one
+				min-height: 240px
+				padding: rem(50) rem(74) rem(60)
+
+				&-title
+
+					&:after
+						display: none
+
+					&-cont
+						max-width: 110px
+
+	&__one
+		background: 
+			repeat: no-repeat
+			position: right center
+			color: $second-color
+		margin: 0 0 42px 42px
+		width: calc((100% - 42px * 3) / 3)
+		padding: rem(55) rem(74) rem(65)
+		color: #000
+		text-decoration: none
+
+		&--big
+			width: calc((100% - 42px) / 1.53)
+
+		&-title
+			color: #000
+			text-decoration: none
+			display: inline-block
+			position: relative
+			font-size: rem(26)
+
+			&:after
+				content: attr(data-count)
+				position: absolute
+				background: $main-color
+				color: #fff
+				font-size: rem(13)
+				left: calc(100% + 15px)
+				top: calc(50% - 10px)
+				border-radius: 3px
+				padding: 4px 6px 2px
+
+			&-cont
+				display: block
+
+		&-arrow, &-submenu
+			margin-top: 21px
+
+.cat1-submenu
+	display: flex
+
+	&__list
+		width: 200px
+
+		&-link
+			color: #000
+			text-decoration: none
+
+		&-el
+
+			&:not(:first-child)
+				margin-top: 4px
+
+.bot-text
+	position: relative
+	line-height: rem(22)
+	
+	&__cont
+		margin-top: 67px
+
+	&__btn
+		position: absolute
+		right: 0
+		top: 5px
+		border-radius: 50%
+		+size(38px)
+		border: 1px solid $border-color
+		background: url("../img/ico-btn-arrow.png") center no-repeat, #fff
+		transition: transform .5s ease
+
+		&.active
+			transform: rotate(180deg)
+
+	&.active
+
+		.text-page
+
+			*
+
+				&:not(:first-child)
+					height: auto
+
+	.text-page
+		max-width: 910px
+
+		*
+
+			&:not(:first-child)
+				height: 0
+				overflow: hidden
+.catalog-filter__button
+	display: none
+.catalog
+	display: flex
+	justify-content: space-between
+
+	
+
+	&__filter
+		width: persent(270)
+	&__cont
+		width: persent(881)
+
+.catalog-nav
+	margin-bottom: 21px
+	position: relative
+	z-index: 2
+	
+	&__current
+		background: url("../img/ico-cat-nav-arrow.png") center right 25px no-repeat, $main-color
+		white-space: nowrap
+		overflow: hidden
+		text-overflow: ellipsis
+		padding: 22px 48px 21px 37px
+		color: #fff
+		cursor: pointer
+
+.catalog-nav__list
+	background: $second-color
+	display: none
+
+	&-link
+		display: block
+		padding: 22px 37px 21px
+		color: #000
+		text-decoration: none
+
+	&-el
+
+		&:not(:first-child)
+
+			.catalog-nav__list-link
+				padding: 10px 37px
+
+.catalog-filter
+	background: $second-color
+
+.view
+	display: flex
+	justify-content: space-between
+
+	&__link
+		+size(23px 22px)
+
+		&--list
+			background: url("../img/ico-list.png") no-repeat
+
+			&.active
+				background: url("../img/ico-list-active.png") no-repeat
+
+		&--plate
+			background: url("../img/ico-plate.png") no-repeat
+
+			&.active
+				background: url("../img/ico-plate-active.png") no-repeat
+
+.sort
+	display: flex
+	align-items: center
+	font-size: rem(14)
+	padding: 22px 25px
+	border: 1px solid $border-color
+	border-radius: 1px
+
+	&__view
+		width: 64px
+		margin-left: 40px
+
+	&__select
+		display: flex
+		align-items: center
+
+		&--count
+			margin-left: auto
+
+		&-select
+			padding: 0 25px 0 8px
+			border: none
+			background: url("../img/ico-select-arrow-gray.png") center right 5px no-repeat
+
+.catalog-filter
+
+	&__input
+		border: none
+		height: 36px
+		padding: 0 15px
+
+.filter-block
+	
+	&:not(:first-child)
+		border-top: 1px solid $border-color
+	
+	&.closed
+
+		.filter-block
+
+			&__content
+				display: none
+
+			&__title
+
+				&:after
+					transform: rotate(360deg)
+
+	&__title, &__content
+		padding: 
+			left: 38px
+			right: 38px
+
+	&__title
+		padding-top: 29px
+		padding-bottom: 30px
+		font-size: rem(18)
+		position: relative
+		cursor: pointer
+		user-select: none
+
+		&:after
+			content: ""
+			position: absolute
+			+size(9px 5px)
+			background: url("../img/ico-filter-arrow.png") no-repeat
+			top: calc(50% - 3px)
+			right: 26px
+			transform: rotate(180deg)
+
+	&__content
+		padding-bottom: 33px
+		padding-top: 3px
+		font-size: rem(14)
+
+.filter__btns
+	padding: 15px 38px 43px
+
+.filter-btns
+	display: flex
+	align-items: center
+	flex-direction: column
+
+	&__btn
+		display: block
+		font-size: rem(14)
+		text-align: center
+		padding: 16px 27px
+
+		&--submit
+			background: $main-color
+			color: #fff
+			border: none
+
+		&--reset
+			color: #000
+			text-decoration: none
+			border: 1px solid $main-color
+			background: transparent
+
+		&:not(:first-child)
+			margin-top: 23px
+
+.price-filter
+
+	&__range
+		margin-top: 30px
+
+.ui
+	
+	&-widget
+
+		&-content
+			background: #fff
+
+	&-slider 
+
+		.ui-slider	
+
+			&-range
+				background: $main-color
+
+			&-handle
+				background: #fff
+				border: 1px solid $border-color
+
+				&:after
+					background: $main-color
+					border-radius: 50%
+					+size(7px)
+					left: calc(50% - 3.5px)
+					top: calc(50% - 3px)
+					margin: 0
+
+.filter-search
+	
+	&__input
+		+size(100% 36px)
+		border: none
+		background: #fff
+		padding: 0 16px
+
+.slide
+	transform: translate3d(-100%, 0, 0)
+
+.filter__checks
+	
+	&--search
+		margin-top: 24px
+
+	&-el
+
+		&:not(:first-child)
+			margin-top: 10px
+
+.filter__checks-el
+	.checkbox__label 
+		text-transform: lowercase
+a.delete
+	display: inline-block
+	+size(9px)
+	background: url("../img/ico-delete.png") no-repeat
+
+.select-shop
+	background: $second-color
+	padding: 40px 60px 40px 50px
+	display: flex
+	justify-content: space-between
+	align-items: center
+	
+	&__cont
+
+	&__titles
+		position: relative
+		padding-left: 70px
+
+		&:before
+			content: "!"
+			+size(38px)
+			line-height: 38px
+			border-radius: 50%
+			position: absolute
+			text-align: center
+			left: 0
+			top: calc(50% - 19px)
+			color: #fff
+			font-size: 25px
+			background: $main-color
+
+	&__title
+		font-size: rem(20)
+
+	&__subtitle
+		font-size: rem(14)
+		margin-top: 10px
+.select-shop__cont
+	margin-bottom: 10px
+.cart
+
+	.date
+		display: none
+
+	.errortext
+		padding: 10px 0
+	&__list > h2 
+		margin: 10px 0
+	&__one
+		display: flex
+		align-items: center
+		padding: 52px 0 50px
+
+		&:not(:first-child)
+			border-top: 1px solid $border-color
+
+		&-favorite
+			width: 55px
+
+		&-delete
+			margin-left: auto
+
+		&-favorite, &-img-cont
+			flex: none
+
+		&-img
+
+			&-cont
+				width: 148px
+				// background: $second-color
+				display: flex
+				justify-content: center
+				align-items: center
+				margin-right: 28px
+
+		&-title
+			font-size: rem(24)
+			text-decoration: none
+			color: #000
+
+		&-info
+			width: persent(415)
+
+		&-price
+
+			&-cont
+				width: persent(400)
+				display: flex
+				align-items: center
+				justify-content: space-between
+				margin-left: persent(70)
+
+.cart__itog
+	background: $second-color
+	display: flex
+	align-items: center
+	justify-content: flex-end
+	padding: 22px 58px 20px
+
+.cart-itog
+	display: flex
+	align-items: center
+
+	&__title
+		font-size: rem(24)
+		margin-right: 23px
+
+	+ .cart-itog__btn
+		margin-left: 40px
+
+.order-form
+	background: $second-color
+	color: #3c3c3d
+	
+	&__cont
+		margin-top: 64px
+
+	&__date
+		padding: 40px 54px
+		border-bottom: 1px solid $border-color
+
+	&__main
+		padding: 52px 54px
+
+	&__wrap
+		display: flex
+		flex-wrap: wrap
+		margin: 0 0 -30px -46px
+
+.order-form
+	
+	&__label
+		margin-bottom: 11px
+	
+	&__input
+		+size(100% 50px)
+		border: none
+		padding: 0 20px
+
+		&--textarea
+			resize: none
+			height: 95px
+			padding: 14px
+
+		&-cont
+			width: calc((100% - 46px * 3) / 3)
+			margin: 0 0 30px 46px
+			position: relative
+			display: flex
+			flex-direction: column-reverse
+
+			&--last
+				flex-direction: row
+				width: calc(91.9% - ((100% - 46px * 3) / 3))
+				align-items: center
+				justify-content: space-between
+				padding-top: 30px
+
+	&__submit
+
+		&-cont
+			align-self: flex-end
+
+.calendar-icon
+	position: absolute
+	right: 14px
+	+size(19px 15px)
+	background: url("../img/ico-calendar.png") no-repeat
+	top: calc(50% - 7px)
+	pointer-events: none
+
+.order-date
+	display: flex
+	align-items: center
+
+	&__title
+		width: 140px
+		flex: none
+		margin-right: 35px
+
+	&__input
+		+size(100% 42px)
+		border: none
+		background: #fff
+		padding: 0 10px
+
+		&-cont
+			position: relative
+			width: 193px
+			margin-right: 35px
+
+.order-form__calendar
+		margin: 2rem 0 0
+
+.rating
+	display: flex
+	
+	&-star
+		// cursor: pointer
+		
+		background: url("../img/ico-star-unactive.png") no-repeat
+		+size(21px 16px)
+
+		&.active
+			background: url("../img/ico-star.png") no-repeat
+
+	&:hover
+
+		// .rating-star
+		// 	background: url("../img/ico-star.png") no-repeat
+
+		// 	&:hover
+
+		// 		~ .rating-star
+		// 			background: url("../img/ico-star-unactive.png") no-repeat
+
+.tovar
+	&-slider 
+		&__slide 
+			height: auto
+	&-info
+		display: flex
+		justify-content: space-between
+		align-items: flex-start
+
+		&__left
+			width: 282px
+			flex: none
+			display: flex
+			align-items: center
+			justify-content: center
+			flex-wrap: wrap
+
+			.cat__order
+				display: flex
+				align-items: center
+				justify-content: space-between
+				max-width: 214px
+				flex: 1 0 auto
+				width: 100%
+				margin-top: 20px
+
+			.cat-plate__one
+
+				&-likes
+					right: 12px
+
+				&-new
+					left: 30px
+
+		&__right
+			width: calc(100% - 300px)
+
+	&-img
+
+		&__cont
+			position: relative
+			min-height: 260px
+			display: flex 
+			align-items: center
+			justify-content: center
+			width: 100%
+
+
+	&-title
+		font-size: rem(24)
+
+
+	&-price
+
+		&__block
+			display: flex
+			justify-content: space-between
+			align-items: center
+			margin-top: 35px
+
+			&.cat-plate__price-block--sale
+
+				.cat
+
+					&-list
+
+						&__price
+							display: flex
+							flex-direction: row-reverse
+							align-items: center
+
+						&__info
+							margin-bottom: 0
+
+					&__lastprice
+
+						&-cont
+							margin-bottom: 0
+							margin-left: 13px
+
+					&-sale
+						margin-left: 12px
+	&__another
+		.slick
+			&-track
+				display: flex
+
+			&-arrow
+				+size(11px 19px)
+				background: url("../img/ico-slider-arrow.png") no-repeat
+				position: absolute
+				top: calc(50% - 10px)
+				z-index: 2
+				border: none
+
+			&-prev
+				left: 0
+				transform: rotate(180deg)
+
+			&-next
+				right: 0
+		
+		&__slide
+			display: flex !important
+			height: auto
+			padding: 0 rem(27)
+
+.tovar__desc
+	
+	&-text
+		margin-top: 50px
+		max-width: 405px
+		color: #545454
+		font-size: rem(14)
+		line-height: rem(24)
+
+.tovar__tabs
+	margin-top: 90px
+
+.features
+	
+	&-table
+		width: 100%
+
+		tr
+
+			&:nth-child(even)
+
+				td
+					padding: 13px 19px 14px
+
+			&:nth-child(odd)
+				background: #f5f6f8
+
+				td
+					padding: 8px 19px 9px
+		td
+			vertical-align: middle
+
+			img 
+				width: 26px
+				margin-right: 5px
+
+		&__title
+			width: 215px
+	
+.tabs
+	
+	&-content
+		padding-top: 27px
+		opacity: 0
+		pointer-events: none
+		position: absolute
+
+		&.active
+			opacity: 1
+			pointer-events: all
+			position: static
+	
+	&__top
+		display: flex
+		border-bottom: 1px solid $border-color
+
+	&__tab
+		text-align: center
+		padding: 15px 25px 16px
+		border: 1px solid transparent
+		transition: border .3s ease
+		cursor: pointer
+		user-select: none
+		margin-bottom: -1px
+
+		&.active
+			border-color: $border-color
+			border-bottom-color: transparent
+
+.reviews
+	
+	&__one
+
+		&:not(:first-child)
+			margin-top: 25px
+
+		&-top
+			padding: 20px 0 23px
+			display: flex
+			align-items: center
+			border-bottom: 1px solid $border-color
+
+		&-name
+			font-weight: bold
+			font-size: rem(18)
+
+		&-date
+			color: #b2b2b2
+			border-left: 1px solid #d9d9d9
+			margin-left: 19px
+			padding-left: 19px
+			line-height: rem(16)
+
+		&-text
+			margin-top: 12px
+			margin-bottom: 13px
+
+			&-cont
+				padding-top: 35px
+
+		&-title
+			font-size: rem(18)
+
+.tovar__another
+	margin-top: 75px
+	
+	&:not(:last-child)
+		margin-bottom: 98px
+
+.another
+	
+	&__title
+		text-align: center
+		font-weight: bold
+		text-transform: uppercase
+		font-size: rem(24)
+
+	.cat-plate
+		margin-top: 65px
+
+.shops
+	
+	&__top
+
+	&-filter
+		margin-top: 35px
+
+.shops-filter
+	
+	&__radio
+		display: flex
+		align-items: center
+		justify-content: space-between
+
+	&__search
+
+		&-input
+			+size(193px 36px)
+			background: $second-color
+			padding: 0 16px
+			border: none
+
+.shops-view
+	display: flex
+	flex-wrap: wrap
+
+	&__one
+
+		&-input
+			display: none
+
+			&:checked
+
+				+ label
+					color: #fff
+					background: $main-color
+
+		&:not(:last-child)
+			margin-right: 22px
+
+	&__label
+		border: 1px solid $border-color
+		text-align: center
+		padding: 20px 27px 21px
+		display: block
+		transition: background .5s ease, color .5s ease
+		cursor: pointer
+
+.city-select
+	display: flex
+	flex-wrap: wrap
+
+
+	select
+		position: relative
+		+size(194px 42px)
+		// +size(213px 42px)
+		border: none
+		border: 1px solid $border-color
+		// padding: 0 28px 0 0
+		background: url("../img/ico-cityselect-arrow.png") center right 11px no-repeat
+		padding: 0 20px
+    	// background: #fff url(../img/ico-select.png) no-repeat center right 20px;
+
+		&:not(:last-child)
+			margin-right: 38px
+
+
+
+.shops__map
+	margin-top: 35px
+	
+	&-map
+		height: 378px
+		position: relative
+
+.shops-list
+	
+	overflow: hidden
+	margin-top: 35px 
+	width: 100% !important
+
+	.jspContainer
+		width: 100% !important
+
+	.jspPane
+		width: 97% !important
+	
+	&__list
+		max-height: inherit
+		overflow-y: scroll
+		height: 260px
+
+		&::-webkit-scrollbar
+			width: 4px
+
+			&-thumb
+				background-color: $main-color
+
+			&-track
+				background-color: $second-color
+
+		&-el
+			width: persent(815, 870)
+
+			&:not(:first-child)
+				margin-top: 35px
+
+		.radio
+
+			&__label
+				display: flex
+				//justify-content: space-between
+				align-items: flex-end
+				padding-left: 45px
+
+				&:before, &:after
+					transform: translateY(3px)
+
+				&:after
+					order: -1
+
+		&-address, &-time, &-dist
+
+			span
+				display: inline-block
+				background: #fff
+				position: relative
+
+		&-beer
+			background: url("../img/ico-beer.svg") center no-repeat, #fff !important
+
+		&-address
+			width: persent(343, 831)
+
+			span
+				display: inline
+
+				&:last-child
+					padding-right: 25px
+
+			&:before
+				content: ""
+				height: 1px
+				width: calc(100% - 45px)
+				position: absolute
+				left: 45px
+				bottom: 4px
+				background: $border-color
+
+		&-time, &-dist
+			white-space: nowrap
+
+		&-time
+
+			span
+				padding: 0 25px
+
+		&-dist
+			margin-left: auto
+
+			span
+				padding-left: 25px
+
+.shop-select
+	
+	&__cont
+		margin-top: 43px
+
+.menu-mobile
+	z-index: 1
+	.sub 
+		display: block
+		padding: 15px 20px
+		border-bottom: 1px solid $border-color
+	&__wrap 
+		.category
+			background: #fff
+			color: #000
+			display: block
+			padding: 15px 20px
+			border-bottom: 1px solid $border-color
+.mobile-menu
+	&__el
+		cursor: pointer
+		&:not(:first-child)
+			.sub
+	&__message
+		display: flex
+		flex-direction: column-reverse
+		padding: 20px 20px 20px 20px
+		.soc__link
+			background-color: transparent
+	&__soc
+		display: flex
+		flex-direction: column-reverse
+		padding: 30px 20px 20px 20px
+		position: relative
+		&-title:before
+			content: "Присоединяйтесь"
+			display: inline-block
+			color: #000
+			position: absolute
+			top: 0
+
+
+.submenu
+	position: absolute
+	top: 0
+	z-index: 10
+	width: 250px
+	height: 100%
+	background: #fff
+	transform: translate3d(260px, 0, 0)
+	transition-duration: .4s
+	
+.submenu-open
+	.submenu
+		transform: translate3d(0, 0, 0)
+.submenu
+	&__el
+		border-bottom: 1px solid $border-color
+	&__link
+		text-decoration: none
+		padding: 20px
+		color: #000
+		display: block
+	&__back
+		position: relative
+		background: $second-color
+		padding: 15px 15px 15px 40px
+		&:before
+			content: ""
+			position: absolute
+			left: 20px
+			width: 10px
+			height: 16px
+			top: 50%
+			margin-top: -8px
+			transform: rotate(180deg)
+			background: url(../img/ico-slider-arrow.png) no-repeat center
+			background-size: 75% !important
+
+.catalog__filter-btn
+	display: none
+
+
+.bx-auth
+	padding: 0 !important
+
+.ic
+	
+	&__header
+		padding: 10px 20px !important
+
+		select
+			height: 42px !important;
+			// width: 194px !important;
+			border: 1px solid rgb(228, 232, 234) !important;
+			background: url(../img/ico-cityselect-arrow.png) center right 11px no-repeat;
+			padding: 0 30px 0 20px !important;
+
+	&__time
+		display: inline-block
+		vertical-align: top
+
+	&__year
+		margin-right: 25px
+
+.ic__days 
+	
+	.ic__day:hover, .ic__day_state_selected
+		background: $main-color
+
+	.ic__day_state_current
+		background: $second-color
+
+.order-date__input
+	cursor: pointer
+
+.basket-date-update, .no-results
+	color: $main-color
+
+.to-full__cont
+	margin: 1rem 0 0
+	color: $main-color
+
+.catalog-nav__list
+	padding: 10px 0
+
+.catalog-nav__list-el
+
+	.catalog-nav__list-link
+		padding: 10px 37px
+
+
+
+.anketa_new
+	display: -webkit-flex
+	display: -moz-flex
+	display: -ms-flex
+	display: -o-flex
+	display: flex
+	margin-bottom: 77px;
+.anketa_new-
+	
+	&left
+		width: 50%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between
+		padding: 	15px 0;
+
+	&left_text
+		font-size: 18px
+		max-width: 445px;
+		margin-bottom: 55px;
+		line-height: 26px;
+
+		> *
+			max-width: 100%
+
+	&left_btn
+		display: inline-block;
+		a
+			background-color: #e31e24;
+			color: #fff;
+			text-decoration: none;
+			padding: 15px 30px;
+			display: inline-block;
+			
+			&:not(:last-child)
+				margin-right: 30px;
+	&right
+		width: 50%;
+	&slider
+	&slide
+		height: 300px;
+		width: 100%;
+		img 
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+	&bot
+		margin-top: 60px;
+		p 
+			font-size: 16px;
+			line-height: 24px;
+			margin-bottom: 25px;
+			max-width: 820px;
+			a 
+				position: relative;
+				padding-left: 	35px;
+				&:before
+					content: ""
+					position: absolute;
+					background: url("../img/ico-anketa_new.png");
+					width: 	17px;
+					height: 	23px;
+					left: 	0;
+					top: 0;
+.trip_btn
+	position: fixed
+	bottom: calc( 50% - 50px);
+	right: 5px;
+
+	z-index: 55;
+
+	width: 165px
+	height: 115px
+	background: url("/local/templates/vinsklad2017/css/../img/ico-btn-trip-bg.png")no-repeat center
+	background-size: contain;
+
+.trip_btn_text
+	margin-bottom: 20px;
+	display: none
+
+
+.contacts .forms-body-wrap
+	position: relative;
+
+
+.wrapper-contacts
+	transform: translateY(-50.2%)
+
+.contacts-map
+
+	.shops
+		height: 100%
+
+		div
+			height: 100%
+
+		ymaps
+
+			div
+				height: auto
+
+	.shops__top
+		display: none
+
+	.shops-filter__radio
+		display: none
+
+	.shops
+
+		&__map
+			margin: 0
+
+	.top-phone 
+		a
+			&:hover 
+				border-bottom: 1px solid #000
+
+
+
+@import "_grid"
+@import "media"
+
+@media screen and (min-width: 1000px)
+	.to-full__cont
+		display: none

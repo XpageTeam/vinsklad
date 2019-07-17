@@ -1,0 +1,62 @@
+footer.footer
+	.wrapper
+		nav.footer__top
+			.footer-menu__cont
+				.footer-menu__title О Компании
+				ul.footer-menu
+					li.footer-menu__el
+						a.footer-menu__link(href="#") О нас
+					li.footer-menu__el
+						a.footer-menu__link(href="#") Контакты
+					li.footer-menu__el
+						a.footer-menu__link(href="#") Обратная связь
+			.footer-menu__cont
+				.footer-menu__title Покупателям
+				ul.footer-menu
+					li.footer-menu__el
+						a.footer-menu__link(href="#") Карта постоянного покупателя
+					li.footer-menu__el
+						a.footer-menu__link(href="#") Каталог
+					li.footer-menu__el
+						a.footer-menu__link(href="#") Магазины
+					li.footer-menu__el
+						a.footer-menu__link(href="#") Акции
+					li.footer-menu__el
+						a.footer-menu__link(href="#") Новости
+			.footer-menu__cont
+				.footer-menu__title Вакансии
+				ul.footer-menu
+					li.footer-menu__el
+						a.footer-menu__link(href="#") Заполнить форму
+				.footer__msgs
+					.msgs
+						.soc
+							each title in ["tel", "wa", "vb"]
+								span.soc__link(href="#" style="background-image: url('img/photos/"+title+".png')")
+						.msgs__phone
+							span +7 922 333 22 01
+			.footer-menu__cont
+				.footer-menu__title Помощь
+				ul.footer-menu
+					li.footer-menu__el
+						a.footer-menu__link(href="#") Как зарезервировать товар?
+				.footer__soc
+					.soc
+						- for (var i = 1; i <= 3; i++)
+							a.soc__link(href="#" style="background-image: url('img/ico-soc-"+i+".png')")
+		.footer__bot
+			.footer__copy
+				.copy &copy; 2017 <br /> Винный склад «Изобилие»
+			.footer__text
+				.footer-text
+					div Все материалы на сайте носят информационный характер и не являются рекламой.
+					div 
+						a(href="#") Политика конфиденциальности
+			.footer__dev
+				a.dev(href="http://xpage.ru" traget="_blank")
+					span.dev__text Сделано в
+					img.dev__img(src="img/ico-dev.png", alt="")
+.forms#shops
+	.forms__title Выбрать магазин
+	.forms-shops
+		shops

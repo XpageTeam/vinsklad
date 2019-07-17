@@ -1,0 +1,52 @@
+html
+	head
+		meta(charset="utf-8")
+		title Каталог
+		include inc/head.jade
+		include inc/css.jade
+	body.inner
+		#page-wr
+			#content
+				include inc/header.jade
+				.content
+					.wrapper
+						.inner-cont
+							.title-block__cont
+								.titile-block
+									.title-block__crumbs
+										.bread-crumbs
+											a.bread-crumbs__link(href="#") Главная
+											span.bread-crumbs__this Каталог
+									h1.title-block__title Каталог
+							.cat1__cont
+								.cat1
+									.cat1__one.cat1__one--big(style="background-image: url('img/photos/cat-1-bg-1.jpg')")
+										.cat1__one-title-cont
+											a.cat1__one-title(href="#" data-count="360") Крепкие напитки
+										.cat1__one-submenu
+											.cat1-submenu
+												ul.cat1-submenu__list
+													li.cat1-submenu__list-el
+														a.cat1-submenu__list-link(href="#") Вермут
+													li.cat1-submenu__list-el
+														a.cat1-submenu__list-link(href="#") Виски, Бурбоны
+													li.cat1-submenu__list-el
+														a.cat1-submenu__list-link(href="#") Водка, Настойки
+												ul.cat1-submenu__list
+													li.cat1-submenu__list-el
+														a.cat1-submenu__list-link(href="#") Коньяк, Арманьяк, Бренди
+													li.cat1-submenu__list-el
+														a.cat1-submenu__list-link(href="#") Текила, Ром, Ликер
+													li.cat1-submenu__list-el
+														a.cat1-submenu__list-link(href="#") Прочее
+									a.cat1__one(href="#" style="background-image: url('img/photos/cat-1-bg-2.jpg')")
+										span.cat1__one-title-cont
+											span.cat1__one-title( data-count="580") Вино
+										img.cat1__one-arrow(src="img/ico-cat-arrow.png", alt="")
+									each title in [{title: "Игристые вина", count: 140}, {title: "Пиво", count: 80}, {title: "Разное", count: 10}]
+										a.cat1__one(href="#")
+											span.cat1__one-title-cont
+												span.cat1__one-title(data-count=title.count)=title.title
+											img.cat1__one-arrow(src="img/ico-cat-arrow.png", alt="")
+			include inc/footer.jade
+		include inc/scripts.jade

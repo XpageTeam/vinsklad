@@ -1,0 +1,275 @@
+
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Контакты</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="description"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,700&amp;amp;subset=cyrillic" rel="stylesheet"/>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/jquery.fancybox.css"/>
+    <link rel="stylesheet" href="css/ui-slider.css"/>
+    <link rel="stylesheet" href="css/fonts.css"/>
+    <link rel="stylesheet" href="css/slick.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="css/forms.css"/>
+    <link rel="stylesheet" href="css/main_data.css"/>
+  </head>
+  <body class="inner">
+    <div class="menu-mobile">
+        <div class="menu-mobile__wrap">
+          <ul class="mobile-menu">
+            
+          </ul>
+        </div>
+      </div>
+    <div id="page-wr">
+      <div id="content">
+        <transition name="head-message__transition">
+          <div :class="headMessageClass" v-if="headMessageShow" class="head-message">
+            <div v-html="headMessage" class="head-message__text"></div>
+          </div>
+        </transition>
+        <header class="head">
+          <div class="wrapper">
+            <div class="head__top">
+              <div v-cloak="" class="head__shop">
+                <div class="head__shop-city">
+                  <div class="city">{{ userCity.name || "Выберите город" }}</div>
+                </div>
+                <div class="head__shop-address">
+                  <address class="address">{{ mainShop.address || "Выберите магазин" }}</address>
+                </div>
+              </div>
+              <div class="head-top__right">
+                <div class="head-links">
+                  <div class="head-links__phone">
+                    <address class="top-phone"><a href="tel: 8 800 000 00 00">8 800 000 00 00</a></address>
+                  </div>
+                  <div class="head-links__feedback"><a href="#" class="feedback-link">Обратная связь</a></div>
+                  <div class="head-links__lc"><a href="#" class="lc-link">Личный кабинет</a></div>
+                </div>
+              </div>
+            </div>
+            <div class="head__mid">
+              <div id="menu-toggle">
+                <div id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                  <div id="cross">
+                    <span></span>
+                    <span></span>
+                  </div>
+              </div>
+              <div class="head__logo"><a href="/" class="logo"><img src="img/logo.png" alt="" class="logo__img"/></a></div>
+              <div class="head__search">
+                <div class="search">
+                  <form>
+                    <div class="search-wrap">
+                      <div class="search__input-cont">
+                        <input type="text" placeholder="Поиск по товарам" class="search__input"/>
+                        <input type="submit" class="search__submit"/>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="head__fc"><a href="#" class="head__favorite"></a><a href="#" class="head__cart"><span class="head__cart-count">2 товара</span><span class="head__cart-price">4 879.60 <i class="rub">₽</i></span></a></div>
+            </div>
+            <nav class="head__menu">
+              <ul class="menu">
+                <li class="menu__el"><a href="#" data-id='580' class="menu__link">Крепкие напитки</a></li>
+                <li class="menu__el"><a href="#" data-id='360' class="menu__link">Вина</a></li>
+                <li class="menu__el"><a href="#" data-id='140' class="menu__link">Игристые вина и шампанское</a></li>
+                <li class="menu__el"><a href="#" data-id='80' class="menu__link">Пиво</a></li>
+                <li class="menu__el"><a href="#" data-id='10' class="menu__link">Разное</a></li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+        <div class="content">
+          <div class="wrapper">
+            <div class="inner-cont">
+                  <div class="title-block__cont">
+                    <div class="titile-block">
+                      <div class="title-block__crumbs">
+                        <div class="bread-crumbs">
+                        <a href="#" class="bread-crumbs__link">Главная</a>
+                        <a href="#" class="bread-crumbs__link">О компании</a>
+                        <span class="bread-crumbs__this">Контакты</span></div>
+                      </div>
+                      <h1 class="title-block__title">Контакты</h1>
+                    </div>
+                  </div>
+          </div>
+        </div>
+        <div class="contacts-map">
+          <img src="img/photos/map.jpg" alt="">
+        </div>
+        <div class="content">
+          <div class="wrapper">
+
+            <div class="contacts forms-contacts">
+              <div class="forms-wrap forms-header forms-header-wrap">
+                <div class="forms__title">Отправить сообщение</div>
+                <div class="forms-text-cont">Заполните, пожалуйста, форму и мы свяжемся с вами в ближайшее время</div>
+              </div>
+              <div class="forms-body forms-body-wrap">
+                <div class="forms-wrap forms-name">
+                  <div class="forms-input-cont">
+                    <input id="fio" required="" placeholder="" type="text" class="forms__input">
+                    <label for="fio" class="forms__label">ФИО</label>
+                    <div class="forms__error-message">
+                      <i class="forms__error-message-icon"></i>
+                    </div>
+                  </div>
+
+                  <div class="forms-input-cont">
+                    <input id="tel" required="" placeholder="" type="tel" class="forms__input">
+                    <label for="tel" class="forms__label">Телефон</label>
+                    <div class="forms__error-message">
+                      <i class="forms__error-message-icon"></i>
+                    </div>
+                  </div>
+
+                  <div class="forms-input-cont">
+                    <input id="email" required="" placeholder="" type="email" class="forms__input">
+                    <label for="email" class="forms__label">E-mail</label>
+                    <div class="forms__error-message">
+                      <i class="forms__error-message-icon"></i>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="forms-wrap">
+                  <div class="forms-input-cont forms-input-city">
+                    <input id="fio" required="" placeholder="" type="text" class="forms__input">
+                    <label for="fio" class="forms__label">Город</label>
+                    <div class="forms__error-message">
+                      <i class="forms__error-message-icon"></i>
+                    </div>
+                  </div>
+
+                  <div class="forms-input-cont forms-input-textarea">
+                    <input id="tel" required="" placeholder="" type="tel" class="forms__input">
+                    <label for="tel" class="forms__label">Коментарий</label>
+                    <div class="forms__error-message">
+                      <i class="forms__error-message-icon"></i>
+                    </div>
+                  </div>
+                  </div>
+
+                  <div class="forms-wrap">
+                    <div class="forms-input-cont forms-input-cont--file">
+
+                      <input required="" type="file" class="forms__input forms__input--file" id="file-1">
+                      <label for="file-1" class="forms__label forms__label--file" data-btn-text="Обзор">Прикрепить файл:</label>
+                      <input readonly="" type="text" class="forms__input forms__input--file-support" placeholder="">
+                      <div class="forms__error-message forms__error-message--file">
+                        <i class="forms__error-message-icon"></i>
+                      </div>
+                      <div class="forms__file-formats">Поддерживаемые форматы: doc, docx, txt, rtf, xls, xlsx, jpeg, jpg, png, png, avi, mp4</div>
+                    </div>
+
+                    <div class="recaptcha">
+                      <img src="img/recaptcha.jpg" alt="">
+                    </div>
+
+                  </div>
+
+                  <div class="forms-wrap forms-wrap--bot">
+                    <div class="forms-checkbox">
+                      <input type="checkbox" class="forms__checkbox" id="checkbox-1">
+                      <label for="checkbox-1" class="forms__checkbox-label">Даю согласие на обработку <a href="#">персональных данных</a></label>
+                    </div>
+                  </div>
+
+                  <div class="forms-submit-cont">
+                    <input type="submit" class="forms__submit" value="Отправить">
+                  </div>
+                </div>
+              </div>
+             
+            </div>
+          
+          </div>
+        </div>
+
+
+
+      </div>
+      <footer class="footer">
+        <div class="wrapper">
+          <nav class="footer__top">
+            <div class="footer-menu__cont">
+              <div class="footer-menu__title">О Компании</div>
+              <ul class="footer-menu">
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">О нас</a></li>
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">Контакты</a></li>
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">Обратная связь</a></li>
+              </ul>
+            </div>
+            <div class="footer-menu__cont">
+              <div class="footer-menu__title">Покупателям</div>
+              <ul class="footer-menu">
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">Карта постоянного покупателя</a></li>
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">Каталог</a></li>
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">Магазины</a></li>
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">Акции</a></li>
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">Новости</a></li>
+              </ul>
+            </div>
+            <div class="footer-menu__cont">
+              <div class="footer-menu__title">Вакансии</div>
+              <ul class="footer-menu">
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">Заполнить форму</a></li>
+              </ul>
+              <div class="footer__msgs">
+                <div class="msgs">
+                  <div class="soc"><span href="#" style="background-image: url('img/photos/tel.png')" class="soc__link"></span><span href="#" style="background-image: url('img/photos/wa.png')" class="soc__link"></span><span href="#" style="background-image: url('img/photos/vb.png')" class="soc__link"></span>
+                  </div>
+                  <div class="msgs__phone"><span>+7 922 333 22 01</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="footer-menu__cont">
+              <div class="footer-menu__title">Помощь</div>
+              <ul class="footer-menu">
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">Как зарезервировать товар?</a></li>
+              </ul>
+              <div class="footer__soc">
+                <div class="soc"><a href="#" style="background-image: url('img/ico-soc-1.png')" class="soc__link"></a><a href="#" style="background-image: url('img/ico-soc-2.png')" class="soc__link"></a><a href="#" style="background-image: url('img/ico-soc-3.png')" class="soc__link"></a>
+                </div>
+              </div>
+            </div>
+          </nav>
+          <div class="footer__bot">
+            <div class="footer__copy">
+              <div class="copy">&copy; 2017 <br /> Винный склад «Изобилие»</div>
+            </div>
+            <div class="footer__text">
+              <div class="footer-text">
+                <div>Все материалы на сайте носят информационный характер и не являются рекламой.</div>
+                <div> <a href="#">Политика конфиденциальности</a></div>
+              </div>
+            </div>
+            <div class="footer__dev"><a href="http://xpage.ru" traget="_blank" class="dev"><span class="dev__text">Сделано в</span><img src="img/ico-dev.png" alt="" class="dev__img"/></a></div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/cookie.js"></script>
+    <script src="js/vuex.js"></script>
+    <script src="js/vue.min.js"></script>
+    <script src="js/jquery.ui-slider.js"></script>
+    <script src="js/slick.js"></script>
+    <script src="js/jquery.fancybox.js"></script>
+    <script src="js/common.js"></script>
+  </body>
+</html>

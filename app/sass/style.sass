@@ -1,0 +1,748 @@
+$output-bourbon-deprecation-warnings: false;
+@import "bourbon"
+@import "vars"
+@import "functions"
+
+.popup-window
+	padding: 50px
+	td 
+		vertical-align: middle
+.personal-area
+	.doc-panel__header
+		border-bottom: 1px solid $border-color
+	.history-order__list > p
+		padding: 10px 50px
+		a
+			font-family: "Proxima Nova", sans-serif
+.logout
+	margin-left: 10px
+.bx-auth
+	margin-top: 0
+	padding: 0 50px
+
+	.bx-auth-title
+		text-align: left
+		// padding: 43px 73px 42px
+		border-bottom: 1px solid #d5dbdf
+		margin-bottom: 10px
+		font-size: 1.875rem
+		font-family: "Proxima Nova", sans-serif
+		font-weight: 300
+		color: #000
+		display: none
+
+	.bx-auth-note
+		font-family: "Proxima Nova", sans-serif
+		font-size: rem(14)
+	.bx-auth-input
+		box-sizing: border-box
+		+size(100% 49px)
+		border: 1px solid $border-color
+		border-radius: 1px
+		padding: 0 vw(17)
+		outline: none
+		-webkit-appearance: none
+	.bx-auth-table
+		td 
+			position: relative
+			width: 100%
+			text-align: left
+			font-weight: 300	
+		tr 
+			display: flex
+			flex-direction: column
+			align-items: flex-start
+			margin-bottom: 20px
+	.authorize-submit-cell
+		input
+			background: #e31e24
+			color: #fff
+			border: none
+			display: block
+			font-size: 0.875rem
+			text-align: center
+			padding: 16px 27px
+			-webkit-appearance: none
+	label
+		vertical-align: middle
+
+.slick-arrow
+	position: absolute
+	background: transparent
+	top: 0
+	border: 0
+.slick-next
+	position: absolute
+	right: 0
+	height: 100%
+	width: 70px
+	display: flex !important
+	align-items: center
+	justify-content: flex-start
+	&:before 
+		content: ""
+		background: url(../img/chevron.svg) no-repeat center
+		background-size: contain !important
+		+size(30px)
+		display: flex
+
+.slick-prev
+	position: absolute
+	left: 0
+	z-index: 10
+	height: 100%
+	width: 70px
+	display: flex !important
+	align-items: center
+	justify-content: flex-end
+	&:before 
+		content: ""
+		background: url(../img/chevron.svg) no-repeat center
+		background-size: contain !important
+		+size(30px)
+		display: flex
+		transform: rotate(180deg)
+
+.forms__dop-info
+	font-family: "Proxima Nova", sans-serif
+
+.bx-pagination
+	margin-top: 80px
+	li 
+		margin-bottom: 0 !important
+.bx-pagination-container
+	span 
+		border: 0 !important
+		background: #fff !important
+		color: #000 !important
+		cursor: pointer
+	ul 
+		display: flex !important
+		justify-content: center
+.bx-pag-prev, .bx-pag-next
+	span 
+		font-size: 0 !important
+.bx-pag-prev
+	span
+		background: url(../img/ico-arrow-paginator.png) no-repeat center !important
+.bx-pag-next
+	span
+		transform: rotate(180deg)
+		background: url(../img/ico-arrow-paginator.png) no-repeat center !important
+.bx-active
+	span 
+		color: $main-color !important
+		text-decoration: underline
+
+.personal-mail
+	box-sizing: border-box
+	display: flex
+	align-items: center
+	height: 49px
+	width: 100%
+	border: 1px solid #d5dbdf
+	border-radius: 1px
+	padding: 0 0.88542vw
+	outline: none
+.error
+	text-align: center
+	margin-top: 50px
+	&__404
+		font-size: rem(300)
+		color: #e31e24
+		margin-bottom: 5px
+	&__info
+		h2 
+			font-size: rem(25)
+			line-height: rem(26)
+			color: #e31e24
+			text-transform: uppercase
+			font-weight: bold
+			margin-bottom: 25px
+		p 
+			font-size: rem(18)
+			line-height: rem(26)
+.news
+	margin-bottom: -65px
+	&__list
+		display: flex
+		justify-content: flex-start
+		flex-wrap: wrap
+	&__item
+		background: $second-color
+		width: persent(355, 1200)
+		margin-bottom: 65px
+		&:not(:nth-child(3n))
+			margin-right: persent(65, 1200)
+
+	&__info
+		padding: 45px
+		&--link
+			text-decoration: none
+			color: #000
+		&-data 
+			color: #a4a5a6
+		&-title
+			font-size: rem(20)
+			line-height: rem(24)
+			margin-top: 15px
+		&-text
+			line-height: rem(22)
+			margin-top: 15px
+
+
+.stock
+	display: flex
+	justify-content: space-between
+
+	&__cont
+		width: 100%
+
+	.cat-plate
+		display: flex
+		justify-content: flex-start
+		flex-wrap: wrap
+		margin-top: 80px
+	
+		&__one
+			position: relative
+			display: flex
+			flex-direction: column
+			align-items: center
+			//width: 100%
+
+			&-wrap
+				width: persent(300, 1200)
+				padding: 0 rem(27)
+				margin-bottom: rem(90)
+				display: flex
+
+			&-new, &-likes
+				position: absolute
+				top: 0
+
+			&-new
+				left: 0
+
+			&-likes
+				right: 0
+
+			&-img
+
+				&-cont
+					text-align: center
+					display: block
+					width: 100%
+					height: 210px
+
+			&-title
+				margin-top: 45px
+				color: #000
+				text-decoration: none
+				font-size: rem(18)
+				max-width: 210px
+				text-align: center
+
+			&-desc
+				margin-top: 15px
+				text-align: center
+
+.help
+	letter-spacing: 0.05rem;
+	&__list
+		margin-bottom: 85px
+		margin-top: 75px
+	&__phone 
+		display: flex
+		align-items: center
+		font-size: rem(20)
+		img 
+			margin-right: 43px
+		a 
+			padding: 0 5px
+			color: #000
+			text-decoration: none
+			font-weight: bold
+			letter-spacing: 0.4px
+
+	ol
+		counter-reset: i
+		margin-left: 65px
+
+		font-size: rem(20)
+		li
+			counter-increment: i
+			position: relative
+			//padding-left: 150px
+			display: flex
+			align-items: center
+			padding-left: 40px
+			&:before
+				content: counter(i) ""
+				position: absolute
+				left: -65px
+				background: #e31e24
+				+size(65px)
+				border-radius: 50%
+				display: flex
+				color: #fff
+				font-size: rem(30)
+				flex-direction: column
+				justify-content: center
+				align-items: center
+			&:not(:first-child)
+				margin-top: 70px
+.active.vacancy__item-header:after
+	transform: rotate(180deg)
+.vacancy 
+	&-filter
+		background: $second-color
+		padding: 42px 40px
+		display: flex
+		justify-content: space-between
+		margin-bottom: 45px
+
+
+		&__select 
+			display: flex
+			justify-content: space-between
+			max-width: 710px
+			flex: 1 0 auto
+	.select
+		height: 50px
+		border: 0
+		width: 100%
+		padding: 0 vh(20)
+		background: #fff url(../img/ico-btn-arrow.png) no-repeat center right 30px
+		&:not(:last-child)
+			margin-right: 50px
+
+	.btn
+		&--vacancy
+			border-radius: 0
+			padding: 16px 25px
+		&--resume
+			margin: 60px 0
+
+	&__item
+		outline: 1px solid $second-color
+		margin-bottom: 45px
+		&-header
+			position: relative
+			background: $second-color
+			font-size: rem(20)
+			padding: 22px 35px
+			letter-spacing: 0.06rem
+			cursor: pointer
+			&:after 
+				content: ""
+				position: absolute
+				background: url(../img/ico-btn-arrow.png) no-repeat center
+				width: 20px
+				height: 20px
+				right: 20px
+				transition: .5s
+		&-text 
+			display: none
+
+
+	.vacancy__text-item:first-child
+		.vacancy__text-left 
+			padding-top: 33px
+		.vacancy__text-right
+			padding-top: 33px
+
+	.vacancy__text-item:last-child
+		.vacancy__text-left 
+			padding-bottom: 30px
+		.vacancy__text-right
+			padding-bottom: 30px
+	&__list
+		font-size: rem(13)
+		line-height: rem(22)
+	&__text
+		&-item 
+			display: flex
+
+
+		&-left
+			width: persent(230, 1200)
+			padding: 22px 20px 0 40px				
+		&-right 
+			width: persent(970, 1200)
+			padding: 22px 20px 0 40px	
+			border-left: 1px solid $second-color
+			max-width: 670px
+
+
+.wrapper-contacts
+	position: absolute
+	top: 50%
+	right: persent(380, 1690)
+	transform: translateY(-50%)
+	padding: 65px 75px
+	background: #fff
+	max-width: 295px
+	z-index: 20
+	h2 
+		font-size: rem(30)
+		line-height: rem(30)
+		margin-bottom: 10px
+	.name
+		font-size: rem(16)
+		line-height: rem(26)
+
+.contacts
+	background: $second-color
+
+	&-map
+		margin-bottom: 85px
+		position: relative
+	.forms
+		&-wrap 
+			width: 100%
+		&-contacts
+			max-width: 100%
+		&__input
+			border: 0
+
+
+		&-header 
+			display: flex 
+			flex-direction: column
+			align-items: flex-start
+			&-wrap 
+				padding: 45px 50px 43px
+		&-text-cont
+			letter-spacing: 0.04rem
+		&-body
+			&-wrap 
+				padding: 57px 50px 60px
+
+		&__title 
+			margin-bottom: 5px
+		&-name
+			width: 100%
+			.forms-input-cont 
+				width: persent(367, 1200)
+		&-input-city
+			width: persent(367, 1200)
+		&-input-textarea 
+			width: 62.5% !important
+		&-input-cont--file
+			width: 68%
+			margin-bottom: 45px
+		&__label--file:before
+			background-color: #fff
+		&__submit
+			font-size: rem(14)
+			letter-spacing: 0.01rem
+			padding: 14px 23px
+			background: $main-color
+			border: 0
+		&-submit-cont
+			margin-top: 43px
+	.recaptcha
+		margin-top: 30px
+
+.doc-panel
+
+	&__header
+		display: flex
+		justify-content: flex-start
+		margin-bottom: 50px
+		max-width: 1180px
+
+	.btn-panel
+		cursor: pointer
+		background-color: #fff
+		padding: 25px 0
+		text-align: center
+		color: #000
+		//flex: 1 1 auto
+		width: persent(190, 1200)
+		text-decoration: none
+		white-space: nowrap
+
+		&:not(:last-child)
+			margin-right: 15px
+
+		&.active
+			background-color: $second-color
+			color: #000
+
+	&__info:not(:last-child)
+		margin-bottom: 40px
+	&__text 
+		&-img
+			width: persent(270)
+	&__text-info
+		//@extend %text-page
+		display: none
+
+
+		&.active
+			display: block
+	&__text-list
+
+	&__text-item
+		display: flex
+		border-bottom: 1px solid #ecf0f2
+		padding: 45px 0
+
+
+	&__info-dop
+		display: flex
+
+	&__info-discription
+		display: flex
+		flex-direction: column
+		margin-left: 45px
+		align-self: center
+
+		a
+			display: flex
+			flex-direction: column
+			text-decoration: none
+
+	&__content
+
+
+.favorites
+	margin-top: -50px
+	&__item 
+		background: $second-color
+		border-top: 1px solid $border-color
+
+	.cart__one-img-cont
+		position: relative
+		background: #fff
+		margin-left: 13px
+	.cat-plate__one-new
+		top: 20px 
+		left: 20px
+	.cart__one-info 
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+	.cart__one 
+		display: flex
+		padding: 78px 0 75px 57px
+		align-items: stretch
+	.cart__one-title
+		line-height: 23px
+	.cart__one-favorite 
+		align-self: center
+	.cat-cart
+		align-self: center
+		margin-bottom: 40px
+		// margin-right: 15px
+	.cat-list__one-desc
+		margin-top: 0
+		font-size: rem(14)
+	.cart__one-price-cont
+		margin-left: 30px
+		align-items: flex-start
+	.cat-plate__price-block--sale
+		margin-bottom: 0
+		margin-top: 17px
+		.cat-price:after 
+			border-bottom: 19px solid transparent
+			border-right: 9px solid $second-color
+			border-top: 19px solid transparent
+	.cat__one-counter
+		display: flex-start
+		align-self: center
+	.cat-counter__input 
+		background: $second-color
+	.cat-counter
+		margin-bottom: 40px
+		margin-right: 25px
+	.likes__count
+		display: flex 
+		align-items: center
+		width: 34px
+		height: 32px
+		background: #fff
+		border: 0
+	.likes__img
+		border: 0
+		border-right: 1px solid $border-color
+.history-order
+	margin-top: -50px
+	&__list
+		background: $second-color
+		border-top: 1px solid $border-color
+	&__item 
+		&-top 
+			display: flex 
+			justify-content: space-between
+			padding: 80px 55px 17px
+			border-bottom: 1px solid $border-color
+			&--left
+				display: flex
+				font-size: rem(18)
+			&-link 
+				text-decoration: none
+				
+		&-middle 
+			color: #aaaaa8
+			padding: 20px 55px
+			border-bottom: 1px solid $border-color
+
+		&-info 
+			display: flex 
+			justify-content: space-between
+			padding: 28px 55px
+			&-data 
+				color: #aaaaa8
+				margin-bottom: 10px
+			&--right
+				margin-right: 70px
+			&--left 
+				line-height: 20px
+		&-detail 
+			display: flex 
+			justify-content: space-between
+			padding: 0 55px 27px
+			&--link 
+				text-decoration: none
+				font-family: "Roboto"
+				line-height: 32px
+			&--black 
+				color: #000
+			&--left 
+				display: flex 
+				flex-direction: column
+				max-width: 690px
+				margin-right: 20px
+			&--right 
+				display: flex
+				margin-top: 7px
+			&-title
+				margin-bottom: 10px
+
+	&__num 
+		margin-right: 20px
+	&__data 
+		position: relative
+		color: #aaaaa8
+		padding-left: 20px
+		&:before 
+			content: "/"
+			position: absolute
+			left: 0
+	&__more
+		padding: 0 55px 50px
+		&-link 
+			color: #000
+			padding-left: 20px
+			position: relative
+			&:before
+				content: ""
+				position: absolute
+				left: 0
+				top: 6px
+				width: 10px
+				height: 10px
+				background: url(../img/ico-select-arrow-gray.png) no-repeat center
+	&__btn
+		&:not(:last-child)
+			margin-right: 25px
+	.status
+		display: block
+		position: relative
+		font-weight: bold
+		padding-left: 30px
+		margin-top: 10px
+		&--performed
+			background: url(../img/performed.png) center left no-repeat
+		&--canceled 
+			background: url(../img/canceled.png) center left no-repeat
+		&--expects 
+			background: url(../img/expects.png) center left no-repeat
+		&--one-c
+			background: url(../img/one-c.png) center left no-repeat
+
+	.btn--history-order
+		border-radius: 0
+		font-size: rem(15)
+		letter-spacing: 0.01rem
+		padding: 16px 27px
+.history-order__item:not(:last-child) .history-order__more
+	border-bottom: 1px solid $border-color
+
+.personal-information
+	position: relative
+	margin-top: -50px
+	background: $second-color
+	border-top: 1px solid $border-color
+	.forms-wrap-checkbox
+		.forms-checkbox
+			&:last-child
+				display: none
+	.forms
+		&-wrap
+			position: relative
+			justify-content: flex-start
+			padding: 50px 57px
+			&:first-child
+				padding-bottom: 0
+			&:nth-child(3)
+				padding: 45px 57px 25px 57px
+				
+			&-checkbox
+				padding-top: 5px
+				padding-bottom: 50px
+				border-bottom: 1px solid $border-color
+
+		&-input-cont
+			width: persent(364, 1200)
+			&:not(:nth-child(3n))
+				margin-right: persent(45, 1200)
+
+
+
+		&-checkbox
+			// width: persent(365,1200)
+			margin-right: persent(45,1200)
+			&:not(:nth-child(3n))
+				margin-right: 45px
+			&-label
+				
+				
+		&-wrap--bot
+			justify-content: space-between
+			align-items: center
+			border-top: 1px solid $border-color
+			.forms-submit-cont
+				padding-right: 0
+				margin-top: 0
+			.forms__submit
+				font-size: rem(14)
+				padding: 15px 28px
+				background: $main-color
+			.forms-checkbox
+				margin-right: auto
+			.recaptcha
+				padding-right: 70px
+			.forms__checkbox-label
+				padding-left: 45px
+	.forms__checkbox-label
+		font-size: rem(14)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// @import "media"

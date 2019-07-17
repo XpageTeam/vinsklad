@@ -1,0 +1,54 @@
+form
+	.catalog-filter__bock
+		.filter-block
+			.filter-block__title Цена
+			.filter-block__content
+				.filter-block__price
+					.price-filter(data-step="1")
+						.input-group
+							input.catalog-filter__input.input-group__input(type="tel" data-min="0" value="0")
+							input.catalog-filter__input.input-group__input(type="tel" data-max="50000" value="2500")
+						i.price-filter__range.range
+		.filter-block
+			.filter-block__title Страна
+			.filter-block__content
+				ul.filter__checks
+					li.filter__checks-el
+						.checkbox
+							input.checkbox__input(type="checkbox" id="check-f")
+							label.checkbox__label(for="check-f") Россия
+		.filter-block
+			.filter-block__title Алкоголь (крепость)
+			.filter-block__content
+				.filter-block__price
+					.price-filter(data-step="0.1")
+						.input-group
+							input.catalog-filter__input.input-group__input(type="tel" data-min="10" value="10")
+							input.catalog-filter__input.input-group__input(type="tel" data-max="40" value="30")
+						i.price-filter__range.range
+		.filter-block.closed
+			.filter-block__title Объём
+			.filter-block__content
+				.filter-block__price
+					.price-filter(data-step="0.2")
+						.input-group
+							input.catalog-filter__input.input-group__input(type="tel" data-min="10" value="10")
+							input.catalog-filter__input.input-group__input(type="tel" data-max="40" value="30")
+						i.price-filter__range.range
+		.filter-block
+			.filter-block__title Популярное
+			.filter-block__content
+				ul.filter__checks
+					li.filter__checks-el
+						.checkbox
+							input.checkbox__input(type="checkbox" checked id="check-f2")
+							label.checkbox__label(for="check-f2") Россия
+		.filter-block
+			.filter-block__title Производитель
+			.filter-block__content
+				.filter__search
+					checks-filter(:list='[{name: "DRIADA GROUP", checked: true}, {name: "«Вино-Гранде» ООО", checked: false}, {name: "Вагрус, ООО", id: "s-3", checked: false}, {name: "ВИЛАШ", checked: false}, {name: "Винзавод «Надежда»", checked: false}]')
+		.filter__btns
+			.filter-btns
+				input.filter-btns__btn.filter-btns__btn--submit(type="submit" value="Показать")
+				a.filter-btns__btn.filter-btns__btn--reset(href="#") Сбросить

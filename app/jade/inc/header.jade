@@ -1,0 +1,37 @@
+transition(name="head-message__transition")
+	.head-message(:class="headMessageClass" v-if="headMessageShow")
+		.head-message__text(v-html="headMessage")
+header.head
+	.wrapper
+		.head__top
+			.head__shop(v-cloak="")
+				.head__shop-city
+					.city(@click="showCityPopup") {{ userCity.name || "Выберите город" }}
+				.head__shop-address
+					address.address(@click="showShopPopup()") {{ mainShop.address || "Выберите магазин" }}
+			.head-top__right
+				.head-links
+					.head-links__phone
+						address.top-phone
+							a(href="tel: 8 800 000 00 00") 8 800 000 00 00
+					.head-links__feedback
+						a.feedback-link(href="#") Обратная связь
+					.head-links__lc
+						a.lc-link(href="#") Личный кабинет
+		.head__mid
+			.head__logo
+				a.logo(href="/")
+					img.logo__img(src="img/logo.png", alt="")
+			.head__search
+				.search
+					form
+						.search-wrap
+							.search__input-cont
+								input.search__input(type="text" placeholder="Поиск по товарам")
+								input.search__submit(type="submit")
+			.head__fc
+				a.head__favorite(href="#")
+				a.head__cart(href="#")
+					span.head__cart-count 2 товара
+					span.head__cart-price 4 879.60 <i class="rub">₽</i>
+		

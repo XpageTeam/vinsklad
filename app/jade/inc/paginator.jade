@@ -1,0 +1,13 @@
+ul.paginator
+	li.paginator__el.paginator__el--arrow
+		a.paginator__arrow.paginator__arrow--left(href="#")
+	- for(var i = 1; i <= 6; i++){
+		li.paginator__el
+			a.paginator__link(href="#")=i
+	- }
+	li.paginator__el
+		span.paginator__dots ...
+	li.paginator__el
+			a.paginator__link.active(href="#") 20
+	li.paginator__el.paginator__el--arrow
+		a.paginator__arrow.paginator__arrow--right(href="#")

@@ -1,0 +1,281 @@
+
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Корзина</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="description"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,700&amp;amp;subset=cyrillic" rel="stylesheet"/>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/jquery.fancybox.css"/>
+    <link rel="stylesheet" href="css/jquery.jscrollpane.css"/>
+    <link rel="stylesheet" href="css/ui-slider.css"/>
+    <link rel="stylesheet" href="css/fonts.css"/>
+    <link rel="stylesheet" href="css/slick.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="css/forms.css"/>
+    <link rel="stylesheet" href="css/main_data.css"/>
+  </head>
+  <body class="inner">
+    <div id="page-wr">
+      <div id="content">
+        <transition name="head-message__transition">
+          <div :class="headMessageClass" v-if="headMessageShow" class="head-message">
+            <div v-html="headMessage" class="head-message__text"></div>
+          </div>
+        </transition>
+        <header class="head">
+          <div class="wrapper">
+            <div class="head__top">
+              <div v-cloak="" class="head__shop">
+                <div class="head__shop-city">
+                  <div @click="showCityPopup" class="city">{{ userCity.name || "Выберите город" }}</div>
+                </div>
+                <div class="head__shop-address">
+                  <address @click="showShopPopup()" class="address">{{ mainShop.address || "Выберите магазин" }}</address>
+                </div>
+              </div>
+              <div class="head-top__right">
+                <div class="head-links">
+                  <div class="head-links__phone">
+                    <address class="top-phone"><a href="tel: 8 800 000 00 00">8 800 000 00 00</a></address>
+                  </div>
+                  <div class="head-links__feedback"><a href="#" class="feedback-link">Обратная связь</a></div>
+                  <div class="head-links__lc"><a href="#" class="lc-link">Личный кабинет</a></div>
+                </div>
+              </div>
+            </div>
+            <div class="head__mid">
+              <div class="head__logo"><a href="/" class="logo"><img src="img/logo.png" alt="" class="logo__img"/></a></div>
+              <div class="head__search">
+                <div class="search">
+                  <form>
+                    <div class="search-wrap">
+                      <div class="search__input-cont">
+                        <input type="text" placeholder="Поиск по товарам" class="search__input"/>
+                        <input type="submit" class="search__submit"/>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="head__fc"><a href="#" class="head__favorite"></a><a href="#" class="head__cart"><span class="head__cart-count">2 товара</span><span class="head__cart-price">4 879.60 <i class="rub">₽</i></span></a></div>
+            </div>
+          </div>
+        </header>
+        <div class="content">
+          <div class="wrapper">
+            <div class="inner-cont">
+              <div class="title-block__cont">
+                <div class="titile-block">
+                  <div class="title-block__crumbs">
+                    <div class="bread-crumbs"><a href="#" class="bread-crumbs__link">Главная</a><a href="#" class="bread-crumbs__link">Личный кабинет</a><span class="bread-crumbs__this">Корзина</span></div>
+                  </div>
+                  <h1 class="title-block__title">Корзина</h1>
+                </div>
+              </div>
+              <div class="cart__cont">
+                <div v-if="!mainShop" v-cloak="v-cloak" class="select-shop__cont">
+                  <div class="select-shop">
+                    <div class="select-shop__titles">
+                      <div class="select-shop__title">Магазин не выбран</div>
+                      <div class="select-shop__subtitle">Выберите магазин, чтобы увидеть актуальные цены и наличие товара.</div>
+                    </div>
+                    <div class="select-shop__btn"><a href="#" @click="selectShop()" class="btn btn--rectangle">Выбрать магазин</a></div>
+                  </div>
+                </div>
+                <div class="cart">
+                  <div class="cart__list">
+                    <div class="cart__one">
+                      <div class="cart__one-favorite"><a href="#" class="cat-favorite added"></a></div><a href="#" class="cart__one-img-cont"><img src="img/photos/cart-img.jpg" alt="" class="cart__one-img"/></a>
+                      <div class="cart__one-info"><a href="#" class="cart__one-title"><span class="cat-title">Вино Анайон защищ. наим.кр.сух DOP</span></a>
+                        <div class="cat-list__one-desc">
+                          <div class="cat-desc">0.75 л., Испания, Кариньена, 14.5%</div>
+                          <div class="cat-from"><img src="img/photos/flag-1.jpg" alt=""/></div>
+                        </div>
+                      </div>
+                      <div class="cart__one-price-cont">
+                        <div class="cart__one-price">
+                          <div class="cat-price">1199.<span class="cat-price__kop">90<i class="rub">₽</i></span> </div>
+                        </div>
+                        <div class="cat__one-counter">
+                          <div class="cat-counter"><a href="#" class="cat-counter__link cat-counter__link--minus"></a>
+                            <input type="text" value="1" class="cat-counter__input"/><a href="#" class="cat-counter__link cat-counter__link--plus"></a>
+                          </div>
+                        </div>
+                        <div class="cart__one-price cart__one-price--total">
+                          <div class="cat-price">1199.<span class="cat-price__kop">90<i class="rub">₽</i></span></div>
+                        </div>
+                      </div>
+                      <div class="cart__one-delete"><a href="#" class="delete"></a></div>
+                    </div>
+                    <div class="cart__one">
+                      <div class="cart__one-favorite"><a href="#" class="cat-favorite"></a></div><a href="#" class="cart__one-img-cont"><img src="img/photos/cart-img.jpg" alt="" class="cart__one-img"/></a>
+                      <div class="cart__one-info"><a href="#" class="cart__one-title"><span class="cat-title">Вино Анайон защищ. наим.кр.сух DOP</span></a>
+                        <div class="cat-list__one-desc">
+                          <div class="cat-desc">0.75 л., Испания, Кариньена, 14.5%</div>
+                          <div class="cat-from"><img src="img/photos/flag-1.jpg" alt=""/></div>
+                        </div>
+                      </div>
+                      <div class="cart__one-price-cont">
+                        <div class="cart__one-price">
+                          <div class="cat-price">1199.<span class="cat-price__kop">90<i class="rub">₽</i></span> </div>
+                        </div>
+                        <div class="cat__one-counter">
+                          <div class="cat-counter"><a href="#" class="cat-counter__link cat-counter__link--minus"></a>
+                            <input type="text" value="1" class="cat-counter__input"/><a href="#" class="cat-counter__link cat-counter__link--plus"></a>
+                          </div>
+                        </div>
+                        <div class="cart__one-price cart__one-price--total">
+                          <div class="cat-price">1199.<span class="cat-price__kop">90<i class="rub">₽</i></span></div>
+                        </div>
+                      </div>
+                      <div class="cart__one-delete"><a href="#" class="delete"></a></div>
+                    </div>
+                  </div>
+                  <div class="cart__itog">
+                    <div class="cart-itog">
+                      <div class="cart-itog__title">Итого:</div>
+                      <div class="cart-itog__price"> 
+                        <div class="cat-price">1199.<span class="cat-price__kop">90<i class="rub">₽</i></span> </div>
+                      </div>
+                    </div>
+                    <div v-cloak="v-cloak" v-if="!mainShop" class="cart-itog__btn"><a href="#" @click="selectShop()" class="btn btn--rectangle">Выбрать магазин</a></div>
+                  </div>
+                  <div v-cloak="v-cloak" class="order-form__cont"><!-- Для .order-form__cont добавить атрибут v-if="mainShop" -->
+                    <div class="order-form">
+                      <form>
+                        <div class="order-form__date">
+                          <div class="order-date">
+                            <div class="order-date__title">Выберите удобные дату и время</div>
+                            <div class="order-date__input-cont">
+                              <input type="text" class="order-date__input"/>
+                              <div class="calendar-icon"></div>
+                            </div>
+                            <div class="order-date__text"> 
+                              <p>Мы подготовим ваш список товаров к указанной дате. </p>
+                              <p>Срок хранения - 1 сутки. Затем резерв аннулируется.</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="order-form__main">
+                          <div class="order-form__wrap">
+                            <div class="order-form__input-cont">
+                              <input type="text" class="order-form__input"/>
+                              <label class="order-form__label">Имя</label>
+                            </div>
+                            <div class="order-form__input-cont">
+                              <input type="tel" class="order-form__input"/>
+                              <label class="order-form__label">Телефон</label>
+                            </div>
+                            <div class="order-form__input-cont">
+                              <input type="text" class="order-form__input"/>
+                              <label class="order-form__label">E-mail</label>
+                            </div>
+                            <div class="order-form__input-cont">
+                              <textarea class="order-form__input order-form__input--textarea"></textarea>
+                              <label class="order-form__label">Сообщение</label>
+                            </div>
+                            <div class="order-form__input-cont order-form__input-cont--last">
+                              <div class="order-form__input-checkbox">
+                                <div class="checkbox">
+                                  <input type="checkbox" checked="checked" id="check-f2" class="checkbox__input"/>
+                                  <label for="check-f2" class="checkbox__label"> <span>Даю согласие на обработку моих <a href="#">  персональных данных</a></span></label>
+                                </div>
+                              </div>
+                              <div class="order-form__submit-cont">
+                                <input type="submit" value="Оформить резерв" class="order-form__submit btn btn--rectangle"/>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="wrapper">
+          <nav class="footer__top">
+            <div class="footer-menu__cont">
+              <div class="footer-menu__title">О Компании</div>
+              <ul class="footer-menu">
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">О нас</a></li>
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">Контакты</a></li>
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">Обратная связь</a></li>
+              </ul>
+            </div>
+            <div class="footer-menu__cont">
+              <div class="footer-menu__title">Покупателям</div>
+              <ul class="footer-menu">
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">Карта постоянного покупателя</a></li>
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">Каталог</a></li>
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">Магазины</a></li>
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">Акции</a></li>
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">Новости</a></li>
+              </ul>
+            </div>
+            <div class="footer-menu__cont">
+              <div class="footer-menu__title">Вакансии</div>
+              <ul class="footer-menu">
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">Заполнить форму</a></li>
+              </ul>
+              <div class="footer__msgs">
+                <div class="msgs">
+                  <div class="soc"><span href="#" style="background-image: url('img/photos/tel.png')" class="soc__link"></span><span href="#" style="background-image: url('img/photos/wa.png')" class="soc__link"></span><span href="#" style="background-image: url('img/photos/vb.png')" class="soc__link"></span>
+                  </div>
+                  <div class="msgs__phone"><span>+7 922 333 22 01</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="footer-menu__cont">
+              <div class="footer-menu__title">Помощь</div>
+              <ul class="footer-menu">
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">Как зарезервировать товар?</a></li>
+              </ul>
+              <div class="footer__soc">
+                <div class="soc"><a href="#" style="background-image: url('img/ico-soc-1.png')" class="soc__link"></a><a href="#" style="background-image: url('img/ico-soc-2.png')" class="soc__link"></a><a href="#" style="background-image: url('img/ico-soc-3.png')" class="soc__link"></a>
+                </div>
+              </div>
+            </div>
+          </nav>
+          <div class="footer__bot">
+            <div class="footer__copy">
+              <div class="copy">&copy; 2017 <br /> Винный склад «Изобилие»</div>
+            </div>
+            <div class="footer__text">
+              <div class="footer-text">
+                <div>Все материалы на сайте носят информационный характер и не являются рекламой.</div>
+                <div> <a href="#">Политика конфиденциальности</a></div>
+              </div>
+            </div>
+            <div class="footer__dev"><a href="http://xpage.ru" traget="_blank" class="dev"><span class="dev__text">Сделано в</span><img src="img/ico-dev.png" alt="" class="dev__img"/></a></div>
+          </div>
+        </div>
+      </footer>
+      <div id="shops" class="forms">
+        <div class="forms__title">Выбрать магазин</div>
+        <div class="forms-shops">
+          <shops></shops>
+        </div>
+      </div>
+    </div>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/cookie.js"></script>
+    <script src="js/jquery.mousewheel.js"></script>
+    <script src="js/jquery.jscrollpane.min.js"></script>
+    <script src="js/vuex.js"></script>
+    <script src="js/vue.min.js"></script>
+    <script src="js/jquery.ui-slider.js"></script>
+    <script src="js/slick.js"></script>
+    <script src="js/jquery.fancybox.js"></script>
+    <script src="js/common.js"></script>
+  </body>
+</html>

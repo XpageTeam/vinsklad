@@ -1,0 +1,123 @@
+html
+	head
+		meta(charset="utf-8")
+		title Корзина
+		include inc/head.jade
+		include inc/css.jade
+	body.inner
+		#page-wr
+			#content
+				include inc/header.jade
+				.content
+					.wrapper
+						.inner-cont
+							.title-block__cont
+								.titile-block
+									.title-block__crumbs
+										.bread-crumbs
+											a.bread-crumbs__link(href="#") Главная
+											a.bread-crumbs__link(href="#") Личный кабинет
+											span.bread-crumbs__this Корзина
+									h1.title-block__title Корзина
+							.cart__cont
+								.select-shop__cont(v-if="!mainShop" v-cloak)
+									.select-shop
+										.select-shop__titles
+											.select-shop__title Магазин не выбран
+											.select-shop__subtitle Выберите магазин, чтобы увидеть актуальные цены и наличие товара.
+										.select-shop__btn
+											a.btn.btn--rectangle(href="#" @click="selectShop()") Выбрать магазин
+								.cart
+									.cart__list
+										.cart__one
+											.cart__one-favorite
+												a.cat-favorite.added(href="#")
+											a.cart__one-img-cont(href="#")
+												img.cart__one-img(src="img/photos/cart-img.jpg", alt="")
+											.cart__one-info
+												a.cart__one-title(href="#")
+													span.cat-title Вино Анайон защищ. наим.кр.сух DOP
+												.cat-list__one-desc
+													.cat-desc 0.75 л., Испания, Кариньена, 14.5%
+													.cat-from
+														img(src="img/photos/flag-1.jpg", alt="")
+											.cart__one-price-cont
+												.cart__one-price
+													.cat-price 1199.<span class="cat-price__kop">90<i class="rub">₽</i></span> 
+												.cat__one-counter
+													.cat-counter
+														a.cat-counter__link.cat-counter__link--minus(href="#")
+														input.cat-counter__input(type="text" value="1")
+														a.cat-counter__link.cat-counter__link--plus(href="#")
+												.cart__one-price.cart__one-price--total
+													.cat-price 1199.<span class="cat-price__kop">90<i class="rub">₽</i></span>
+											.cart__one-delete
+												a.delete(href="#")
+										.cart__one
+											.cart__one-favorite
+												a.cat-favorite(href="#")
+											a.cart__one-img-cont(href="#")
+												img.cart__one-img(src="img/photos/cart-img.jpg", alt="")
+											.cart__one-info
+												a.cart__one-title(href="#")
+													span.cat-title Вино Анайон защищ. наим.кр.сух DOP
+												.cat-list__one-desc
+													.cat-desc 0.75 л., Испания, Кариньена, 14.5%
+													.cat-from
+														img(src="img/photos/flag-1.jpg", alt="")
+											.cart__one-price-cont
+												.cart__one-price
+													.cat-price 1199.<span class="cat-price__kop">90<i class="rub">₽</i></span> 
+												.cat__one-counter
+													.cat-counter
+														a.cat-counter__link.cat-counter__link--minus(href="#")
+														input.cat-counter__input(type="text" value="1")
+														a.cat-counter__link.cat-counter__link--plus(href="#")
+												.cart__one-price.cart__one-price--total
+													.cat-price 1199.<span class="cat-price__kop">90<i class="rub">₽</i></span>
+											.cart__one-delete
+												a.delete(href="#")
+									.cart__itog
+										.cart-itog
+											.cart-itog__title Итого:
+											.cart-itog__price 
+												.cat-price 1199.<span class="cat-price__kop">90<i class="rub">₽</i></span> 
+										.cart-itog__btn(v-cloak v-if="!mainShop")
+											a.btn.btn--rectangle(href="#" @click="selectShop()") Выбрать магазин
+									.order-form__cont(v-cloak)
+										<!-- Для .order-form__cont добавить атрибут v-if="mainShop" -->
+										.order-form
+											form
+												.order-form__date
+													.order-date
+														.order-date__title Выберите удобные дату и время
+														.order-date__input-cont
+															input.order-date__input(type="text")
+															.calendar-icon
+														.order-date__text 
+															p Мы подготовим ваш список товаров к указанной дате. 
+															p Срок хранения - 1 сутки. Затем резерв аннулируется.
+												.order-form__main
+													.order-form__wrap
+														.order-form__input-cont
+															input.order-form__input(type="text")
+															label.order-form__label Имя
+														.order-form__input-cont
+															input.order-form__input(type="tel")
+															label.order-form__label Телефон
+														.order-form__input-cont
+															input.order-form__input(type="text")
+															label.order-form__label E-mail
+														.order-form__input-cont
+															textarea.order-form__input.order-form__input--textarea
+															label.order-form__label Сообщение
+														.order-form__input-cont.order-form__input-cont--last
+															.order-form__input-checkbox
+																.checkbox
+																	input.checkbox__input(type="checkbox" checked id="check-f2")
+																	label.checkbox__label(for="check-f2") 
+																		span Даю согласие на обработку моих <a href="#">  персональных данных</a>
+															.order-form__submit-cont
+																input.order-form__submit.btn.btn--rectangle(type="submit" value="Оформить резерв")
+			include inc/footer.jade
+		include inc/scripts.jade

@@ -1,0 +1,999 @@
+$output-bourbon-deprecation-warnings: false;
+@import "bourbon"
+@import "vars"
+
+@function persent($px, $base: $base-width)
+	@return $px/$base*100 + %
+
+@function vw($px, $base: 1920)
+	@return $px/$base*100 + vw
+
+@function vh($px, $base: 972)
+	@return $px/$base*100 + vh
+
+$base-color: #171717
+$border-color: #d5dbdf
+$error-color: #ff0024
+
+.fancybox-close
+	background: url(../img/fancybox-close.png) no-repeat center
+
+.fancybox
+	
+	&-skin
+		border-radius: 0
+
+	&-close
+		+size(30px)
+		position: absolute
+		top: 50px
+		right: 55px
+		text-decoration: none
+		display: flex
+		align-items: center
+		justify-content: center
+
+		&:after
+			//content: "+"
+			color: #000
+			font-weight: 300
+			font-size: 40px
+			display: block
+			transform: rotate(45deg)
+
+
+.order-form__input
+
+	&[required] 
+
+		+ .order-form__label:after
+			content: "*"
+			color: red
+			display: inline-block
+
+
+.forms__input_error
+	
+	~ .forms__error-message
+		display: block
+	+ .checkbox__label span 
+		color: red
+
+.forms
+	display: none
+	max-width: 1015px
+	box-sizing: border-box
+	// padding: 50px 87px 75px
+	background: #fff
+
+	&__title
+		font-size: rem(30)
+		text-align: center
+		font-family: "Proxima Nova", sans-serif
+		font-weight: 300
+		margin-bottom: 55px
+		color: #000
+	
+	&-header
+		border-bottom: 1px solid $border-color
+
+	&-text-cont
+		display: flex
+		justify-content: center
+		font-size: rem(14)
+		line-height: rem(20)
+		letter-spasing: 0.04rem
+
+	&__text
+		margin: vh(25) 0
+		max-width: 540px
+		text-align: center
+		font-size: rem(14)
+		line-height: rem(20)
+
+	&-wrap
+		display: flex
+		justify-content: space-between
+		flex-wrap: wrap
+
+		&--bot
+
+			> div
+				//width: 50%
+				box-sizing: border-box
+
+				&:nth-child(odd)
+					padding-right: 15px
+
+				&:nth-child(even)
+					padding-left: 15px
+
+	&-input-cont
+		display: flex
+		flex-direction: column-reverse
+		box-sizing: border-box
+		width: 47.2%
+		min-width: 10px
+		position: relative
+		margin-bottom: vh(30)
+
+		&--req
+			justify-content: space-between
+			align-items: flex-start
+
+		&:nth-child(odd)
+			//padding-right: vw(12)
+
+		&:nth-child(even)
+			//padding-left: vw(12)
+
+		&--file, &--textarea
+			width: 100%
+			padding: 0 !important
+
+		&--file
+			position: relative
+
+			&.forms__input_error
+
+				~ input[type="text"]
+					border-color: $error-color
+
+	&__input
+		box-sizing: border-box
+		+size(100% 49px)
+		border: 1px solid $border-color
+		border-radius: 1px
+		padding: 0 vw(17)
+		outline: none
+
+		&_error
+			border-color: $error-color
+
+			+ .forms__checkbox-label
+				color: $error-color
+
+		&[required] + .forms__label:after
+			content: "*"
+			color: red
+		
+
+		&--select
+			-webkit-appearance: none
+			background: url("../img/ico-select-arrow.png") center right 15px no-repeat, #f4f4f4
+			color: #777777
+
+		&--file
+			display: none
+
+			&-support
+				width: 77.34%
+
+		&--textarea
+			max-width: 100%
+			height: vh(142)
+			padding:
+				top: 5px
+				bottom: 5px
+			max-height: 180px
+
+	&__file-formats
+		order: -1
+		margin-top: vh(15)
+		font-size: rem(14)
+		color: #777777
+
+	&__label
+		margin-bottom: vh(13)
+
+		&--file
+			order: 1
+			pointer-events: none
+
+			&:before
+				content: attr(data-btn-text)
+				position: absolute
+				pointer-events: all
+				background: url("../img/ico-view.png") center left 15px no-repeat, #f4f4f4
+				right: 0
+				top: 33px
+				cursor: pointer
+				+size(18.57% 49px)
+				text-align: right
+				line-height: 49px
+				box-sizing: border-box
+				padding-right: vw(16)
+
+	&-checkbox
+		position: relative
+
+		&:before
+			content: ""
+			position: absolute
+			top: 3px
+			left: 0
+			+size(23px)
+			//border: 1px solid $border-color
+			border-radius: 1px
+			background: #fff
+
+	&__checkbox
+		opacity: 0
+		position: absolute
+
+		&:checked + label
+
+			&:before, &:after
+				opacity: 1
+		
+		&-label
+			position: relative
+			z-index: 2
+			font-size: rem(16)
+			line-height: rem(20)
+			padding-left: 45px
+			cursor: pointer
+			height: 32px
+			display: flex
+			span 
+				align-self: center
+
+			&:before, &:after
+				content: ""
+				position: absolute
+				background: #e31e24
+				transition: opacity .5s ease
+				opacity: 0
+
+			&:before
+				+size(10px 2px)
+				top: 11px
+				left: 5px
+				transform-origin: left
+				transform: rotate(45deg)
+
+			&:after
+				+size(10px 2px)
+				top: 11px
+				left: 8px
+				transform-origin: right
+				transform: rotate(-45deg)
+
+	&__req-text
+		text-align: right
+
+		&:before
+			content: "* "
+			color: red
+			font-size: rem(14)
+
+	&-submit-cont
+		display: flex
+		justify-content: center
+		margin-top: vh(40)
+
+	&__submit
+		color: #fff
+		border: 0
+		cursor: pointer
+		// background: $main-color
+		font-size: rem(18)
+		padding: vh(12) vw(40)
+
+	&__error
+
+		&-message
+			border: 1px solid #d4d4d4
+			background: #fff
+			color: #000
+			padding: 7px 10px
+			border-radius: 7px
+			position: absolute
+			top: 0
+			right: -6px
+			box-shadow: 0px 0px 21px 0px rgba(0, 0, 0, 0.1)
+			display: none
+
+			&:after
+				content: ""
+				background: url("../img/error-triangle.png") no-repeat
+				position: absolute
+				top: calc(100% - 0px)
+				right: 19px
+				+size(15px 8px)
+
+			&--file
+
+				.forms__error-message-icon
+					display: none
+
+			&-icon
+				display: block
+				border-radius: 50%
+				position: absolute
+				border: 1px solid $error-color
+				+size(19px)
+				background: #fff
+				top: 44px
+				right: 16px
+
+				&:after, &:before
+					content: ""
+					position: absolute
+					width: 1px
+					background: $error-color
+					left: calc(50% - 1px)
+
+				&:before
+					top: 4px
+					height: 8px
+
+				&:after
+					bottom: 4px
+					height: 2px
+	&-input-link
+		padding: 16px 18px
+		background: #f2f6f8
+		text-decoration: none
+		color: #000
+	// .forms__register-user.forms
+	// 	padding: 43px 73px 75px 
+	&__register-user
+		padding: 0
+		.forms
+			&-wrap
+				display: flex 
+				flex-direction: column
+				padding: 43px 73px 70px
+
+			&__input-wrap 
+				display: flex
+				flex-wrap: wrap
+			&__title 
+				text-align: left
+				padding: 43px 73px 42px
+				border-bottom: 1px solid $border-color
+				margin-bottom: 10px
+			&__recaptcha-wrap
+				display: flex
+				margin-top: 10px
+			&-checkbox-wrap
+				width: persent(520, 1015)
+				margin-right: 20px
+			&-checkbox
+				margin-bottom: 8px
+				&:before
+					border: 1px solid $border-color
+			&__checkbox-label
+				padding-left: 36px
+			&__submit
+				padding: 0
+		.btn-form 
+			border-radius: 0
+			margin-top: 30px
+			font-size: rem(14)
+			padding: 16px 28px
+		.forms-input-cont
+			width: persent(305, 1015)
+		.forms-input-cont:not(:nth-child(3n))
+			margin-right: 37px
+		.forms__submit
+			display: flex
+		.reg 
+			border-radius: 0;
+			margin-top: 0
+			font-size: 0.875rem
+			padding: 16px 26px
+			border: 1px solid #e31e24
+			text-decoration: none
+			margin-left: 37px
+			display: flex
+			margin-top: 30px
+
+
+	&__message
+		padding: 0
+		max-width: 1007px
+		// margin-left: -35px
+		.forms
+			&-wrap
+				display: flex 
+				flex-direction: column
+				padding: 34px 73px 70px
+				// margin-left: -35px
+
+			&__input-wrap 
+				display: flex
+				flex-wrap: wrap
+				margin-left: -35px
+			&__title 
+				text-align: left
+				padding: 43px 73px 42px
+				border-bottom: 1px solid $border-color
+				margin-bottom: 10px
+			&__recaptcha-wrap
+				display: flex
+				margin-top: 10px
+				align-items: center
+			&-checkbox-wrap
+				width: persent(520, 1015)
+				margin-right: 20px
+			&-checkbox
+				margin-bottom: 8px
+				&:before
+					border: 1px solid $border-color
+			&__checkbox-label
+				padding-left: 36px
+			&__submit
+				padding: 0
+			&__dop-info
+				font-size: rem(14)
+				line-height: rem(20)
+				margin-bottom: 35px
+				// margin-left: 35px
+			&-input-cont--textarea
+				position: relative
+				width: 100%
+				display: flex
+				flex-direction: column-reverse
+				margin-bottom: 20px
+				margin-left: 35px
+			&__input--textarea
+				max-height: 107px
+			&__recaptcha
+				margin-right: 45px
+			&__submit
+				margin-top: 45px 
+		.forms__error-message
+			padding: 5px
+		.btn-form 
+			border-radius: 0
+			margin-top: 0
+			font-size: rem(14)
+			padding: 16px 28px
+		.forms-input-cont
+			width: calc((100% - 37px * 3) / 3)
+			margin-left: 37px
+			display: flex
+			align-self: flex-start
+			&--file 
+				width: 62.5%
+				margin-bottom: 0
+				margin-right: 0!important
+		.forms__input--file
+			&-support
+				width: 100%
+		.forms__label--file
+			
+			&:before 
+				background: url(../img/ico-view.png) center left 65px no-repeat
+				overflow: hidden
+				height: 47px
+				top: 33px
+				right: 1px
+
+
+	
+	&__pass
+		padding: 0
+		max-width: 705px
+		// display: flex
+		flex: 1 0 auto
+		flex-direction: column
+		.forms
+			&-wrap
+				display: flex 
+				flex-direction: column
+				padding: 34px 75px 70px 75px
+
+			&__input-wrap 
+				display: flex
+				flex-wrap: wrap
+			&__title 
+				text-align: left
+				padding: 43px 73px 42px
+				border-bottom: 1px solid $border-color
+				margin-bottom: 10px
+
+			&__submit
+				padding: 0
+			&__dop-info
+				font-size: rem(14)
+				line-height: rem(20)
+				margin-bottom: 13px
+
+			&__submit
+				margin-top: 25px 
+		.btn-form 
+			border-radius: 0
+			margin-top: 0
+			font-size: rem(14)
+			padding: 16px 28px
+		.forms-input-cont
+			width: 260px
+			display: flex
+			align-self: flex-start
+	&__auth
+		padding: 0
+		max-width: 705px
+		display: flex
+		flex: 1 0 auto
+		flex-direction: column
+		.sub-text
+			padding: 10px 75px 10px 75px
+		.forms
+			&-wrap
+				display: flex 
+				flex-direction: column
+				padding: 34px 75px 70px 75px
+
+
+
+			&__input-wrap 
+				display: flex
+				flex-wrap: wrap
+			&__title 
+				text-align: left
+				padding: 43px 73px 42px
+				border-bottom: 1px solid $border-color
+				margin-bottom: 10px
+
+			&__submit
+				padding: 0
+			&__dop-info
+				font-size: rem(14)
+				line-height: rem(20)
+				margin-bottom: 13px
+
+			&__submit
+				margin-top: 25px
+				input
+					-webkit-appearance: none
+		.btn-form 
+			border-radius: 0
+			margin-top: 0
+			font-size: rem(14)
+			padding: 16px 28px
+		.forms-input-cont
+			width: 560px
+			display: flex
+			align-self: flex-start
+			input
+				-webkit-appearance: none
+		#auth-top-ul 
+			li
+				padding: 10px 25px
+				&:not(:last-child)
+					border-right: 1px solid $border-color
+				&.active
+					background: #e4e8ea
+		.auth-bottom-ul
+			padding-top: 30px
+			border-top: 1px solid $border-color
+		.forgot_passsword
+			order: -1
+			align-self: flex-end
+			margin-top: 15px
+			a 
+				text-decoration: none
+				font-size: rem(14)
+				line-height: rem(20)
+		.forms__submit
+			display: flex
+			.reg
+				border-radius: 0
+				margin-top: 0
+				font-size: rem(14)
+				padding: 16px 26px
+				border: 1px solid $main-color
+				text-decoration: none
+				margin-left: 37px
+				display: flex
+				// display: none
+		.error-text 
+			padding: 10px 75px
+			font-size: 20px
+			p 
+				font-size: rem(16)
+				font-family: "Proxima Nova", sans-serif
+
+
+
+
+
+	&__city
+		padding: 0
+		width: 730px
+		.forms
+			&-wrap
+				display: flex 
+				flex-direction: column
+				padding: 45px 73px 70px
+
+			&__input-wrap 
+				display: flex
+				flex-wrap: wrap
+			&__title 
+				text-align: left
+				padding: 43px 73px 42px
+				border-bottom: 1px solid $border-color
+				margin-bottom: 10px
+			&-input-cont
+				width: 260px
+				&:nth-child(odd)
+					margin-right: 35px
+			&__select
+				height: 49px
+				padding: 0 20px
+				border: 1px solid $border-color
+				background: #fff url(../img/ico-select.png) no-repeat center right 20px
+			&__submit
+				padding: 0
+			&__submit
+				margin-top: 25px 
+		.btn-form 
+			border-radius: 0
+			margin-top: 0
+			font-size: rem(14)
+			padding: 16px 28px
+
+	&__resume
+		padding: 0
+		.forms
+			&-wrap
+				display: flex 
+				flex-direction: column
+				padding: 34px 73px 70px
+
+			&__input-wrap 
+				display: flex
+				flex-wrap: wrap
+			&__title 
+				text-align: left
+				padding: 43px 73px 42px
+				border-bottom: 1px solid $border-color
+				margin-bottom: 10px
+			&__recaptcha-wrap
+				display: flex
+				margin-top: 45px
+				align-items: center
+			&-checkbox-wrap
+				width: persent(310, 1015)
+				margin-right: 10px
+			&-checkbox
+				margin-bottom: 8px
+				&:before
+					border: 1px solid $border-color
+			&__checkbox-label
+				padding-left: 36px
+			&__submit
+				padding: 0
+			&__recaptcha
+				margin-right: 25px
+			&__submit
+				margin-top: 45px 
+		.btn-form 
+			border-radius: 0
+			margin-top: 0
+			font-size: rem(14)
+			padding: 16px 28px
+		.forms-input-cont
+			width: persent(305, 1015)
+			display: flex
+			align-self: flex-start
+			&--file 
+				width: persent(650, 1015)
+				margin-bottom: 0
+				margin-right: 0!important
+		.forms__input--file
+			&-support
+				width: 100%
+		.forms__label--file
+			
+			&:before 
+				background: url(../img/ico-view.png) center left 65px no-repeat, #fff
+				overflow: hidden
+				height: 47px
+				top: 33px
+				right: 1
+		.forms-input-cont:not(:nth-child(3n))
+			margin-right: 37px
+
+
+#shops
+	padding: 0
+	width: 1020px
+	
+	.forms
+
+		&__title
+			padding: 45px 74px
+			text-align: left
+			margin-bottom: 0
+			border-bottom: 1px solid $border-color
+			font-weight: 300
+
+		&-shops
+			padding: 45px 74px 74px
+.thanks-forms
+	width: 650px
+	padding: 25px 35px
+	font-family: "Proxima Nova", sans-serif
+	.thanks__wrap 
+		padding: 50px 0px 
+		h2 
+			font-size: 30px
+			margin-bottom: 30px
+			text-align: center
+			font-family: inherit
+
+			
+		p 
+			font-size: rem(20)
+			text-align: center
+			font-family: inherit
+	.thanks__button
+		display: flex 
+		justify-content: space-around
+.forms-contacts
+	.forms-name
+		margin-left: -45px
+		justify-content: flex-start
+		.forms-input-cont
+			width: calc((100% - 45px * 3) / 3)
+			margin-left: 45px
+			
+
+
+
+@media screen and (max-width: 1000px)
+
+	.forms__register-user
+		.forms-wrap, .forms__title
+			padding: 30px 40px 40px
+		.forms-input-cont
+			width: persent(480, 1015)
+			&:not(:nth-child(3n))
+				margin-right: initial
+			&:not(:nth-child(2n))
+				margin-right: 30px
+	.forms__message
+		.forms-wrap, .forms__title
+			padding: 30px 40px 40px
+		.forms__input-wrap
+			margin-left: -15px
+		.forms-input-cont
+			width: calc((100% - 15px * 2) / 2)
+			margin-left: 15px
+		.forms-input-cont
+			&--file
+				width: 100%
+			&--textarea
+				margin-left: 15px 
+
+		.forms__label--file
+			&:before
+				height: 44px
+				top: 33px
+				background: url(../img/ico-view.png) center right 20px no-repeat, #fff
+		
+
+	.forms__resume
+		.forms-wrap, .forms__title
+			padding: 30px 40px 40px
+		.forms-input-cont
+			width: persent(480, 1015)
+			&:not(:nth-child(3n))
+				margin-right: initial
+			&:not(:nth-child(2n))
+				margin-right: 30px
+			&--file
+				width: persent(480, 1015)
+		.forms__label--file:before
+			height: 44px
+			top: 37px
+			background: url(../img/ico-view.png) center right 20px no-repeat, #fff
+		.forms-checkbox-wrap
+			width: 100%
+	#shops
+		width: 700px
+		.forms-shops
+
+		.city-select
+		.radio__label
+			flex-direction: column
+			align-items: flex-start
+		.shops-filter__radio
+			flex-wrap: wrap 
+		.shops-filter__search
+			width: 100%
+			margin-top: 20px
+		.shops-filter
+			margin-top: 20px
+		.shops-view__label
+			padding: 15px 20px 15px
+		.shops-list
+			// height: 200px
+		.radio__label
+			padding-left: 25px
+			flex-direction: column
+		.shops-list__list-address
+			width: 100%
+			span 
+				padding-left: 0
+			&:before
+				display: none
+		.shops-list__list-time
+			span 
+				padding-left: 0
+		.shops-list__list-dist
+			margin-left: 0
+			span 
+				padding-left: 0
+		.shops-list__list-dist
+			span 
+				padding-left: 0
+		.shops-list__list-el:not(:first-child)
+			margin-top: 20px
+
+@media screen and (max-width: 820px)
+	
+	.forms-contacts 
+
+		.forms-name
+			margin: 0 0 0 -20px
+
+			.forms-input-cont
+				width: calc((100% - 20px * 3) / 3)
+				margin-left: 20px
+	
+
+@media screen and (max-width: 767px)
+	.fancybox-close
+		right: 10px
+		top: 10px
+	.forms
+		&-input-cont
+			width: 100%
+		&__label
+			&--file
+
+				&:before
+					background-image: none
+					text-align: center
+					padding-right: 0
+
+		&-wrap
+
+			&--bot
+
+				> div
+					width: 100%
+
+					&:not(:first-child)
+						margin-top: vh(15)
+
+		&-checkbox
+
+		&__checkbox
+			width: 100%
+
+		&__req-text
+			text-align: center
+
+	.forms__register-user
+		.forms__title
+		.forms-wrap, .forms__title
+			padding: 25px 25px 25px
+		.forms-input-cont
+			width: 100%
+			margin-right: 0 !important
+		.forms__recaptcha-wrap
+			flex-direction: column
+		.forms-checkbox-wrap
+			width: 100%
+			margin-right: 0
+	.forms__message
+		.forms-wrap, .forms__title
+			padding: 30px 40px 40px
+		.forms-input-cont
+			width: 100%
+			margin-right: 0 !important
+			&:not(:nth-child(3n))
+				margin-right: initial
+			&:not(:nth-child(2n))
+				margin-right: 30px
+			&--file
+				width: 100%
+		.forms-checkbox-wrap
+			width: 100%
+		.forms__recaptcha-wrap
+			flex-direction: column-reverse
+			align-items: flex-start
+		.forms__recaptcha
+			margin-right: 0
+			margin-top: 10px
+
+
+
+	.forms__resume
+		.forms-wrap, .forms__title
+			padding: 30px 40px 40px
+		.forms-input-cont
+			width: 100%
+			margin-right: 0
+			&:not(:nth-child(3n))
+				margin-right: initial
+			&:not(:nth-child(2n))
+				margin-right: initial
+			&--file
+				width: 100%
+		.forms__label--file:before
+			height: 44px
+			top: 37px
+			background: url(../img/ico-view.png) center right 20px no-repeat, #fff
+		.forms-checkbox-wrap
+			width: 100%
+		.forms__recaptcha-wrap
+			flex-direction: column-reverse
+			align-items: flex-start
+		.forms__recaptcha-wrap
+			margin-top: 20px
+		.recaptcha-wrapper
+			margin-right: 10px
+
+
+@media screen and (max-width: 660px)
+	
+	.bx-auth
+		padding: 0
+
+	.forms__message 
+		.forms__label--file:before
+			top: 27px
+	.fancybox-close
+		top: 0
+		right: 0
+		background: url(../img/close-w.svg) no-repeat center, $main-color
+		background-size: 80% !important
+	#shops
+		width: auto
+		.forms-shops
+			padding: 1.4rem
+		.forms__title
+			padding: 1.4rem
+		.shops__map
+			margin-top: 0
+			height: 250px
+	.forms__city
+		// display: flex !important
+		align-items: center
+		justify-content: center
+		height: 100vh
+		width: auto
+		.forms__title
+			padding: 1.4rem
+		.forms-wrap
+			padding: 1.4rem
+		.forms-input-cont
+			margin-right: 0 !important
+		.city-select
+			select
+				&:not(:first-child)
+					margin-top: 15px
+	.thanks-forms
+		width: auto 
+		padding: 1.4rem
+		height: 100%
+
+
+@media screen and (max-width: 480px)
+	.forms__register-user
+		.forms-wrap, .forms__title
+			padding: 10px
+	.forms__message
+		.forms-wrap, .forms__title
+			padding: 10px
+	.forms__resume
+		.forms-wrap, .forms__title
+			padding: 10px

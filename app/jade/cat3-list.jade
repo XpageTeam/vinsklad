@@ -1,0 +1,125 @@
+html
+	head
+		meta(charset="utf-8")
+		title Вина
+		include inc/head.jade
+		include inc/css.jade
+	body.inner
+		#page-wr
+			#content
+				include inc/header.jade
+				.content
+					.wrapper
+						.inner-cont
+							.catalog
+								.catalog__filter
+									nav.catalog-nav
+										.catalog-nav__current Вина
+										ul.catalog-nav__list
+											each title in ["Крепкие напитки", "Игристые вина и шампанское", "Пиво", "Разное"]
+												li.catalog-nav__list-el
+													a.catalog-nav__list-link(href="#")=title
+									aside.catalog-filter
+										include inc/filter.jade
+								.catalog__cont
+									.title-block__cont
+										.titile-block
+											.title-block__crumbs
+												.bread-crumbs
+													a.bread-crumbs__link(href="#") Главная
+													a.bread-crumbs__link(href="#") Каталог
+													span.bread-crumbs__this Вина
+											h1.title-block__title Вина
+									.cat-plate__cont
+										.catalog__sort
+											.sort
+												.sort__select
+													label.sort__select-label Сортировать по: 
+													select.sort__select-select
+														option По популярности
+														option По популярности
+														option По популярности
+														option По популярности
+												.sort__select.sort__select--count
+													label.sort__select-label Показывать: 
+													select.sort__select-select
+														option 12 шт
+														option 12 шт
+														option 12 шт
+														option 12 шт
+														option 12 шт
+												.sort__view
+													.view
+														a.view__link.view__link--list.active(href="#")
+														a.view__link.view__link--plate(href="#")
+										.cat-list
+											.cat-list__one
+												.cat-plate__one-likes
+													.likes
+														.likes__img
+														.likes__count 32
+												a.cat-list__one-img-cont(href="#")
+													.cat-list__one-new
+														.cat-new
+													img.cat-img(src="img/photos/tovar-1.jpg", alt="")
+												.cat-list__one-info
+													a.cat-list__one-title(href="#")
+														span.cat-title Вино Анайон защищ. наим.кр.сух DOP
+													.cat-list__one-desc
+														.cat-desc 0.75 л., Испания, Кариньена, 14.5%
+														.cat-from
+															img(src="img/photos/flag-1.jpg", alt="")
+													.cat-list__one-buy
+														.cat-list__price-block
+															.cat-list__price
+																.cat-price 1199.<span class="cat-price__kop">90<i class="rub">₽</i></span> 
+															.cat-list__info
+																.cat-count 3 шт.
+														.cat-list__order-block
+															.cat__order
+																a.cat-favorite.added(href="#")
+																.cat-counter
+																	a.cat-counter__link.cat-counter__link--minus(href="#")
+																	input.cat-counter__input(type="text" value="1")
+																	a.cat-counter__link.cat-counter__link--plus(href="#")
+																a.cat-cart.added(href="#")
+											- for (var i = 0; i < 4; i++)
+												.cat-list__one
+													.cat-plate__one-likes
+														.likes
+															.likes__img
+															.likes__count 32
+													a.cat-list__one-img-cont(href="#")
+														.cat-list__one-new
+															.cat-new
+														img.cat-img(src="img/photos/tovar-1.jpg", alt="")
+													.cat-list__one-info
+														a.cat-list__one-title(href="#")
+															span.cat-title Вино Анайон защищ. наим.кр.сух DOP
+														.cat-list__one-desc
+															.cat-desc 0.75 л., Испания, Кариньена, 14.5%
+															.cat-from
+																img(src="img/photos/flag-1.jpg", alt="")
+														.cat-list__one-buy
+															.cat-list__price-block.cat-plate__price-block--sale
+																.cat-list__price
+																	.cat__lastprice-cont
+																		.cat__lastprice 299.<span class="cat__lastprice-kop">90<i class="rub">₽</i></span>
+																		.cat-sale 15%
+																	.cat-price 1199.<span class="cat-price__kop">90<i class="rub">₽</i></span> 
+																.cat-list__info
+																	.cat-count 3 шт.
+															.cat-list__order-block
+																.cat__order
+																	a.cat-favorite.added(href="#")
+																	.cat-counter
+																		a.cat-counter__link.cat-counter__link--minus(href="#")
+																		input.cat-counter__input(type="text" value="1")
+																		a.cat-counter__link.cat-counter__link--plus(href="#")
+																	a.cat-cart.added(href="#")
+									.bot-text__cont
+										.bot-text
+											.text-page
+												p Wild Turkey использует больше ржи, чем обычно. Рожь придает бурбону уникальные пряные ноты во вкусе. Согласно Законодательству, бурбон должен содержать как минимум 51% кукурузы. У Wild Turkey кукуруза сладкая и без ГМО, что придает напитку насыщенный вкус. 
+			include inc/footer.jade
+		include inc/scripts.jade

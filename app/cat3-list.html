@@ -1,0 +1,483 @@
+
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Вина</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="description"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,700&amp;amp;subset=cyrillic" rel="stylesheet"/>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/jquery.fancybox.css"/>
+    <link rel="stylesheet" href="css/jquery.jscrollpane.css"/>
+    <link rel="stylesheet" href="css/ui-slider.css"/>
+    <link rel="stylesheet" href="css/fonts.css"/>
+    <link rel="stylesheet" href="css/slick.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="css/forms.css"/>
+    <link rel="stylesheet" href="css/main_data.css"/>
+  </head>
+  <body class="inner">
+    <div id="page-wr">
+      <div id="content">
+        <transition name="head-message__transition">
+          <div :class="headMessageClass" v-if="headMessageShow" class="head-message">
+            <div v-html="headMessage" class="head-message__text"></div>
+          </div>
+        </transition>
+        <header class="head">
+          <div class="wrapper">
+            <div class="head__top">
+              <div v-cloak="" class="head__shop">
+                <div class="head__shop-city">
+                  <div @click="showCityPopup" class="city">{{ userCity.name || "Выберите город" }}</div>
+                </div>
+                <div class="head__shop-address">
+                  <address @click="showShopPopup()" class="address">{{ mainShop.address || "Выберите магазин" }}</address>
+                </div>
+              </div>
+              <div class="head-top__right">
+                <div class="head-links">
+                  <div class="head-links__phone">
+                    <address class="top-phone"><a href="tel: 8 800 000 00 00">8 800 000 00 00</a></address>
+                  </div>
+                  <div class="head-links__feedback"><a href="#" class="feedback-link">Обратная связь</a></div>
+                  <div class="head-links__lc"><a href="#" class="lc-link">Личный кабинет</a></div>
+                </div>
+              </div>
+            </div>
+            <div class="head__mid">
+              <div class="head__logo"><a href="/" class="logo"><img src="img/logo.png" alt="" class="logo__img"/></a></div>
+              <div class="head__search">
+                <div class="search">
+                  <form>
+                    <div class="search-wrap">
+                      <div class="search__input-cont">
+                        <input type="text" placeholder="Поиск по товарам" class="search__input"/>
+                        <input type="submit" class="search__submit"/>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="head__fc"><a href="#" class="head__favorite"></a><a href="#" class="head__cart"><span class="head__cart-count">2 товара</span><span class="head__cart-price">4 879.60 <i class="rub">₽</i></span></a></div>
+            </div>
+          </div>
+        </header>
+        <div class="content">
+          <div class="wrapper">
+            <div class="inner-cont">
+              <div class="catalog">
+                <div class="catalog__filter">
+                  <nav class="catalog-nav">
+                    <div class="catalog-nav__current">Вина</div>
+                    <ul class="catalog-nav__list">
+                      <li class="catalog-nav__list-el"><a href="#" class="catalog-nav__list-link">Крепкие напитки</a></li>
+                      <li class="catalog-nav__list-el"><a href="#" class="catalog-nav__list-link">Игристые вина и шампанское</a></li>
+                      <li class="catalog-nav__list-el"><a href="#" class="catalog-nav__list-link">Пиво</a></li>
+                      <li class="catalog-nav__list-el"><a href="#" class="catalog-nav__list-link">Разное</a></li>
+                    </ul>
+                  </nav>
+                  <aside class="catalog-filter">
+                    <form>
+                      <div class="catalog-filter__bock">
+                        <div class="filter-block">
+                          <div class="filter-block__title">Цена</div>
+                          <div class="filter-block__content">
+                            <div class="filter-block__price">
+                              <div data-step="1" class="price-filter">
+                                <div class="input-group">
+                                  <input type="tel" data-min="0" value="0" class="catalog-filter__input input-group__input"/>
+                                  <input type="tel" data-max="50000" value="2500" class="catalog-filter__input input-group__input"/>
+                                </div><i class="price-filter__range range"></i>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="filter-block">
+                          <div class="filter-block__title">Страна</div>
+                          <div class="filter-block__content">
+                            <ul class="filter__checks">
+                              <li class="filter__checks-el">
+                                <div class="checkbox">
+                                  <input type="checkbox" id="check-f" class="checkbox__input"/>
+                                  <label for="check-f" class="checkbox__label">Россия</label>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="filter-block">
+                          <div class="filter-block__title">Алкоголь (крепость)</div>
+                          <div class="filter-block__content">
+                            <div class="filter-block__price">
+                              <div data-step="0.1" class="price-filter">
+                                <div class="input-group">
+                                  <input type="tel" data-min="10" value="10" class="catalog-filter__input input-group__input"/>
+                                  <input type="tel" data-max="40" value="30" class="catalog-filter__input input-group__input"/>
+                                </div><i class="price-filter__range range"></i>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="filter-block closed">
+                          <div class="filter-block__title">Объём</div>
+                          <div class="filter-block__content">
+                            <div class="filter-block__price">
+                              <div data-step="0.2" class="price-filter">
+                                <div class="input-group">
+                                  <input type="tel" data-min="10" value="10" class="catalog-filter__input input-group__input"/>
+                                  <input type="tel" data-max="40" value="30" class="catalog-filter__input input-group__input"/>
+                                </div><i class="price-filter__range range"></i>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="filter-block">
+                          <div class="filter-block__title">Популярное</div>
+                          <div class="filter-block__content">
+                            <ul class="filter__checks">
+                              <li class="filter__checks-el">
+                                <div class="checkbox">
+                                  <input type="checkbox" checked="checked" id="check-f2" class="checkbox__input"/>
+                                  <label for="check-f2" class="checkbox__label">Россия</label>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="filter-block">
+                          <div class="filter-block__title">Производитель</div>
+                          <div class="filter-block__content">
+                            <div class="filter__search">
+                              <checks-filter :list="[{name: &quot;DRIADA GROUP&quot;, checked: true}, {name: &quot;«Вино-Гранде» ООО&quot;, checked: false}, {name: &quot;Вагрус, ООО&quot;, id: &quot;s-3&quot;, checked: false}, {name: &quot;ВИЛАШ&quot;, checked: false}, {name: &quot;Винзавод «Надежда»&quot;, checked: false}]"></checks-filter>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="filter__btns">
+                          <div class="filter-btns">
+                            <input type="submit" value="Показать" class="filter-btns__btn filter-btns__btn--submit"/><a href="#" class="filter-btns__btn filter-btns__btn--reset">Сбросить</a>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </aside>
+                </div>
+                <div class="catalog__cont">
+                  <div class="title-block__cont">
+                    <div class="titile-block">
+                      <div class="title-block__crumbs">
+                        <div class="bread-crumbs"><a href="#" class="bread-crumbs__link">Главная</a><a href="#" class="bread-crumbs__link">Каталог</a><span class="bread-crumbs__this">Вина</span></div>
+                      </div>
+                      <h1 class="title-block__title">Вина</h1>
+                    </div>
+                  </div>
+                  <div class="cat-plate__cont">
+                    <div class="catalog__sort">
+                      <div class="sort">
+                        <div class="sort__select">
+                          <label class="sort__select-label">Сортировать по: </label>
+                          <select class="sort__select-select">
+                            <option>По популярности</option>
+                            <option>По популярности</option>
+                            <option>По популярности</option>
+                            <option>По популярности</option>
+                          </select>
+                        </div>
+                        <div class="sort__select sort__select--count">
+                          <label class="sort__select-label">Показывать: </label>
+                          <select class="sort__select-select">
+                            <option>12 шт</option>
+                            <option>12 шт</option>
+                            <option>12 шт</option>
+                            <option>12 шт</option>
+                            <option>12 шт</option>
+                          </select>
+                        </div>
+                        <div class="sort__view">
+                          <div class="view"><a href="#" class="view__link view__link--list active"></a><a href="#" class="view__link view__link--plate"></a></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="cat-list">
+                      <div class="cat-list__one">
+                        <div class="cat-plate__one-likes">
+                          <div class="likes">
+                            <div class="likes__img"></div>
+                            <div class="likes__count">32</div>
+                          </div>
+                        </div><a href="#" class="cat-list__one-img-cont">
+                          <div class="cat-list__one-new">
+                            <div class="cat-new"></div>
+                          </div><img src="img/photos/tovar-1.jpg" alt="" class="cat-img"/></a>
+                        <div class="cat-list__one-info"><a href="#" class="cat-list__one-title"><span class="cat-title">Вино Анайон защищ. наим.кр.сух DOP</span></a>
+                          <div class="cat-list__one-desc">
+                            <div class="cat-desc">0.75 л., Испания, Кариньена, 14.5%</div>
+                            <div class="cat-from"><img src="img/photos/flag-1.jpg" alt=""/></div>
+                          </div>
+                          <div class="cat-list__one-buy">
+                            <div class="cat-list__price-block">
+                              <div class="cat-list__price">
+                                <div class="cat-price">1199.<span class="cat-price__kop">90<i class="rub">₽</i></span> </div>
+                              </div>
+                              <div class="cat-list__info">
+                                <div class="cat-count">3 шт.</div>
+                              </div>
+                            </div>
+                            <div class="cat-list__order-block">
+                              <div class="cat__order"><a href="#" class="cat-favorite added"></a>
+                                <div class="cat-counter"><a href="#" class="cat-counter__link cat-counter__link--minus"></a>
+                                  <input type="text" value="1" class="cat-counter__input"/><a href="#" class="cat-counter__link cat-counter__link--plus"></a>
+                                </div><a href="#" class="cat-cart added"></a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="cat-list__one">
+                        <div class="cat-plate__one-likes">
+                          <div class="likes">
+                            <div class="likes__img"></div>
+                            <div class="likes__count">32</div>
+                          </div>
+                        </div><a href="#" class="cat-list__one-img-cont">
+                          <div class="cat-list__one-new">
+                            <div class="cat-new"></div>
+                          </div><img src="img/photos/tovar-1.jpg" alt="" class="cat-img"/></a>
+                        <div class="cat-list__one-info"><a href="#" class="cat-list__one-title"><span class="cat-title">Вино Анайон защищ. наим.кр.сух DOP</span></a>
+                          <div class="cat-list__one-desc">
+                            <div class="cat-desc">0.75 л., Испания, Кариньена, 14.5%</div>
+                            <div class="cat-from"><img src="img/photos/flag-1.jpg" alt=""/></div>
+                          </div>
+                          <div class="cat-list__one-buy">
+                            <div class="cat-list__price-block cat-plate__price-block--sale">
+                              <div class="cat-list__price">
+                                <div class="cat__lastprice-cont">
+                                  <div class="cat__lastprice">299.<span class="cat__lastprice-kop">90<i class="rub">₽</i></span></div>
+                                  <div class="cat-sale">15%</div>
+                                </div>
+                                <div class="cat-price">1199.<span class="cat-price__kop">90<i class="rub">₽</i></span> </div>
+                              </div>
+                              <div class="cat-list__info">
+                                <div class="cat-count">3 шт.</div>
+                              </div>
+                            </div>
+                            <div class="cat-list__order-block">
+                              <div class="cat__order"><a href="#" class="cat-favorite added"></a>
+                                <div class="cat-counter"><a href="#" class="cat-counter__link cat-counter__link--minus"></a>
+                                  <input type="text" value="1" class="cat-counter__input"/><a href="#" class="cat-counter__link cat-counter__link--plus"></a>
+                                </div><a href="#" class="cat-cart added"></a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="cat-list__one">
+                        <div class="cat-plate__one-likes">
+                          <div class="likes">
+                            <div class="likes__img"></div>
+                            <div class="likes__count">32</div>
+                          </div>
+                        </div><a href="#" class="cat-list__one-img-cont">
+                          <div class="cat-list__one-new">
+                            <div class="cat-new"></div>
+                          </div><img src="img/photos/tovar-1.jpg" alt="" class="cat-img"/></a>
+                        <div class="cat-list__one-info"><a href="#" class="cat-list__one-title"><span class="cat-title">Вино Анайон защищ. наим.кр.сух DOP</span></a>
+                          <div class="cat-list__one-desc">
+                            <div class="cat-desc">0.75 л., Испания, Кариньена, 14.5%</div>
+                            <div class="cat-from"><img src="img/photos/flag-1.jpg" alt=""/></div>
+                          </div>
+                          <div class="cat-list__one-buy">
+                            <div class="cat-list__price-block cat-plate__price-block--sale">
+                              <div class="cat-list__price">
+                                <div class="cat__lastprice-cont">
+                                  <div class="cat__lastprice">299.<span class="cat__lastprice-kop">90<i class="rub">₽</i></span></div>
+                                  <div class="cat-sale">15%</div>
+                                </div>
+                                <div class="cat-price">1199.<span class="cat-price__kop">90<i class="rub">₽</i></span> </div>
+                              </div>
+                              <div class="cat-list__info">
+                                <div class="cat-count">3 шт.</div>
+                              </div>
+                            </div>
+                            <div class="cat-list__order-block">
+                              <div class="cat__order"><a href="#" class="cat-favorite added"></a>
+                                <div class="cat-counter"><a href="#" class="cat-counter__link cat-counter__link--minus"></a>
+                                  <input type="text" value="1" class="cat-counter__input"/><a href="#" class="cat-counter__link cat-counter__link--plus"></a>
+                                </div><a href="#" class="cat-cart added"></a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="cat-list__one">
+                        <div class="cat-plate__one-likes">
+                          <div class="likes">
+                            <div class="likes__img"></div>
+                            <div class="likes__count">32</div>
+                          </div>
+                        </div><a href="#" class="cat-list__one-img-cont">
+                          <div class="cat-list__one-new">
+                            <div class="cat-new"></div>
+                          </div><img src="img/photos/tovar-1.jpg" alt="" class="cat-img"/></a>
+                        <div class="cat-list__one-info"><a href="#" class="cat-list__one-title"><span class="cat-title">Вино Анайон защищ. наим.кр.сух DOP</span></a>
+                          <div class="cat-list__one-desc">
+                            <div class="cat-desc">0.75 л., Испания, Кариньена, 14.5%</div>
+                            <div class="cat-from"><img src="img/photos/flag-1.jpg" alt=""/></div>
+                          </div>
+                          <div class="cat-list__one-buy">
+                            <div class="cat-list__price-block cat-plate__price-block--sale">
+                              <div class="cat-list__price">
+                                <div class="cat__lastprice-cont">
+                                  <div class="cat__lastprice">299.<span class="cat__lastprice-kop">90<i class="rub">₽</i></span></div>
+                                  <div class="cat-sale">15%</div>
+                                </div>
+                                <div class="cat-price">1199.<span class="cat-price__kop">90<i class="rub">₽</i></span> </div>
+                              </div>
+                              <div class="cat-list__info">
+                                <div class="cat-count">3 шт.</div>
+                              </div>
+                            </div>
+                            <div class="cat-list__order-block">
+                              <div class="cat__order"><a href="#" class="cat-favorite added"></a>
+                                <div class="cat-counter"><a href="#" class="cat-counter__link cat-counter__link--minus"></a>
+                                  <input type="text" value="1" class="cat-counter__input"/><a href="#" class="cat-counter__link cat-counter__link--plus"></a>
+                                </div><a href="#" class="cat-cart added"></a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="cat-list__one">
+                        <div class="cat-plate__one-likes">
+                          <div class="likes">
+                            <div class="likes__img"></div>
+                            <div class="likes__count">32</div>
+                          </div>
+                        </div><a href="#" class="cat-list__one-img-cont">
+                          <div class="cat-list__one-new">
+                            <div class="cat-new"></div>
+                          </div><img src="img/photos/tovar-1.jpg" alt="" class="cat-img"/></a>
+                        <div class="cat-list__one-info"><a href="#" class="cat-list__one-title"><span class="cat-title">Вино Анайон защищ. наим.кр.сух DOP</span></a>
+                          <div class="cat-list__one-desc">
+                            <div class="cat-desc">0.75 л., Испания, Кариньена, 14.5%</div>
+                            <div class="cat-from"><img src="img/photos/flag-1.jpg" alt=""/></div>
+                          </div>
+                          <div class="cat-list__one-buy">
+                            <div class="cat-list__price-block cat-plate__price-block--sale">
+                              <div class="cat-list__price">
+                                <div class="cat__lastprice-cont">
+                                  <div class="cat__lastprice">299.<span class="cat__lastprice-kop">90<i class="rub">₽</i></span></div>
+                                  <div class="cat-sale">15%</div>
+                                </div>
+                                <div class="cat-price">1199.<span class="cat-price__kop">90<i class="rub">₽</i></span> </div>
+                              </div>
+                              <div class="cat-list__info">
+                                <div class="cat-count">3 шт.</div>
+                              </div>
+                            </div>
+                            <div class="cat-list__order-block">
+                              <div class="cat__order"><a href="#" class="cat-favorite added"></a>
+                                <div class="cat-counter"><a href="#" class="cat-counter__link cat-counter__link--minus"></a>
+                                  <input type="text" value="1" class="cat-counter__input"/><a href="#" class="cat-counter__link cat-counter__link--plus"></a>
+                                </div><a href="#" class="cat-cart added"></a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bot-text__cont">
+                    <div class="bot-text">
+                      <div class="text-page">
+                        <p>Wild Turkey использует больше ржи, чем обычно. Рожь придает бурбону уникальные пряные ноты во вкусе. Согласно Законодательству, бурбон должен содержать как минимум 51% кукурузы. У Wild Turkey кукуруза сладкая и без ГМО, что придает напитку насыщенный вкус. </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="wrapper">
+          <nav class="footer__top">
+            <div class="footer-menu__cont">
+              <div class="footer-menu__title">О Компании</div>
+              <ul class="footer-menu">
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">О нас</a></li>
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">Контакты</a></li>
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">Обратная связь</a></li>
+              </ul>
+            </div>
+            <div class="footer-menu__cont">
+              <div class="footer-menu__title">Покупателям</div>
+              <ul class="footer-menu">
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">Карта постоянного покупателя</a></li>
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">Каталог</a></li>
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">Магазины</a></li>
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">Акции</a></li>
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">Новости</a></li>
+              </ul>
+            </div>
+            <div class="footer-menu__cont">
+              <div class="footer-menu__title">Вакансии</div>
+              <ul class="footer-menu">
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">Заполнить форму</a></li>
+              </ul>
+              <div class="footer__msgs">
+                <div class="msgs">
+                  <div class="soc"><span href="#" style="background-image: url('img/photos/tel.png')" class="soc__link"></span><span href="#" style="background-image: url('img/photos/wa.png')" class="soc__link"></span><span href="#" style="background-image: url('img/photos/vb.png')" class="soc__link"></span>
+                  </div>
+                  <div class="msgs__phone"><span>+7 922 333 22 01</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="footer-menu__cont">
+              <div class="footer-menu__title">Помощь</div>
+              <ul class="footer-menu">
+                <li class="footer-menu__el"><a href="#" class="footer-menu__link">Как зарезервировать товар?</a></li>
+              </ul>
+              <div class="footer__soc">
+                <div class="soc"><a href="#" style="background-image: url('img/ico-soc-1.png')" class="soc__link"></a><a href="#" style="background-image: url('img/ico-soc-2.png')" class="soc__link"></a><a href="#" style="background-image: url('img/ico-soc-3.png')" class="soc__link"></a>
+                </div>
+              </div>
+            </div>
+          </nav>
+          <div class="footer__bot">
+            <div class="footer__copy">
+              <div class="copy">&copy; 2017 <br /> Винный склад «Изобилие»</div>
+            </div>
+            <div class="footer__text">
+              <div class="footer-text">
+                <div>Все материалы на сайте носят информационный характер и не являются рекламой.</div>
+                <div> <a href="#">Политика конфиденциальности</a></div>
+              </div>
+            </div>
+            <div class="footer__dev"><a href="http://xpage.ru" traget="_blank" class="dev"><span class="dev__text">Сделано в</span><img src="img/ico-dev.png" alt="" class="dev__img"/></a></div>
+          </div>
+        </div>
+      </footer>
+      <div id="shops" class="forms">
+        <div class="forms__title">Выбрать магазин</div>
+        <div class="forms-shops">
+          <shops></shops>
+        </div>
+      </div>
+    </div>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/cookie.js"></script>
+    <script src="js/jquery.mousewheel.js"></script>
+    <script src="js/jquery.jscrollpane.min.js"></script>
+    <script src="js/vuex.js"></script>
+    <script src="js/vue.min.js"></script>
+    <script src="js/jquery.ui-slider.js"></script>
+    <script src="js/slick.js"></script>
+    <script src="js/jquery.fancybox.js"></script>
+    <script src="js/common.js"></script>
+  </body>
+</html>

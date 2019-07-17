@@ -1,0 +1,220 @@
+html
+	head
+		meta(charset="utf-8")
+		title Главная
+		include inc/head.jade
+		include inc/css.jade
+	body.main
+		#page-wr
+			#content
+				include inc/header.jade
+				.content
+					.wrapper-index-top
+						nav.head__menu
+							ul.menu
+								each title in [{title: "Крепкие напитки", count: 580}, {title: "Вина", count: 360}, {title: "Игристые вина и шампанское", count: 140}, {title: "Пиво", count: 80}, {title: "Разное", count: 10}, {title: "Крепкие напитки", count: 580}, {title: "Вина", count: 360}, {title: "Игристые вина и шампанское", count: 140}, {title: "Пиво", count: 80}, {title: "Разное", count: 10}, {title: "Крепкие напитки", count: 580}, {title: "Вина", count: 360}, {title: "Игристые вина и шампанское", count: 140}, {title: "Пиво", count: 80}, {title: "Разное", count: 10}, {title: "Крепкие напитки", count: 580}, {title: "Вина", count: 360}, {title: "Игристые вина и шампанское", count: 140}, {title: "Пиво", count: 80}, {title: "Разное", count: 10}, {title: "Крепкие напитки", count: 580}, {title: "Вина", count: 360}, {title: "Игристые вина и шампанское", count: 140}, {title: "Пиво", count: 80}, {title: "Разное", count: 10}, {title: "Пиво", count: 80}, {title: "Разное", count: 10}]
+									li.menu__el
+										a.menu__link(href="#" data-id=title.count)=title.title
+
+						.main-slider__cont
+							.main-slider
+								- for (var i = 0; i < 4; i++)
+									.main-slider__slide
+										img.main-slider__slide-img(src="img/photos/main-slider-img.jpg", alt="")
+										//- .main-slider__slide-title-cont
+										//- 	.wrapper
+										//- 		.main-slider__slide-title Мы бережно храним <br /> для вас лучшие образцы <br /> мирового виноделия
+										//- 		.main-slider__slide-btn
+										//- 			a.btn(href="#") Подробнее
+							.main-slider__bot
+								.main-slider__bot-list
+									.main-slider__bot-item
+										figure.main-slider__bot-img
+											img(src="img/new-img/slider-bot-img-1.jpg", alt="")
+										a(href="#").main-slider__bot-info
+											.main-slider__bot-text Буклет<br> «Винный склад»
+									.main-slider__bot-item
+										figure.main-slider__bot-img
+											img(src="img/new-img/slider-bot-img-2.jpg", alt="")
+										.main-slider__bot-info
+											.soc-title Мы в соцсетях
+											.soc__list
+												a(href="#").soc__item
+													img(src="img/new-img/ok.png", alt="")
+												a(href="#").soc__item
+													img(src="img/new-img/inst.png", alt="")
+												a(href="#").soc__item
+													img(src="img/new-img/vk.png", alt="")
+					.wrapper
+						.cat-slider__cont
+							.cat-slider__title Успейте купить
+							.cat-slider
+								- for (var i = 0; i <= 4; i++)
+									.cat-slider__slide
+										.cat-plate__one
+											.cat-plate__one-new
+												.cat-new
+											.cat-plate__one-likes
+												.likes
+													.likes__img
+													.likes__count 32
+											a.cat-plate__one-img-cont(href="#")
+												img.cat-img(src="img/photos/tovar-1.jpg", alt="")
+											a.cat-plate__one-title(href="#")
+												span.cat-title Вино Анайон защищ. наим.кр.сух DOP
+											.cat-plate__one-desc
+												.cat-desc 0.75 л., Испания, Кариньена, 14.5%
+											.cat-plate__price-block.cat-plate__price-block--sale
+												.cat-plate__price
+													.cat__lastprice-cont
+														.cat__lastprice 299.<span class="cat__lastprice-kop">90<i class="rub">₽</i></span>
+														.cat-sale 15%
+													.cat-price 1199.<span class="cat-price__kop">90<i class="rub">₽</i></span> 
+												.cat-plate__info
+													.cat-count 3 шт.
+													.cat-from
+														img(src="img/photos/flag-1.jpg", alt="")
+											.cat-plate__order-block
+												.cat__order
+													a.cat-favorite(href="#")
+													.cat-counter
+														a.cat-counter__link.cat-counter__link--minus(href="#")
+														input.cat-counter__input(type="text" value="1")
+														a.cat-counter__link.cat-counter__link--plus(href="#")
+													a.cat-cart(href="#")
+									.cat-slider__slide
+										.cat-plate__one
+											.cat-plate__one-new
+												.cat-new
+											.cat-plate__one-likes
+												.likes
+													.likes__img
+													.likes__count 32
+											a.cat-plate__one-img-cont(href="#")
+												img.cat-img(src="img/photos/tovar-2.jpg", alt="")
+											a.cat-plate__one-title(href="#")
+												span.cat-title Вино Антика Контада Пино Гриджио защ.геогр. указ.бел.сух
+											.cat-plate__one-desc
+												.cat-desc 0.75 л., Италия, Венето, 12%
+											.cat-plate__price-block
+												.cat-plate__price
+													.cat-price 299.<span class="cat-price__kop">90<i class="rub">₽</i></span> 
+												.cat-plate__info
+													.cat-count 3 шт.
+													.cat-from
+														img(src="img/photos/flag-2.jpg", alt="")
+											.cat-plate__order-block
+												.cat__order
+													a.cat-favorite(href="#")
+													.cat-counter
+														a.cat-counter__link.cat-counter__link--minus(href="#")
+														input.cat-counter__input(type="text" value="1")
+														a.cat-counter__link.cat-counter__link--plus(href="#")
+													a.cat-cart(href="#")
+									.cat-slider__slide
+										.cat-plate__one
+											.cat-plate__one-new
+												.cat-new
+											.cat-plate__one-likes
+												.likes
+													.likes__img
+													.likes__count 32
+											a.cat-plate__one-img-cont(href="#")
+												img.cat-img(src="img/photos/tovar-3.jpg", alt="")
+											a.cat-plate__one-title(href="#")
+												span.cat-title Вино Антика Контада Соаве защ.наим.бел.сух
+											.cat-plate__one-desc
+												.cat-desc 0.75 л., Италия, Венето, 11.5%
+											.cat-plate__price-block
+												.cat-plate__price
+													.cat-price 299.<span class="cat-price__kop">90<i class="rub">₽</i></span> 
+												.cat-plate__info
+													.cat-count 3 шт.
+													.cat-from
+														img(src="img/photos/flag-2.jpg", alt="")
+											.cat-plate__order-block
+												.cat__order
+													a.cat-favorite(href="#")
+													.cat-counter
+														a.cat-counter__link.cat-counter__link--minus(href="#")
+														input.cat-counter__input(type="text" value="1")
+														a.cat-counter__link.cat-counter__link--plus(href="#")
+													a.cat-cart(href="#")
+									.cat-slider__slide
+										.cat-plate__one
+											.cat-plate__one-new
+												.cat-new
+											.cat-plate__one-likes
+												.likes
+													.likes__img
+													.likes__count 32
+											a.cat-plate__one-img-cont(href="#")
+												img.cat-img(src="img/photos/tovar-4.jpg", alt="")
+											a.cat-plate__one-title(href="#")
+												span.cat-title Вино Антика Контада стол.бел.п/сл
+											.cat-plate__one-desc
+												.cat-desc 0.75 л., Италия, 10.5%
+											.cat-plate__price-block.cat-plate__price-block--sale
+												.cat-plate__price
+													.cat__lastprice-cont
+														.cat__lastprice 299.<span class="cat__lastprice-kop">90<i class="rub">₽</i></span>
+														.cat-sale 15%
+													.cat-price 199.<span class="cat-price__kop">90<i class="rub">₽</i></span> 
+												.cat-plate__info
+													.cat-count 3 шт.
+													.cat-from
+														img(src="img/photos/flag-1.jpg", alt="")
+											.cat-plate__order-block
+												.cat__order
+													a.cat-favorite(href="#")
+													.cat-counter
+														a.cat-counter__link.cat-counter__link--minus(href="#")
+														input.cat-counter__input(type="text" value="1")
+														a.cat-counter__link.cat-counter__link--plus(href="#")
+													a.cat-cart(href="#")
+						.main-news__cont
+							.main-news
+								.main-news__important
+									a.main-news__important-img-cont(href="#")
+										img.main-news__important-img(src="img/photos/news-img.jpg", alt="")
+									.main-news__important-desc
+										.main-news__date 20.05.2017
+										a.main-news__title(href="#") Пикантная нотка к любому блюду!
+										.main-news__important-text 
+											.text-page
+												p Хотите ощутить всю полноту вкуса и сочность яркого лимона? Мы предоставим такую возможность...
+								each title in ["Пикантная нотка к любому блюду!", "Летняя свежесть!", "Сочная летняя новинка!"]
+									a.main-news__one(href="#")
+										span.main-news__date 20.05.2017
+										span.main-news__title=title
+						.main-advantages__cont
+							.main-advantages
+								.main-advantages__list
+									ul.main-advantages-list
+										each title, i in ["Сеть магазинов у дома", "58 магазинов", "Выгодные цены", "Оригинальный ассортимент товара"]
+											li.main-advantages-list__el
+												figure.main-advantages-list__img-cont
+													img.main-advantages-list__img(src="img/photos/ico-advantages-"+(i+1)+".png", alt="")
+												span.main-advantages-list__el-title=title
+								.main-advantages__subscribe
+									.subscribe
+										.subscribe__title Подпишитесь на акции!
+										each ph in ["Введите ваш e-mail", "Введите ваш телефон"]
+											.subscribe__form
+												form
+													.subscribe-form
+														.subscribe-form__input-cont
+															input.subscribe-form__input(type="text" placeholder=ph)
+															.forms__error-message текст ошибки
+																i.forms__error-message-icon
+														input.subscribe-form__submit(type="submit" value="Подписаться")
+								.main-advantages__app
+									.app
+										.subscribe__title Скачать мобильное приложение
+										.app-list
+											a.app__link(href="#")
+												img.app__link-img(src="img/photos/appstore.png", alt="")
+											a.app__link(href="#")
+												img.app__link-img(src="img/photos/googleplay.png", alt="")
+			include inc/footer.jade
+		include inc/scripts.jade
