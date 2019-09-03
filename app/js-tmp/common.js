@@ -260,7 +260,9 @@ var loadApp = function loadApp() {
 				localStorage.removeItem("shopsData");
 			}
 
-			if (localStorage && (!store.state.regionsData.length || !store.state.shopsData.length)) store.commit("loadData");else this.showAgeConfirm();
+			if (localStorage && (!store.state.regionsData.length || !store.state.shopsData.length)) store.commit("loadData");else {
+				if (!$(".app-block").length) this.showAgeConfirm();
+			}
 
 			loadScripts();
 
@@ -286,6 +288,7 @@ var loadApp = function loadApp() {
 		},
 		methods: {
 			showAgeConfirm: function showAgeConfirm() {
+				if ($(".app-block").length) return;
 				$.fancybox({
 					href: '#age-forms',
 					closeBtn: false,
@@ -378,6 +381,8 @@ var loadApp = function loadApp() {
 				return time;
 			},
 			showShopPopup: function showShopPopup() {
+				if ($(".app-block").length) return;
+
 				var self = this;
 				$("#menu-toggle").removeClass('open');
 				$('body').removeClass("mobile-menu--open");
@@ -397,6 +402,7 @@ var loadApp = function loadApp() {
 			showCityPopup: function showCityPopup() {
 				var isClosable = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
 
+				if ($(".app-block").length) return;
 
 				$("#menu-toggle").removeClass('open');
 				$('body').removeClass("mobile-menu--open");

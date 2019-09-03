@@ -13,7 +13,7 @@ else
 		loadApp();
 	})
 
-var loadApp = () =>{
+const loadApp = () =>{
 
 
 	// $('.wrapper-index-top .main-slider__cont').css({
@@ -210,8 +210,10 @@ var loadApp = () =>{
 
 			if (localStorage && (!store.state.regionsData.length || !store.state.shopsData.length))
 				store.commit("loadData");
-			else
-				this.showAgeConfirm();
+			else{
+				if (!$(".app-block").length)
+					this.showAgeConfirm()
+			}
 
 			loadScripts();
 
@@ -230,6 +232,8 @@ var loadApp = () =>{
 		},
 		methods: {
 			showAgeConfirm (){
+				if ($(".app-block").length)
+					return
 				$.fancybox({
 						href : '#age-forms',
 						closeBtn : false,
@@ -304,6 +308,9 @@ var loadApp = () =>{
       	return time
 			},
 			showShopPopup(){
+				if ($(".app-block").length)
+					return
+
 				let self = this;
 				$("#menu-toggle").removeClass('open');
 				$('body').removeClass("mobile-menu--open");
@@ -321,6 +328,8 @@ var loadApp = () =>{
 				})
 			},
 			showCityPopup(isClosable = true){
+				if ($(".app-block").length)
+					return
 
 				$("#menu-toggle").removeClass('open');
 				$('body').removeClass("mobile-menu--open");
