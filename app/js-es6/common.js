@@ -1,3 +1,6 @@
+
+import is from "is_js";
+
 var momentLast = Date.now();
 
 if (window.frameCacheVars !== undefined)
@@ -1627,3 +1630,30 @@ var getDistanceFromLatLonInKm = (lat1,lon1,lat2,lon2) => {
 deg2rad = (deg) => {
   return deg * (Math.PI/180)
 }
+
+
+
+document.addEventListener("DOMContentLoaded", function(){
+	if (!document.body.classList.contains("mobile-app") && !is.ios())
+		$.smartbanner({
+			title: "Винный склад",
+			appStoreLanguage: "ru",
+			button: "Установить",
+			price: "",
+			icon: "/local/templates/vinsklad2017/img/app-icon.jpg",
+		});
+
+	;(function () {
+		const iosApp = "https://apps.apple.com/ru/app/винный-склад/id1450252717",
+			androidApp = "https://play.google.com/store/apps/details?id=us.startmobile.vinestore&hl=ru",
+			appLink = document.querySelector(".app-wrapper");
+
+		if (!appLink)
+			return;
+
+		if (is.ios())
+			appLink.setAttribute("href", iosApp)
+		else
+			appLink.setAttribute("href", androidApp)
+	})()
+})
