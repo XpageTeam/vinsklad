@@ -169,13 +169,13 @@
 
 .forms__file-formats {
   order: -1;
-  margin-top: 1.54321vh;
+  margin-top: 15px;
   font-size: 0.875rem;
   color: #777777;
 }
 
 .forms__label {
-  margin-bottom: 1.33745vh;
+  margin-bottom: 13px;
 }
 
 .forms__label--file {
