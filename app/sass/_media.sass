@@ -33,6 +33,20 @@ $output-bourbon-deprecation-warnings: false;
 				bottom: 20px !important
 			font-size: 1.4rem
 
+@media screen and (max-width: 1500px)
+	
+	.trip_btn
+		right: -65px
+
+
+@media screen and (max-width: 1400px)
+	
+	.trip_btn
+		bottom: calc(50% - 170px)
+		right: 0
+		width: 150px
+
+
 @media screen and (max-width: 1000px)
 	.trip_btn
 		+size(150px 230px)
@@ -56,6 +70,9 @@ $output-bourbon-deprecation-warnings: false;
 		text-align: left
 
 @media screen and (max-width: 1200px)
+
+	.trip_btn
+		bottom: calc(50% - 140px)
 
 	.wrapper-index-top 
 		.head__menu
@@ -946,6 +963,8 @@ $output-bourbon-deprecation-warnings: false;
 
 @media screen and (max-width: 667px)
 
+
+
 	html.bx-android 
 		.app-btn
 			.app__one[href*=apple]
@@ -955,6 +974,12 @@ $output-bourbon-deprecation-warnings: false;
 		.app-btn
 			.app__one[href*=google]
 				display: none
+
+	.trip_btn
+		height: 110px
+		width: 77px
+		bottom: calc(50% - -94px)
+		right: -21px
 
 	.main-slider__bot-info
 		display: flex
@@ -1907,6 +1932,9 @@ $output-bourbon-deprecation-warnings: false;
 
 	.contacts .forms-submit-cont
 		margin-top: 20px
+
+	.trip_btn
+		bottom: calc(50% - -80px)
 
 
 
