@@ -1450,8 +1450,6 @@ loadScripts = () => {
 				</li>'
 			});
 
-			console.log(1243);
-
 			$(".mobile-menu").append('<li class="mobile-menu__el">\
 	       		<span class="mobile-menu__link sub">'+title+'</span>\
 	       		<ul class="submenu"><li class="submenu__el submenu__back">Назад</li>'+catalogMenu+'</ul>\
@@ -1461,8 +1459,6 @@ loadScripts = () => {
 
 
 	};
-
-	console.log(1243);
 
 
 
