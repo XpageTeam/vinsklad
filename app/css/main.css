@@ -572,6 +572,31 @@ li {
   opacity: 0;
 }
 
+#form-check-coupon .forms-input-cont {
+  margin-left: 0 !important;
+  width: calc((100% - 37px * 2) / 2) !important;
+}
+
+#form-check-coupon .forms-checkbox:before {
+  display: none;
+}
+
+#form-check-coupon .forms__checkbox-label {
+  padding-left: 0;
+}
+
+#form-check-coupon .forms__checkbox-label:before, #form-check-coupon .forms__checkbox-label:after {
+  display: none;
+}
+
+#form-check-coupon .forms-checkbox-wrap {
+  width: 100%;
+}
+
+#form-check-coupon .forms__submit {
+  margin-top: 25px !important;
+}
+
 .main-slider__cont {
   position: relative;
 }
@@ -4916,6 +4941,10 @@ a.delete {
   }
   html.bx-ios .app-btn .app__one[href*=google] {
     display: none;
+  }
+  #form-check-coupon .forms-input-cont {
+    margin-left: 0 !important;
+    width: 100% !important;
   }
   .trip_btn {
     height: 110px;

@@ -7,6 +7,27 @@ $output-bourbon-deprecation-warnings: false
 *[v-cloak]
 	display: none
 	opacity: 0
+
+#form-check-coupon
+	.forms-input-cont
+		margin-left: 0 !important
+		width: calc((100% - 37px * 2) / 2) !important
+
+	.forms-checkbox:before
+		display: none
+
+	.forms__checkbox-label
+		padding-left: 0
+
+		&:before, &:after
+			display: none
+
+	.forms-checkbox-wrap
+		width: 100%
+
+	.forms__submit
+		margin-top: 25px !important	
+
 .main-slider__cont
 	position: relative
 	
