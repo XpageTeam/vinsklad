@@ -10249,7 +10249,7 @@
 			speed: 400,
 			autoplay: true,
 			// lazyLoad: "progressive",
-			autoplaySpeed: 2000
+			autoplaySpeed: 4000
 		});
 	
 		$(".anketa_new-slider").slick({
