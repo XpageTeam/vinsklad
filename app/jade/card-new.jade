@@ -1,0 +1,232 @@
+html
+	head
+		meta(charset="utf-8")
+		title Вино Анайон защищ. наим.кр.сух DOP
+		include inc/head.jade
+		include inc/css.jade
+	body.inner
+		#page-wr
+			#content
+				include inc/header.jade
+				.content
+					.wrapper
+						.inner-cont
+							.catalog
+								.catalog__filter
+									nav.catalog-nav
+										.catalog-nav__current Вина
+										ul.catalog-nav__list
+											each title in ["Крепкие напитки", "Игристые вина и шампанское", "Пиво", "Разное"]
+												li.catalog-nav__list-el
+													a.catalog-nav__list-link(href="#")=title
+								.catalog__cont
+									.title-block__cont
+										.titile-block
+											.title-block__crumbs
+												.bread-crumbs
+													a.bread-crumbs__link(href="#") Главная
+													a.bread-crumbs__link(href="#") Каталог
+													span.bread-crumbs__this Вина
+											h1.title-block__title Вина
+									.tovar__cont
+										.tovar
+											.tovar-info(is-new="true" count="3")
+												.tovar-info__left
+													.tovar-img__cont
+														.cat-plate__one-new
+															.cat-new
+
+														.tovar-slider
+															a.fancybox.tovar-slider__slide(href="img/photos/tovar-img.png" rel="tovar")
+																img.tovar-img(src="img/photos/tovar-img.png", alt="")
+														.cat-plate__one-likes
+															.likes
+																.likes__img
+																.likes__count 32
+													.cat__order
+														a.cat-favorite(href="#")
+														.cat-counter
+															a.cat-counter__link.cat-counter__link--minus(href="#")
+															input.cat-counter__input(type="text" value="1")
+															a.cat-counter__link.cat-counter__link--plus(href="#")
+														a.cat-cart(href="#")
+												.tovar-info__right
+													.tovar-info__desc
+														.tovar-title Вино Анайон защищ. наим.кр.сух DOP
+														.cat-list__one-desc
+															.cat-from
+																img(src="img/photos/flag-1.jpg", alt="")
+															.cat-desc 0.75 л., Испания, Кариньена, 14.5%
+														.tovar-price__block.cat-plate__price-block--sale
+															.cat-list__price
+																.cat__lastprice-cont
+																	.cat__lastprice 299.<span class="cat__lastprice-kop">90<i class="rub">₽</i></span>
+																	.cat-sale 15%
+																.cat-price 1199.<span class="cat-price__kop">90<i class="rub">₽</i></span> 
+															.cat-list__info
+																.cat-count 3 шт.
+															.tovar__rating
+																.rating
+																	.rating-star.active
+																	.rating-star.active
+																	.rating-star.active
+																	.rating-star.active
+																	.rating-star.active
+														.tovar-parameter
+															.tp__list
+																.tp__item
+																	.tp__item-label Объем
+																	.tp__item-text
+																		a(href="") 0.75
+																.tp__item
+																	.tp__item-label Цвет
+																	.tp__item-text
+																		a(href="") Белое
+																.tp__item
+																	.tp__item-label Сахар
+																	.tp__item-text
+																		a(href="") Сахар
+																.tp__item
+																	.tp__item-label Сорт винограа
+																	.tp__item-text
+																		a(href="") VINCENT
+																.tp__item
+																	.tp__item-label Страна
+																	.tp__item-text
+																		a(href="") Франция
+																.tp__item
+																	.tp__item-label Регион
+																	.tp__item-text
+																		a(href="") Бургундия
+																.tp__item
+																	.tp__item-label Производитель
+																	.tp__item-text
+																		a(href="") Chateau Fuisse
+																.tp__item
+																	.tp__item-label Температура подачи
+																	.tp__item-text 17
+
+
+														
+											.tovar__tabs
+												.tabs
+													.tabs__top
+														.tabs__tab.active(data-id="0") Характеристики
+														each tabs, i in ["Где купить?", "Отзывы", ]
+															.tabs__tab(data-id=(i+1))=tabs
+													.tabs__main
+														.tabs-content.active(data-id="0")
+															.tovar__features
+																features(:rows='[{title: "Вкус", content: "Ваниль"} , {title: "Цвет", content: "Белое"}, {title: "Аромат", content: "Ваниль"}, {title: "Гастрономические сочетания", content: "Это вино из линейки VINCENT. Виноград для него собирают с молодых лоз, средний возраст которых составляет 5-20 лет. Почвы: глинисто-известняковые"}, {title: "Способ производства", content: "Собранный виноград доставляют к месту производства и подвергают процессу гребнеотделения –ягоды давятся, от полученной массы отделяются гребни, а давленая масса помещается в чаны для брожения."}, {title: "Интересные факты", content: "В ранние годы, данное вино подавалось исключительно на княжеский стол."}]')
+														.tabs-content(data-id="1")
+															shops
+														.tabs-content(data-id="2")
+															.tovar__reviews
+																.reviews
+																	- for (var i = 0; i <= 1; i++)
+																		.reviews__one
+																			.reviews__one-top
+																				.reviews__one-name Антон Калуга
+																				.reviews__one-date 24.12.2014
+																			.reviews__one-text-cont
+																				.reviews__one-title Достоинства:
+																				.reviews__one-text
+																					.text-page
+																						p После 2 недель покупки iphone 6 у фронтальной камеры стала съезжать подкладка, виден серый полумесяц, частый брак "эффект полумесяца". Сначала покупки кнопка *home* трещит при нажатии так, что слышно в соседней комнате. Пошёл в магазин на 18 день, обменять отказались и направили в сервис. <br />Такая высокая цена и такое качество iphone 6. Советую сотрудникам М. Видео предупреждать покупателей, что техника Apple не подлежит обмену и возврату!
+											each title in ["Похожие товары", "С этим товаром покупают", "Недавно просмотренные товары", ]
+												.tovar__another
+													.another__title=title
+													.another
+														.cat-plate
+															.cat-plate__one-wrap
+																.cat-plate__one
+																	.cat-plate__one-new
+																		.cat-new
+																	.cat-plate__one-likes
+																		.likes
+																			.likes__img
+																			.likes__count 32
+																	a.cat-plate__one-img-cont(href="#")
+																		img.cat-img(src="img/photos/tovar-1.jpg", alt="")
+																	a.cat-plate__one-title(href="#")
+																		span.cat-title Вино Анайон защищ. наим.кр.сух DOP
+																	.cat-plate__one-desc
+																		.cat-desc 0.75 л., Испания, Кариньена, 14.5%
+																	.cat-plate__price-block.cat-plate__price-block--sale
+																		.cat-plate__price
+																			.cat__lastprice-cont
+																				.cat__lastprice 299.<span class="cat__lastprice-kop">90<i class="rub">₽</i></span>
+																				.cat-sale 15%
+																			.cat-price 1199.<span class="cat-price__kop">90<i class="rub">₽</i></span> 
+																		.cat-plate__info
+																			.cat-count 3 шт.
+																			.cat-from
+																				img(src="img/photos/flag-1.jpg", alt="")
+																	.cat-plate__order-block
+																		.cat__order
+																			a.cat-favorite.added(href="#")
+																			.cat-counter
+																				a.cat-counter__link.cat-counter__link--minus(href="#")
+																				input.cat-counter__input(type="text" value="1")
+																				a.cat-counter__link.cat-counter__link--plus(href="#")
+																			a.cat-cart.added(href="#")
+															.cat-plate__one-wrap
+																.cat-plate__one
+																	.cat-plate__one-new
+																		.cat-new
+																	.cat-plate__one-likes
+																		.likes
+																			.likes__img
+																			.likes__count 32
+																	a.cat-plate__one-img-cont(href="#")
+																		img.cat-img(src="img/photos/tovar-2.jpg", alt="")
+																	a.cat-plate__one-title(href="#")
+																		span.cat-title Вино Антика Контада Пино Гриджио защ.геогр. указ.бел.сух
+																	.cat-plate__one-desc
+																		.cat-desc 0.75 л., Италия, Венето, 12%
+																	.cat-plate__price-block
+																		.cat-plate__price
+																			.cat-price 299.<span class="cat-price__kop">90<i class="rub">₽</i></span> 
+																		.cat-plate__info
+																			.cat-count 3 шт.
+																			.cat-from
+																				img(src="img/photos/flag-2.jpg", alt="")
+																	.cat-plate__order-block
+																		.cat__order
+																			a.cat-favorite(href="#")
+																			.cat-counter
+																				a.cat-counter__link.cat-counter__link--minus(href="#")
+																				input.cat-counter__input(type="text" value="1")
+																				a.cat-counter__link.cat-counter__link--plus(href="#")
+																			a.cat-cart(href="#")
+															.cat-plate__one-wrap
+																.cat-plate__one
+																	.cat-plate__one-new
+																		.cat-new
+																	.cat-plate__one-likes
+																		.likes
+																			.likes__img
+																			.likes__count 32
+																	a.cat-plate__one-img-cont(href="#")
+																		img.cat-img(src="img/photos/tovar-3.jpg", alt="")
+																	a.cat-plate__one-title(href="#")
+																		span.cat-title Вино Антика Контада Соаве защ.наим.бел.сух
+																	.cat-plate__one-desc
+																		.cat-desc 0.75 л., Италия, Венето, 11.5%
+																	.cat-plate__price-block
+																		.cat-plate__price
+																			.cat-price 299.<span class="cat-price__kop">90<i class="rub">₽</i></span> 
+																		.cat-plate__info
+																			.cat-count 3 шт.
+																			.cat-from
+																				img(src="img/photos/flag-2.jpg", alt="")
+																	.cat-plate__order-block
+																		.cat__order
+																			a.cat-favorite(href="#")
+																			.cat-counter
+																				a.cat-counter__link.cat-counter__link--minus(href="#")
+																				input.cat-counter__input(type="text" value="1")
+																				a.cat-counter__link.cat-counter__link--plus(href="#")
+																			a.cat-cart(href="#")
+			include inc/footer.jade
+		include inc/scripts.jade

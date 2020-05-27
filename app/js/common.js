@@ -9494,12 +9494,12 @@
 		},
 		template: '\
 			<div class="features">\
-				<table class="features-table">\
-					<tr v-for="row in rows">\
-						<td class="features-table__title">{{row.title}}</td>\
-						<td class="features-table__content" v-html="row.content"></td>\
-					</tr>\
-				</table>\
+				<div class="features-list">\
+					<div class="features-item" v-for="row in rows">\
+						<div class="features-item__title">{{row.title}}</div>\
+						<div class="features-item__content" v-html="row.content"></div>\
+					</div>\
+				</div>\
 			</div>'
 	});
 	
