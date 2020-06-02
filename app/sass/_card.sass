@@ -9,8 +9,13 @@
 
 
 .features-item
-	&:not(:last-child)
-		margin-bottom: 30px
+	padding: 10px 
+
+	// &:not(:last-child)
+	// 	margin-bottom: 30px
+
+	&:nth-child(odd)
+		background: #f2f5f9
 
 	&__content
 		img
@@ -22,7 +27,7 @@
 		font-size: 14px
 		display: flex
 		align-items: center
-		color: #A1A9B4
+		color: #000
 		margin-bottom: 18px
 
 
@@ -40,7 +45,7 @@
 		margin: 0 0 20px 20px
 
 		&-label
-			font-size: rem(12)
+			font-size: rem(14)
 			color: #A1A9B4
 			margin-bottom: 10px
 

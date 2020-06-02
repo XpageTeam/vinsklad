@@ -577,8 +577,12 @@ li {
   display: none;
 }
 
-.features-item:not(:last-child) {
-  margin-bottom: 30px;
+.features-item {
+  padding: 10px;
+}
+
+.features-item:nth-child(odd) {
+  background: #f2f5f9;
 }
 
 .features-item__content img {
@@ -590,7 +594,7 @@ li {
   font-size: 14px;
   display: flex;
   align-items: center;
-  color: #A1A9B4;
+  color: #000;
   margin-bottom: 18px;
 }
 
@@ -610,7 +614,7 @@ li {
 }
 
 .tp__item-label {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: #A1A9B4;
   margin-bottom: 10px;
 }
