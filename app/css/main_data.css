@@ -60,8 +60,7 @@
 .tovar__another .slick-arrow {
     background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAATCAYAAABGKffQAAAAyUlEQVR42oSTyw6CMBBFi6OAj426c2ci/P/36M4vQEURcOGd5JKMSFuSE0g4dzrtgHPOzUEBVi5yCTiAPdiCB+hDsgo5WIMduPsCwnsFMhOYXEHM880EtKUadD55CKS+gEy0VjGwYUvPISCejesKCwZ0hRdoJXCsfwGJzKHmDHRw+SwysBOrf8A1CYgFT0XFM2iSiNhTfOuLsWw/qh9xLFtRz/ViRSurWIIlRa3YjvtLuNuSX55XHCoeKbYUu9DBZ6ycxv6UrwADAHR/LuVUWy6tAAAAAElFTkSuQmCC) no-repeat
 }
-.main-news__one:after,
-.main-news__important :after {
+.main-news__one:after {
     background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAANCAYAAABPeYUaAAAAdUlEQVR42mJgIA6YAPFWIOZhoAAwAfE0ID4OxEIMFIJWIL4ExJKUGlQCxLeBWJFSg5KB+BEQa1NqUAgQPwdiM0Yg8Z9Cw+5QojkU5hJyDUgB4seUhEkJ1Atkx04bEF8mN52AUux0ID5BSYo1BeItuPIOQIABAKaXEjOLsEZtAAAAAElFTkSuQmCC) no-repeat
 }
 .bot-text__btn {
@@ -135,5 +134,8 @@ a.delete {
     }
     .contacts .forms__label--file:before {
         background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAUCAQAAADMt26FAAABx0lEQVQoz3XTP0uVURzA8YdMM0pBy26CSSlhJJXywcI/tGhC5eAQGA0t0RsogpbQiKZoCMteQNBQORQESWQWGWkopUKpVCqKEl7TRMH+PQ1Xr6ZdzvY9n+Eczu8EggQrSZX7xs376qFaqQJBIpzmllC3JvVu6xW6IyMRz/RI6IJkEWVybFIv1Cz1fzhbi1Ctda4Z88uEJhtdEjq9Fud66YdqqZr90aDMeaFGKXq9Xo3zdZpWIc1jc04u1ou+y9Vo5l+813tjSmzVakZtvNcJ7ddgfiUu0m/IPllemVYd7xk6vJPsnpFlXO6LQfmydZh0ON4jnvupXIGoG0ux0qgeETl6jCuN4x3aLThis1aT8mPxqKgO2xUYMKQkjvN0m1YqU4tZNbFnqjGvTbZUwz4qiuM9+owqtk2bKcdjQ1Bs2lNZAunOKYzjAwZ8Viii0zeVsRp4YETWmseqMOyDPDneiqpY6oEpN9fgKlE9InbpNeHg8k5gztVV+JhZb2Qo9MmI4pV7gS4vJK1IJyxos8UhIwZX3GWRnxK6HA9n/NIiQ4p+fXavPmZgvetCz1xR74nf7koX2KDGzrXDHftmddpFRXU5G/tkidZfN1LgG1FB4aUAAAAASUVORK5CYII=) center right 15px no-repeat
+    }
+    .main-news__important {
+        after-background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAANCAYAAABPeYUaAAAAdUlEQVR42mJgIA6YAPFWIOZhoAAwAfE0ID4OxEIMFIJWIL4ExJKUGlQCxLeBWJFSg5KB+BEQa1NqUAgQPwdiM0Yg8Z9Cw+5QojkU5hJyDUgB4seUhEkJ1Atkx04bEF8mN52AUux0ID5BSYo1BeItuPIOQIABAKaXEjOLsEZtAAAAAElFTkSuQmCC) no-repeat
     }
 }
