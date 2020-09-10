@@ -8970,17 +8970,25 @@
 				deleteMainShop: function deleteMainShop(state) {
 					state.mainShop = {};
 	
-					Cookies.remove("mainShop");
+					Cookies.remove("mainShop", {
+						domain: ".vinsklad.ru"
+					});
 				},
 				setMainRegion: function setMainRegion(state, newRegionId) {
 					state.userRegionId = newRegionId;
-					Cookies.set("userRegionId", newRegionId, { expires: 30 });
+					Cookies.set("userRegionId", newRegionId, {
+						expires: 30,
+						domain: ".vinsklad.ru"
+					});
 				},
 				setMainCity: function setMainCity(state, newCity) {
 					if (state.userCity != newCity) this.commit("deleteMainShop");
 	
 					state.userCity = newCity;
-					Cookies.set("userCity", (0, _stringify2.default)(newCity), { expires: 30 });
+					Cookies.set("userCity", (0, _stringify2.default)(newCity), {
+						expires: 30,
+						domain: ".vinsklad.ru"
+					});
 				},
 				setMainShop: function setMainShop(state, id) {
 					var shop = state.shopsData.filter(function (item) {
@@ -9005,9 +9013,18 @@
 						xml_id: shop.xml_id
 					};
 	
-					Cookies.set("mainShop", (0, _stringify2.default)(tmpShop), { expires: 30 });
+					Cookies.set("mainShop", (0, _stringify2.default)(tmpShop), {
+						expires: 30,
+						domain: ".vinsklad.ru"
+					});
 	
-					location.reload();
+					Cookies.set("mainShopChanged", "1", {
+						domain: ".vinsklad.ru"
+					});
+	
+					if (this.state.userCity.subdomain) window.location.host = this.state.userCity.subdomain + ".vinsklad.ru";else window.location.host = "vinsklad.ru";
+	
+					// location.reload()
 				},
 	
 				loadData: function () {
@@ -9107,6 +9124,8 @@
 					return loadData;
 				}(),
 				checkLocation: function checkLocation(state) {
+					if (!Cookies.get("age_confirmed")) return;
+	
 					if (state.userRegionId == null) {
 						var findedRegion = state.regionsData.regions.filter(function (region) {
 							return region.name == Cookies.getJSON("geolocation").REGION.replace("+", " ");
@@ -9127,9 +9146,19 @@
 							state.userCity = findedCity[0];
 							setTimeout(function () {
 								window.app.$refs.citySelect.curCity = +state.userCity.id;
+	
+								window.app.$refs.shops.isRegionSelected = state.userRegionId ? true : false;
+								window.app.$refs.shops.isCitySelected = state.userCity ? true : false;
+								// window.app.$refs.shops.curRegion = +state.userRegionId || "default";
+	
+	
+								window.app.$refs.shops.setCity(state.userCity ? +state.userCity.id : "default", +state.userRegionId);
+	
+								// window.app.$refs.citySelect.curCity = +state.userCity.id;
 							}, 100);
 	
-							state.showCityPopup = Cookies.get("cityPopupShowed") ? false : true;
+							// state.showCityPopup = Cookies.get("cityPopupShowed") ? false : true;
+							if (window.showShopPopup) app.showShopPopup(false);
 	
 							$(window).on("load", function (e) {
 								$(".menu-mobile .city").html($("header .city").html());
@@ -9272,6 +9301,10 @@
 				hideCityPopup: function hideCityPopup() {
 					// Cookies.set("cityPopupShowed", 1);
 	
+					Cookies.set("isUsercityConfirmed", {
+						domain: ".vinsklad.ru"
+					});
+	
 					store.commit("setMainCity", this.userCity);
 	
 					store.state.showCityPopup = false;
@@ -9295,6 +9328,10 @@
 					var self = this;
 					$("#menu-toggle").removeClass('open');
 					$('body').removeClass("mobile-menu--open");
+	
+					Cookies.set("isUsercityConfirmed", {
+						domain: ".vinsklad.ru"
+					});
 	
 					$.fancybox({
 						href: "#shops",

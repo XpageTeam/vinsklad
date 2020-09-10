@@ -52,18 +52,38 @@ const loadApp = () =>{
 			deleteMainShop (state) {
 				state.mainShop = {};
 
-				Cookies.remove("mainShop");
+				Cookies.remove(
+					"mainShop",
+					
+					{
+						domain: `.vinsklad.ru`
+					}
+				);
 			},
 			setMainRegion (state, newRegionId) {
 				state.userRegionId = newRegionId;
-				Cookies.set("userRegionId", newRegionId, {expires: 30});
+				Cookies.set(
+					"userRegionId", 
+					newRegionId, 
+					{
+						expires: 30,
+						domain: `.vinsklad.ru`
+					}
+				);
 			},
 			setMainCity (state, newCity) {
 				if (state.userCity != newCity)
 					this.commit("deleteMainShop");
 
 				state.userCity = newCity;
-				Cookies.set("userCity", JSON.stringify(newCity), {expires: 30});
+				Cookies.set(
+					"userCity", 
+					JSON.stringify(newCity), 
+					{
+						expires: 30,
+						domain: `.vinsklad.ru`
+					}
+				);
 
 
 			},
@@ -86,9 +106,30 @@ const loadApp = () =>{
 					xml_id: shop.xml_id,
 				};
 
-				Cookies.set("mainShop", JSON.stringify(tmpShop), {expires: 30});
+				Cookies.set(
+					"mainShop", 
+					JSON.stringify(tmpShop), 
+					{
+						expires: 30,
+						domain: `.vinsklad.ru`
+					}
+				);
+				
+				Cookies.set(
+					"mainShopChanged",
+					"1",
+					{
+						domain: `.vinsklad.ru`
+					}
+				)
+				
+				if (this.state.userCity.subdomain)
+					window.location.host = `${this.state.userCity.subdomain}.vinsklad.ru`;
+				else
+					window.location.host = "vinsklad.ru"
 
-				location.reload()
+
+				// location.reload()
 
 			},
 			loadData: async state =>{
@@ -146,6 +187,9 @@ const loadApp = () =>{
         store.commit("checkLocation");
 			},
 			checkLocation(state){
+				if (!Cookies.get("age_confirmed"))
+					return;
+
 				if (state.userRegionId == null){
 					let findedRegion = state.regionsData.regions
 					.filter(region => region.name == Cookies.getJSON("geolocation").REGION.replace("+", " "));
@@ -164,9 +208,20 @@ const loadApp = () =>{
 						state.userCity = findedCity[0];
 						setTimeout(() => {
 							window.app.$refs.citySelect.curCity = +state.userCity.id;
+
+							window.app.$refs.shops.isRegionSelected = state.userRegionId ? true : false;
+							window.app.$refs.shops.isCitySelected = state.userCity ? true : false;
+							// window.app.$refs.shops.curRegion = +state.userRegionId || "default";
+
+							
+							window.app.$refs.shops.setCity(state.userCity ? +state.userCity.id : "default", +state.userRegionId);
+
+							// window.app.$refs.citySelect.curCity = +state.userCity.id;
 						}, 100)
 
-						state.showCityPopup = Cookies.get("cityPopupShowed") ? false : true;
+						// state.showCityPopup = Cookies.get("cityPopupShowed") ? false : true;
+						if (window.showShopPopup)
+							app.showShopPopup(false);
 
 						$(window).on("load", e => {
 							$(".menu-mobile .city").html($("header .city").html());							
@@ -293,6 +348,13 @@ const loadApp = () =>{
 			hideCityPopup(){
 				// Cookies.set("cityPopupShowed", 1);
 
+				Cookies.set(
+					"isUsercityConfirmed",
+					{
+						domain: `.vinsklad.ru`
+					}
+				);
+
 				store.commit("setMainCity", this.userCity);
 
 				store.state.showCityPopup = false;
@@ -317,6 +379,13 @@ const loadApp = () =>{
 				let self = this;
 				$("#menu-toggle").removeClass('open');
 				$('body').removeClass("mobile-menu--open");
+
+				Cookies.set(
+					"isUsercityConfirmed",
+					{
+						domain: `.vinsklad.ru`
+					}
+				);
 
 				$.fancybox({
 					href: "#shops",
