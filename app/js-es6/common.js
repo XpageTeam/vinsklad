@@ -55,9 +55,9 @@ const loadApp = () =>{
 				Cookies.remove(
 					"mainShop",
 					
-					{
-						domain: `.vinsklad.ru`
-					}
+					// {
+					// 	domain: `.vinsklad.ru`
+					// }
 				);
 			},
 			setMainRegion (state, newRegionId) {
@@ -67,7 +67,7 @@ const loadApp = () =>{
 					newRegionId, 
 					{
 						expires: 30,
-						domain: `.vinsklad.ru`
+						// domain: `.vinsklad.ru`
 					}
 				);
 			},
@@ -81,7 +81,7 @@ const loadApp = () =>{
 					JSON.stringify(newCity), 
 					{
 						expires: 30,
-						domain: `.vinsklad.ru`
+						// domain: `.vinsklad.ru`
 					}
 				);
 
@@ -106,30 +106,11 @@ const loadApp = () =>{
 					xml_id: shop.xml_id,
 				};
 
-				Cookies.set(
-					"mainShop", 
-					JSON.stringify(tmpShop), 
-					{
-						expires: 30,
-						domain: `.vinsklad.ru`
-					}
-				);
 				
-				Cookies.set(
-					"mainShopChanged",
-					"1",
-					{
-						domain: `.vinsklad.ru`
-					}
-				)
-				
-				if (this.state.userCity.subdomain)
-					window.location.host = `${this.state.userCity.subdomain}.vinsklad.ru`;
-				else
-					window.location.host = "vinsklad.ru"
 
+				Cookies.set("mainShop", JSON.stringify(tmpShop), {expires: 30});
 
-				// location.reload()
+				location.reload()
 
 			},
 			loadData: async state =>{
