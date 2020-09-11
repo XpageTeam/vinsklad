@@ -86,6 +86,8 @@ const loadApp = () =>{
 					xml_id: shop.xml_id,
 				};
 
+				
+
 				Cookies.set("mainShop", JSON.stringify(tmpShop), {expires: 30});
 
 				location.reload()
