@@ -109,17 +109,16 @@ var loadApp = function loadApp() {
 				};
 
 				Cookies.set("mainShop", (0, _stringify2.default)(tmpShop), {
-					expires: 30,
-					domain: ".vinsklad.ru"
+					expires: 30
 				});
+
+				// location.reload()
 
 				Cookies.set("mainShopChanged", "1", {
 					domain: ".vinsklad.ru"
 				});
 
 				if (this.state.userCity.subdomain) window.location.host = this.state.userCity.subdomain + ".vinsklad.ru";else window.location.host = "vinsklad.ru";
-
-				// location.reload()
 			},
 
 			loadData: function () {

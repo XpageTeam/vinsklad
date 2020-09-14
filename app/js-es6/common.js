@@ -54,10 +54,9 @@ const loadApp = () =>{
 
 				Cookies.remove(
 					"mainShop",
-					
-					// {
-					// 	domain: `.vinsklad.ru`
-					// }
+					{
+						domain: `.vinsklad.ru`
+					}
 				);
 			},
 			setMainRegion (state, newRegionId) {
@@ -67,7 +66,7 @@ const loadApp = () =>{
 					newRegionId, 
 					{
 						expires: 30,
-						// domain: `.vinsklad.ru`
+						domain: `.vinsklad.ru`
 					}
 				);
 			},
@@ -81,7 +80,7 @@ const loadApp = () =>{
 					JSON.stringify(newCity), 
 					{
 						expires: 30,
-						// domain: `.vinsklad.ru`
+						domain: `.vinsklad.ru`
 					}
 				);
 
@@ -94,8 +93,12 @@ const loadApp = () =>{
 
 				store.commit("setMainRegion", regionId);
 
-				store.commit("setMainCity", state.regionsData.cities.filter(item => 
-					item.id == cityId)[0]
+				store.commit(
+					"setMainCity", 
+					state.regionsData
+						.cities.filter(
+							item => item.id == cityId
+						)[0]
 				);
 
 				state.mainShop = shop;
@@ -108,9 +111,28 @@ const loadApp = () =>{
 
 				
 
-				Cookies.set("mainShop", JSON.stringify(tmpShop), {expires: 30});
+				Cookies.set(
+					"mainShop", 
+					JSON.stringify(tmpShop), 
+					{
+						expires: 30
+					}
+				);
 
-				location.reload()
+				// location.reload()
+
+				Cookies.set(
+					"mainShopChanged",
+					"1",
+					{
+						domain: `.vinsklad.ru`
+					}
+				)
+				
+				if (this.state.userCity.subdomain)
+					window.location.host = `${this.state.userCity.subdomain}.vinsklad.ru`;
+				else
+					window.location.host = "vinsklad.ru"
 
 			},
 			loadData: async state =>{
