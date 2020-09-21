@@ -58,6 +58,10 @@ const loadApp = () =>{
 						domain: `.vinsklad.ru`
 					}
 				);
+
+				Cookies.remove(
+					"mainShop",
+				);
 			},
 			setMainRegion (state, newRegionId) {
 				state.userRegionId = newRegionId;
@@ -71,10 +75,14 @@ const loadApp = () =>{
 				);
 			},
 			setMainCity (state, newCity) {
-				if (state.userCity != newCity)
+
+				if (state.userCity.id != newCity.id){
 					this.commit("deleteMainShop");
+					console.log(123);
+				}
 
 				state.userCity = newCity;
+
 				Cookies.set(
 					"userCity", 
 					JSON.stringify(newCity), 
@@ -83,7 +91,6 @@ const loadApp = () =>{
 						domain: `.vinsklad.ru`
 					}
 				);
-
 
 			},
 			setMainShop (state, id) {
@@ -115,7 +122,8 @@ const loadApp = () =>{
 					"mainShop", 
 					JSON.stringify(tmpShop), 
 					{
-						expires: 30
+						expires: 30,
+						domain: `.vinsklad.ru`
 					}
 				);
 
@@ -632,8 +640,10 @@ Vue.component("city-select", {
 	},
 	methods: {
 		selectCity() {
-			store.commit("setMainCity", store.state.regionsData
-				.cities.filter(item => item.id == this.curCity)[0]);			
+			const targetCity = store.state.regionsData
+			.cities.filter(item => item.id == this.curCity)[0];
+
+			store.commit("setMainCity", targetCity);
 
 			store.commit("setMainRegion", this.curRegion);
 			app.showMessage("Город успешно выбран", {
@@ -643,7 +653,12 @@ Vue.component("city-select", {
 
 			$.fancybox.close();
 
-			location.reload();
+			//location.reload();
+				
+			if (targetCity.subdomain)
+				window.location.host = `${targetCity.subdomain}.vinsklad.ru`;
+			else
+				window.location.host = "vinsklad.ru"
 		}
 	},
 	template: '\
