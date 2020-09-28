@@ -39,7 +39,7 @@ const loadApp = () =>{
 	window.store = new Vuex.Store({
 		state: { 
 			userRegionId: +Cookies.getJSON("userRegionId") || null,
-			userCity: Cookies.getJSON("userCity") || "",
+			userCity: Cookies.getJSON("_userCity") || "",
 			mainShop: localStorage && localStorage.shopsDataLast1 && Cookies.getJSON("mainShop") ? JSON.parse(localStorage.getItem("shopsDataLast1"))
 				.filter(item => item.id == Cookies.getJSON("mainShop").id)[0] : "",
 			regionsData : localStorage && localStorage.regionsData ? JSON.parse(localStorage.getItem('regionsData')) : {},
@@ -50,18 +50,22 @@ const loadApp = () =>{
 		},
 		mutations: {
 			deleteMainShop (state) {
-				state.mainShop = {};
+
+				let domain = "";
+
+				if (this.state.userCity.subdomain)
+					domain = `${this.state.userCity.subdomain}.vinsklad.ru`;
+				else
+					domain = "vinsklad.ru"
 
 				Cookies.remove(
 					"mainShop",
 					{
-						domain: `.vinsklad.ru`
+						domain: domain
 					}
 				);
 
-				Cookies.remove(
-					"mainShop",
-				);
+				state.mainShop = {};
 			},
 			setMainRegion (state, newRegionId) {
 				state.userRegionId = newRegionId;
@@ -78,13 +82,12 @@ const loadApp = () =>{
 
 				if (state.userCity.id != newCity.id){
 					this.commit("deleteMainShop");
-					console.log(123);
 				}
 
 				state.userCity = newCity;
 
 				Cookies.set(
-					"userCity", 
+					"_userCity", 
 					JSON.stringify(newCity), 
 					{
 						expires: 30,
@@ -694,10 +697,10 @@ Vue.component("shops", {
 	data: () => ({
 		search__input: "",
 		isRegionSelected: Cookies.getJSON("userRegionId") ? true : false,
-		isCitySelected: Cookies.getJSON("userCity") ? true : false,
+		isCitySelected: Cookies.getJSON("_userCity") ? true : false,
 		viewType: Cookies.get("shopsViewType") || "dist",
 		curRegion: +Cookies.getJSON("userRegionId") || "default",
-		curCity: (Cookies.getJSON("userCity") ? +Cookies.getJSON("userCity").id : "default"),
+		curCity: (Cookies.getJSON("_userCity") ? +Cookies.getJSON("_userCity").id : "default"),
 		curShop: (Cookies.getJSON("mainShop") ? +Cookies.getJSON("mainShop").id : null),
 		srollPane: null,
 		map: null,

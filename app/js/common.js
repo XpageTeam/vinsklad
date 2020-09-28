@@ -8956,7 +8956,7 @@
 		window.store = new Vuex.Store({
 			state: {
 				userRegionId: +Cookies.getJSON("userRegionId") || null,
-				userCity: Cookies.getJSON("userCity") || "",
+				userCity: Cookies.getJSON("_userCity") || "",
 				mainShop: localStorage && localStorage.shopsDataLast1 && Cookies.getJSON("mainShop") ? JSON.parse(localStorage.getItem("shopsDataLast1")).filter(function (item) {
 					return item.id == Cookies.getJSON("mainShop").id;
 				})[0] : "",
@@ -8968,13 +8968,16 @@
 			},
 			mutations: {
 				deleteMainShop: function deleteMainShop(state) {
-					state.mainShop = {};
+	
+					var domain = "";
+	
+					if (this.state.userCity.subdomain) domain = this.state.userCity.subdomain + ".vinsklad.ru";else domain = "vinsklad.ru";
 	
 					Cookies.remove("mainShop", {
-						domain: ".vinsklad.ru"
+						domain: domain
 					});
 	
-					Cookies.remove("mainShop");
+					state.mainShop = {};
 				},
 				setMainRegion: function setMainRegion(state, newRegionId) {
 					state.userRegionId = newRegionId;
@@ -8987,12 +8990,11 @@
 	
 					if (state.userCity.id != newCity.id) {
 						this.commit("deleteMainShop");
-						console.log(123);
 					}
 	
 					state.userCity = newCity;
 	
-					Cookies.set("userCity", (0, _stringify2.default)(newCity), {
+					Cookies.set("_userCity", (0, _stringify2.default)(newCity), {
 						expires: 30,
 						domain: ".vinsklad.ru"
 					});
@@ -9644,10 +9646,10 @@
 			return {
 				search__input: "",
 				isRegionSelected: Cookies.getJSON("userRegionId") ? true : false,
-				isCitySelected: Cookies.getJSON("userCity") ? true : false,
+				isCitySelected: Cookies.getJSON("_userCity") ? true : false,
 				viewType: Cookies.get("shopsViewType") || "dist",
 				curRegion: +Cookies.getJSON("userRegionId") || "default",
-				curCity: Cookies.getJSON("userCity") ? +Cookies.getJSON("userCity").id : "default",
+				curCity: Cookies.getJSON("_userCity") ? +Cookies.getJSON("_userCity").id : "default",
 				curShop: Cookies.getJSON("mainShop") ? +Cookies.getJSON("mainShop").id : null,
 				srollPane: null,
 				map: null,
