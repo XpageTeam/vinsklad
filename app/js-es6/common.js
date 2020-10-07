@@ -201,8 +201,8 @@ const loadApp = () =>{
         store.commit("checkLocation");
 			},
 			checkLocation(state){
-				if (!Cookies.get("age_confirmed"))
-					return;
+				// if (!Cookies.get("age_confirmed"))
+				// 	return;
 
 				if (state.userRegionId == null){
 					let findedRegion = state.regionsData.regions

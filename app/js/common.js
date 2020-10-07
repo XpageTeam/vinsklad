@@ -9133,7 +9133,8 @@
 					return loadData;
 				}(),
 				checkLocation: function checkLocation(state) {
-					if (!Cookies.get("age_confirmed")) return;
+					// if (!Cookies.get("age_confirmed"))
+					// 	return;
 	
 					if (state.userRegionId == null) {
 						var findedRegion = state.regionsData.regions.filter(function (region) {
