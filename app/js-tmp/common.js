@@ -66,7 +66,7 @@ var loadApp = function loadApp() {
 
 				var domain = "";
 
-				if (this.state.userCity.subdomain) domain = this.state.userCity.subdomain + ".vinsklad.ru";else domain = "vinsklad.ru";
+				if (this.state.userCity.subdomain) domain = ".vinsklad.ru";else domain = "vinsklad.ru";
 
 				Cookies.remove("mainShop", {
 					domain: domain

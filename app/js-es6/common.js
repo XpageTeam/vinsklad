@@ -54,7 +54,7 @@ const loadApp = () =>{
 				let domain = "";
 
 				if (this.state.userCity.subdomain)
-					domain = `${this.state.userCity.subdomain}.vinsklad.ru`;
+					domain = `.vinsklad.ru`;
 				else
 					domain = "vinsklad.ru"
 
