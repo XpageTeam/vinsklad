@@ -9167,7 +9167,7 @@
 								// window.app.$refs.citySelect.curCity = +state.userCity.id;
 							}, 100);
 	
-							// state.showCityPopup = Cookies.get("cityPopupShowed") ? false : true;
+							state.showCityPopup = Cookies.get("cityPopupShowed") ? false : true;
 							if (window.showShopPopup) app.showShopPopup(false);
 	
 							$(window).on("load", function (e) {

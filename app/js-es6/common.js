@@ -233,12 +233,12 @@ const loadApp = () =>{
 							// window.app.$refs.citySelect.curCity = +state.userCity.id;
 						}, 100)
 
-						// state.showCityPopup = Cookies.get("cityPopupShowed") ? false : true;
+						state.showCityPopup = Cookies.get("cityPopupShowed") ? false : true;
 						if (window.showShopPopup)
 							app.showShopPopup(false);
 
 						$(window).on("load", e => {
-							$(".menu-mobile .city").html($("header .city").html());							
+							$(".menu-mobile .city").html($("header .city").html());
 						});
 
 					}else{
