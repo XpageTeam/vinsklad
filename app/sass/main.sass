@@ -480,26 +480,51 @@ $output-bourbon-deprecation-warnings: false
 
 .rating-wrap
 	margin-left: 35px
+
 .rate
+	display: flex
+	flex-direction: row-reverse
+
+	label
+		flex: none
+		margin: 0 0 9px
+		background: url("../img/ico-star-unactive.png") no-repeat
+		+size(21px 16px)
+
+		&:hover
+			background: url("../img/ico-star.png") no-repeat
+			
+			~ label
+				background: url("../img/ico-star.png") no-repeat
+
 	input[type=radio]
 		display: none
+
+		&:checked
+
+			~ label
+				background: url("../img/ico-star.png") no-repeat
 	
-	label 
-		display: block
-		color: #7d7d7d
-		margin: 0 0 9px
-	>label:before
-		display: inline-block
-		font-size: 1.1rem
-		padding: .3rem .2rem
-		margin: 0
-		cursor: pointer
-		font-family: FontAwesome
-		content: "\F005 "
-	>label
-		float: right
-.rate input:checked~label, .rate label.checked, .rate label:hover, .rate label:hover~label
-	color: #f4b400
+ 	// label 
+	// 	display: block
+	// 	color: #7d7d7d
+	// 	margin: 0 0 9px
+
+	// > label:before
+	// 	display: inline-block
+	// 	font-size: 1.1rem
+	// 	padding: .3rem .2rem
+	// 	margin: 0
+	// 	cursor: pointer
+	// 	font-family: FontAwesome
+	// 	content: "\F005 "
+
+	// > label
+	// 	float: right
+
+// .rate input:checked~label, .rate label.checked, .rate label:hover, .rate label:hover~label
+// 	color: #f4b400 
+
 .review__rating
 	margin-left: 19px
 
@@ -2257,6 +2282,7 @@ a.delete
 		// 			background: url("../img/ico-star-unactive.png") no-repeat
 
 .tovar
+
 	&-slider 
 		&__slide 
 			height: auto
