@@ -9034,6 +9034,8 @@
 					});
 	
 					if (this.state.userCity.subdomain) window.location.host = this.state.userCity.subdomain + ".vinsklad.ru";else window.location.host = "vinsklad.ru";
+	
+					window.location.reload();
 				},
 	
 				loadData: function () {
@@ -10127,7 +10129,7 @@
 					<div :id="mapId" class="shops__map-map"></div>\
 				</div>\
 				<div v-if="curShop && (viewType == \'alph\' || viewType == \'dist\')" class="shop-select__cont">\
-					<span @click="setMainShop()" class="btn btn--rectangle shop-select">Выбрать</span>\
+					<span @click="setMainShop()" class="btn btn--rectangle lol shop-select">Выбрать</span>\
 				</div>\
 			</div>\
 		'
