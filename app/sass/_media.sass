@@ -1243,6 +1243,34 @@ $output-bourbon-deprecation-warnings: false;
 			margin: 20px 0 0 70px
 	.order
 		&-form
+			&__cont
+				margin-left: -2rem
+				margin-right: -2rem
+
+				.calendar 
+					table td,
+					table th
+						padding: 10px
+						width: 40px
+					
+					.ic__header
+						padding: 0 !important
+						margin-bottom: 20px
+
+						select 
+							background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAFCAYAAACXU8ZrAAAAcElEQVR42mI8dfq0AwMDAzMQ72VABYxA3AXE/5iARBYQbwXiYCQFIE1zgLgQiO+AFEUB8UooTgFidiBeA8QxQBwBxLNZgMQfIE4A4ndAPAuIS4BYGoi9gXgPyFgWqPH/oUa/BWJ9II4D4lMwuwECDAC49xSVATZFUAAAAABJRU5ErkJggg==) 
+							background-repeat: no-repeat
+							background-position: center right 10px
+							background-color: #fff
+
+					.ic__container
+						background: transparent
+
+					.ic__month,
+					.ic__year
+						margin-right: 15px
+
+
 			&__date
 				padding: 30px
 			&__input-cont
@@ -1768,6 +1796,11 @@ $output-bourbon-deprecation-warnings: false;
 		&__order-block
 			flex: initial
 
+	.seo-filter
+		&__link
+			padding: 10px 15px 11px
+
+
 @media screen and (max-width: 400px)
 	body 
 		font-size: 90%
@@ -1808,6 +1841,16 @@ $output-bourbon-deprecation-warnings: false;
 	.cart__itog
 		padding: 20px
 	.order-form
+		&__cont
+			margin-left: -1.4rem
+			margin-right: -1.4rem
+
+			.calendar
+				.ic__header select
+					font-size: 12px
+					padding-left: 15px !important
+					padding-right: 25px !important
+
 		&__date
 			padding: 20px
 		&__main

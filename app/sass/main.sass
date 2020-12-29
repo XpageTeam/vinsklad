@@ -2302,11 +2302,22 @@ a.delete
 			.cat__order
 				display: flex
 				align-items: center
-				justify-content: space-between
+				justify-content: space-around
 				max-width: 214px
 				flex: 1 0 auto
 				width: 100%
 				margin-top: 20px
+				flex-wrap: wrap
+
+				a[class^="cart-"]
+					display: block
+					width: 100%
+					margin-top: 15px
+					background: #e31e24
+					color: #fff
+					padding: 15px 25px
+					text-align: center
+					text-decoration: none
 
 			.cat-plate__one
 
@@ -2956,7 +2967,34 @@ a.delete
 			&:hover, &:focus
 				color: #fff
 				background: $main-color
-				
+
+.seo-filter
+	display: flex
+	flex-wrap: wrap
+	margin-left: -7px
+	margin-right: -7px
+
+	&__cont
+		margin-top: 20px
+		margin-bottom: 10px
+
+	&__el
+		padding: 0 7px
+		margin-bottom: 15px
+
+	&__link
+		display: block
+		transition: color .3s ease, background-color .3s ease
+		color: #000
+		background: #f2f5f9
+		display: block
+		padding: 13px 20px 14px
+		text-decoration: none
+		font-size: 12px
+
+		&:hover
+			color: #fff
+			background: #e31e24
 
 @import "_grid"
 @import "media"
