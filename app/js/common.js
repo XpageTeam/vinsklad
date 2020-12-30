@@ -9938,7 +9938,40 @@
 							var compA = a.address.toUpperCase();
 							var compB = b.address.toUpperCase();
 	
-							return compA < compB ? -1 : compA > compB ? 1 : 0;
+							if (compA.indexOf('УЛ.') !== -1) {
+								compA = compA.slice(compA.indexOf('УЛ.') + 4, compA.indexOf('УЛ.') + 5);
+							} else if (compA.indexOf('ПР-Т') !== -1) {
+								compA = compA.slice(compA.indexOf('ПР-Т') + 5, compA.indexOf('ПР-Т') + 6);
+							} else if (compA.indexOf('М-Н') !== -1) {
+								compA = compA.slice(compA.indexOf('М-Н') + 4, compA.indexOf('М-Н') + 5);
+							} else if (compA.indexOf('Б-Р') !== -1) {
+								compA = compA.slice(compA.indexOf('Б-Р') + 4, compA.indexOf('Б-Р') + 5);
+							} else if (compA.indexOf('МР-Н') !== -1) {
+								compA = compA.slice(compA.indexOf('МР-Н') + 5, compA.indexOf('МР-Н') + 6);
+							}
+	
+							if (compB.indexOf('УЛ.') !== -1) {
+								compB = compB.slice(compB.indexOf('УЛ.') + 4, compB.indexOf('УЛ.') + 5);
+							} else if (compB.indexOf('ПР-Т') !== -1) {
+								compB = compB.slice(compB.indexOf('ПР-Т') + 5, compB.indexOf('ПР-Т') + 6);
+							} else if (compB.indexOf('М-Н') !== -1) {
+								compB = compB.slice(compB.indexOf('М-Н') + 4, compB.indexOf('М-Н') + 5);
+							} else if (compB.indexOf('Б-Р') !== -1) {
+								compB = compB.slice(compB.indexOf('Б-Р') + 4, compB.indexOf('Б-Р') + 5);
+							} else if (compB.indexOf('МР-Н') !== -1) {
+								compB = compB.slice(compB.indexOf('МР-Н') + 5, compB.indexOf('МР-Н') + 6);
+							}
+	
+							if (compA > compB) {
+								return 1;
+							}
+							if (compA < compB) {
+								return -1;
+							}
+							// a должно быть равным b
+							return 0;
+	
+							// return (compA < compB) ? -1 : (compA > compB) ? 1 : 0
 						});
 						break;
 	
@@ -9948,12 +9981,6 @@
 						});
 						break;
 				}
-	
-				// for (let i in this.filteredList){
-				// 	let shop = this.filteredList[i];
-	
-				// 	console.log(shop.distance)
-				// }
 			},
 			setViewMthod: function setViewMthod(method) {
 				if (method == "map") {} else {}
@@ -9999,7 +10026,7 @@
 				});else {
 	
 					return store.state.shopsData.filter(function (item) {
-						console.log(item.cityId, _this7.curCity, store.state.inStock[item.xml_id], item.xml_id);
+						// console.log(item.cityId, this.curCity, store.state.inStock[item.xml_id], item.xml_id);
 	
 						return item.cityId == _this7.curCity && parseInt(_this7.ostatki[item.xml_id]);
 					});
@@ -10028,11 +10055,11 @@
 					</div>\
 					<div v-else class="city-select">\
 						<select v-model="curRegion" class="city-select__region">\
-							<option value="default" disabled>Выберите регион</option>\
+							<option value="default" >Выберите регион</option>\
 							<option v-for="region in regionsList" :value="region.id">{{ region.name }}</option>\
 						</select>\
 						<select v-if="isRegionSelected" v-model="curCity" class="city-select__city">\
-							<option value="default" disabled>Выберите город</option>\
+							<option value="default" >Выберите город</option>\
 							<option v-for="city in citiesList" :value="city.id">{{ city.name }}</option>\
 						</select>\
 					</div>\
@@ -10376,6 +10403,11 @@
 			$(this).parent(".bot-text").toggleClass("active");
 		});
 	
+		if (window.matchMedia('(max-width: 767px)').matches) {
+			var list = document.querySelector('.catalog-nav__list');
+			if (list) list.style.display = 'none';
+		}
+	
 		$(".catalog-nav__current").click(function () {
 			var $this = $(this);
 	
@@ -10599,10 +10631,10 @@
 	
 			//init the mousevent if we have a matched event
 			mouseEvent.initMouseEvent(simulatedEvent, //type
-			true, //bubbles 
-			true, //cancelable 
-			window, //view 
-			1, //detail 
+			true, //bubbles
+			true, //cancelable
+			window, //view
+			1, //detail
 			touch.screenX, //screenX
 			touch.screenY, //screenY
 			touch.clientX, //clientX

@@ -1567,14 +1567,27 @@ li {
 }
 
 .head__top {
-  padding: 19px 0;
+  padding: 10px 0;
+  align-items: center;
 }
 
 .head__shop-address {
-  border-left: 1px solid #e4e8ea;
   margin-left: 30px;
   display: flex;
   align-items: center;
+  color: white;
+  background-color: #e31e24;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.head__shop-address.selected {
+  background-color: white;
+  color: inherit;
+}
+
+.head__shop-address address::after {
+  display: none;
 }
 
 .head__shop-address .delete {
@@ -6197,6 +6210,37 @@ a.delete {
   }
   .trip_btn {
     bottom: calc(50% - -80px);
+  }
+}
+
+@media (max-width: 767px) {
+  .cat-plate {
+    display: grid;
+    grid-gap: 15px 20px;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+  .cat-plate__price-block {
+    padding-top: 15px;
+  }
+  .cat-plate__one-wrap {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 0;
+  }
+  .cat-plate__one-title {
+    margin-top: 5px;
+  }
+  .cat-plate__one-desc {
+    margin-top: 10px;
+  }
+  .cat-plate__one-img-cont img {
+    max-height: 180px;
+  }
+  .cat-plate .cat-title {
+    font-size: 14px;
+  }
+  .cat-plate .cat-desc {
+    font-size: 12px;
   }
 }
 

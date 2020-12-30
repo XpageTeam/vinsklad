@@ -32,12 +32,12 @@ const loadApp = () =>{
 	// }
 
 
-	
+
 
 
 	Vue.use(Vuex)
 	window.store = new Vuex.Store({
-		state: { 
+		state: {
 			userRegionId: +Cookies.getJSON("userRegionId") || null,
 			userCity: Cookies.getJSON("_userCity") || "",
 			mainShop: localStorage && localStorage.shopsDataLast1 && Cookies.getJSON("mainShop") ? JSON.parse(localStorage.getItem("shopsDataLast1"))
@@ -70,8 +70,8 @@ const loadApp = () =>{
 			setMainRegion (state, newRegionId) {
 				state.userRegionId = newRegionId;
 				Cookies.set(
-					"userRegionId", 
-					newRegionId, 
+					"userRegionId",
+					newRegionId,
 					{
 						expires: 30,
 						domain: `.vinsklad.ru`
@@ -87,8 +87,8 @@ const loadApp = () =>{
 				state.userCity = newCity;
 
 				Cookies.set(
-					"_userCity", 
-					JSON.stringify(newCity), 
+					"_userCity",
+					JSON.stringify(newCity),
 					{
 						expires: 30,
 						domain: `.vinsklad.ru`
@@ -104,7 +104,7 @@ const loadApp = () =>{
 				store.commit("setMainRegion", regionId);
 
 				store.commit(
-					"setMainCity", 
+					"setMainCity",
 					state.regionsData
 						.cities.filter(
 							item => item.id == cityId
@@ -119,11 +119,11 @@ const loadApp = () =>{
 					xml_id: shop.xml_id,
 				};
 
-				
+
 
 				Cookies.set(
-					"mainShop", 
-					JSON.stringify(tmpShop), 
+					"mainShop",
+					JSON.stringify(tmpShop),
 					{
 						expires: 30,
 						domain: `.vinsklad.ru`
@@ -141,7 +141,7 @@ const loadApp = () =>{
 				);
 
 
-				
+
 				if (this.state.userCity.subdomain)
 					window.location.host = `${this.state.userCity.subdomain}.vinsklad.ru`;
 				else
@@ -169,7 +169,7 @@ const loadApp = () =>{
 						if (isNaN(parseFloat(shop.lat)) || isNaN(parseFloat(shop.lng)))
 							continue
 
-						let distance = getDistanceFromLatLonInKm(parseFloat(state.userPosition.LAT), 
+						let distance = getDistanceFromLatLonInKm(parseFloat(state.userPosition.LAT),
 							parseFloat(state.userPosition.LNG),
 							parseFloat(shop.lat),parseFloat(shop.lng))
 
@@ -231,7 +231,7 @@ const loadApp = () =>{
 							window.app.$refs.shops.isCitySelected = state.userCity ? true : false;
 							// window.app.$refs.shops.curRegion = +state.userRegionId || "default";
 
-							
+
 							window.app.$refs.shops.setCity(state.userCity ? +state.userCity.id : "default", +state.userRegionId);
 
 							// window.app.$refs.citySelect.curCity = +state.userCity.id;
@@ -358,10 +358,10 @@ const loadApp = () =>{
 				setTimeout(()=>{
 					app.headMessageShow = false;
 				}, options.time || 2000)
-				
+
 			},
 			setMainShop(id) {
-				
+
 			},
 			hideCityPopup(){
 				// Cookies.set("cityPopupShowed", 1);
@@ -441,7 +441,7 @@ const loadApp = () =>{
 							$("body").addClass("fancy-active")
 						},
 						afterClose (){
-							$("body").removeClass("fancy-active")	
+							$("body").removeClass("fancy-active")
 						},
 						afterShow (){
 							$.fancybox.update()
@@ -454,7 +454,7 @@ const loadApp = () =>{
 							$("body").addClass("fancy-active")
 						},
 						afterClose (){
-							$("body").removeClass("fancy-active")	
+							$("body").removeClass("fancy-active")
 						},
 						afterShow (){
 							$.fancybox.update()
@@ -484,7 +484,7 @@ Vue.component("datetime-pick", {
     $('.order-form__calendar').toggle();
 	},
 	methods: {
-		openCalendar(){	
+		openCalendar(){
 			var todayDate = moment();
       var ionStartDate = todayDate.format("DD.MM.YYYY");
 
@@ -530,7 +530,7 @@ Vue.component("datetime-pick", {
 
               if ((selectedDate.diff(curDate, 'hours') < 2) || (selectedDate.diff(curDate, 'days') > 1)) {
               	// let text = "Заказ можно оформить только на сегодня и завтра c 9:00 до 22:00";
-              	
+
               	let time = app.getCurShopTime();
 
               	let text = "Заказ можно оформить только на сегодня и завтра c "+time[0]+" до "+time[1];
@@ -661,7 +661,7 @@ Vue.component("city-select", {
 			$.fancybox.close();
 
 			//location.reload();
-				
+
 			if (targetCity.subdomain)
 				window.location.host = `${targetCity.subdomain}.vinsklad.ru`;
 			else
@@ -720,7 +720,7 @@ Vue.component("shops", {
 			if (val == oldVal)
 				return
 
-			
+
 		},
 		curRegion(val, oldVal){
 			if (val == oldVal)
@@ -999,16 +999,49 @@ Vue.component("shops", {
 
 				});
 
-			
+
 		},
 		sort (){
 			switch (this.viewType){
 				case "alph":
 					this.shopsList.sort((a, b) => {
-						var compA = a.address.toUpperCase();
-						var compB = b.address.toUpperCase();
+						let compA = a.address.toUpperCase();
+						let compB = b.address.toUpperCase();
 
-						return (compA < compB) ? -1 : (compA > compB) ? 1 : 0
+						if(compA.indexOf('УЛ.') !== -1) {
+							compA = compA.slice(compA.indexOf('УЛ.')+4,compA.indexOf('УЛ.') + 5)
+						}else if (compA.indexOf('ПР-Т') !== -1) {
+							compA = compA.slice(compA.indexOf('ПР-Т')+5,compA.indexOf('ПР-Т') + 6)
+						}else if (compA.indexOf('М-Н') !== -1) {
+							compA = compA.slice(compA.indexOf('М-Н')+4,compA.indexOf('М-Н') + 5)
+						}else if (compA.indexOf('Б-Р') !== -1) {
+							compA = compA.slice(compA.indexOf('Б-Р')+4,compA.indexOf('Б-Р') + 5)
+						}else if (compA.indexOf('МР-Н') !== -1) {
+							compA = compA.slice(compA.indexOf('МР-Н') + 5, compA.indexOf('МР-Н') + 6)
+						}
+
+						if(compB.indexOf('УЛ.') !== -1) {
+							compB = compB.slice(compB.indexOf('УЛ.')+4,compB.indexOf('УЛ.') + 5)
+						}else if (compB.indexOf('ПР-Т') !== -1) {
+							compB = compB.slice(compB.indexOf('ПР-Т')+5,compB.indexOf('ПР-Т') + 6)
+						}else if (compB.indexOf('М-Н') !== -1) {
+							compB = compB.slice(compB.indexOf('М-Н')+4,compB.indexOf('М-Н') + 5)
+						}else if (compB.indexOf('Б-Р') !== -1) {
+							compB = compB.slice(compB.indexOf('Б-Р')+4,compB.indexOf('Б-Р') + 5)
+						}else if (compB.indexOf('МР-Н') !== -1) {
+							compB = compB.slice(compB.indexOf('МР-Н')+5,compB.indexOf('МР-Н') + 6)
+						}
+
+						if (compA > compB) {
+							return 1;
+						}
+						if (compA < compB) {
+							return -1;
+						}
+						// a должно быть равным b
+						return 0;
+
+						// return (compA < compB) ? -1 : (compA > compB) ? 1 : 0
 					});
 				break;
 
@@ -1019,11 +1052,6 @@ Vue.component("shops", {
 				break;
 			}
 
-			// for (let i in this.filteredList){
-			// 	let shop = this.filteredList[i];
-
-			// 	console.log(shop.distance)
-			// }
 		},
 		setViewMthod(method){
 			if (method == "map"){
@@ -1088,11 +1116,11 @@ Vue.component("shops", {
 				</div>\
 				<div v-else class="city-select">\
 					<select v-model="curRegion" class="city-select__region">\
-						<option value="default" disabled>Выберите регион</option>\
+						<option value="default" >Выберите регион</option>\
 						<option v-for="region in regionsList" :value="region.id">{{ region.name }}</option>\
 					</select>\
 					<select v-if="isRegionSelected" v-model="curCity" class="city-select__city">\
-						<option value="default" disabled>Выберите город</option>\
+						<option value="default" >Выберите город</option>\
 						<option v-for="city in citiesList" :value="city.id">{{ city.name }}</option>\
 					</select>\
 				</div>\
@@ -1330,7 +1358,7 @@ loadScripts = () => {
 			$("body").addClass("fancy-active")
 		},
 		afterClose (){
-			$("body").removeClass("fancy-active")	
+			$("body").removeClass("fancy-active")
 		}
 	});
 
@@ -1437,6 +1465,11 @@ loadScripts = () => {
 		$(this).toggleClass("active");
 		$(this).parent(".bot-text").toggleClass("active");
 	});
+
+	if(window.matchMedia('(max-width: 767px)').matches) {
+		const list = document.querySelector('.catalog-nav__list')
+        if(list) list.style.display = 'none'
+	}
 
 	$(".catalog-nav__current").click(function(){
 		var $this = $(this);
@@ -1607,7 +1640,7 @@ loadScripts = () => {
 		var fooerSoc = $('.footer__soc .soc').clone().removeClass('soc').addClass('js__mobile-soc');
 		$('.mobile-menu__message').prepend(fooerSoc);
 	};
-	
+
 
 	$("body").on("click", ".mobile-menu__link.sub, .submenu__back", function(){
 		let $this = $(this);
@@ -1679,10 +1712,10 @@ loadScripts = () => {
 	    //init the mousevent if we have a matched event
 	    mouseEvent.initMouseEvent(
 	        simulatedEvent, //type
-	        true, //bubbles 
-	        true, //cancelable 
-	        window, //view 
-	        1, //detail 
+	        true, //bubbles
+	        true, //cancelable
+	        window, //view
+	        1, //detail
 	        touch.screenX, //screenX
 	        touch.screenY, //screenY
 	        touch.clientX, //clientX
@@ -1701,7 +1734,7 @@ loadScripts = () => {
 	});
 
 
-	
+
 }
 
 var getDistanceFromLatLonInKm = (lat1,lon1,lat2,lon2) => {

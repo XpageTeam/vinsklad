@@ -778,16 +778,26 @@ $output-bourbon-deprecation-warnings: false
 		align-items: center
 
 	&__top
-		padding: 19px 0
-
+		padding: 10px 0
+		align-items: center
 	&__shop
 
 		&-address
-			border-left: 1px solid $border-color
+			//border-left: 1px solid $border-color
 			margin-left: 30px
 			display: flex
 			align-items: center
-
+			color: white
+			background-color: #e31e24
+			padding-top: 10px
+			padding-bottom: 10px
+			&.selected
+				background-color: white
+				color: inherit
+			
+			& address::after
+				display: none
+				
 			.delete
 				margin-left: 15px
 				flex: none
