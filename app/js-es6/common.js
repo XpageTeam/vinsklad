@@ -1059,7 +1059,7 @@ Vue.component("shops", {
 			else{
 
 				return store.state.shopsData.filter(item => {
-					console.log(item.cityId, this.curCity, store.state.inStock[item.xml_id], item.xml_id);
+					// console.log(item.cityId, this.curCity, store.state.inStock[item.xml_id], item.xml_id);
 
 					return item.cityId == this.curCity && parseInt(this.ostatki[item.xml_id])
 				})
