@@ -4049,6 +4049,14 @@ a.delete {
   margin-bottom: 15px;
 }
 
+.seo-filter__el.hidden {
+  display: none;
+}
+
+.seo-filter__el.hidden.show {
+  display: block;
+}
+
 .seo-filter__link {
   display: block;
   transition: color .3s ease, background-color .3s ease;
