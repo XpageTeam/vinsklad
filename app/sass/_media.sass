@@ -1989,13 +1989,13 @@ $output-bourbon-deprecation-warnings: false;
 
 
 @media(max-width: 767px)
-	.cat-plate
+	.cat-plate:not(.slick-slider)
 		display: grid
 		grid-gap: 15px 20px
 		grid-template-columns: repeat(auto-fill, minmax(150px, 1fr))
-		&__price-block
+		.cat-plate__price-block
 			padding-top: 15px
-		&__one
+		.cat-plate__one
 			&-wrap
 				width: 100%
 				padding: 0
@@ -2011,7 +2011,3 @@ $output-bourbon-deprecation-warnings: false;
 			font-size: 14px
 		& .cat-desc
 			font-size: 12px
-	
-
-
-	
