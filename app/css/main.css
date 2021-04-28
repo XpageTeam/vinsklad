@@ -780,6 +780,7 @@ li {
   justify-content: flex-end;
   background: #fff;
   width: 50%;
+  min-height: 200px;
 }
 
 .main-slider__bot-item:not(:first-child) {
@@ -5154,6 +5155,9 @@ a.delete {
     border-right: 1px solid #e4e8ea;
     border-bottom: 0;
   }
+  .main-slider__bot-item {
+    min-height: 160px;
+  }
   .main-slider__bot-item:not(:first-child) {
     border: 0;
   }
@@ -5183,6 +5187,8 @@ a.delete {
   }
   .wrapper-index-top .head__menu {
     padding: 0;
+    position: relative;
+    z-index: 1;
   }
   .wrapper-index-top .menu__link {
     padding: 7px 1.4rem !important;

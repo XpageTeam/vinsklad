@@ -1004,8 +1004,10 @@ $output-bourbon-deprecation-warnings: false;
 				left: 1px solid #e4e8ea
 				right: 1px solid #e4e8ea
 				bottom: 0
-			&-item:not(:first-child)
-				border: 0
+			&-item
+				min-height: 160px
+				&:not(:first-child)
+					border: 0
 			&-info 
 				padding: 21px
 
@@ -1039,6 +1041,8 @@ $output-bourbon-deprecation-warnings: false;
 	.wrapper-index-top 
 		.head__menu
 			padding: 0
+			position: relative
+			z-index: 1
 
 		.menu__link 
 			padding: 7px 1.4rem !important
