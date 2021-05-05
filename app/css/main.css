@@ -1278,8 +1278,21 @@ li {
   text-transform: capitalize;
 }
 
-.cat-from img {
+.cat-from {
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  box-sizing: border-box;
   width: 26px;
+  height: 21px;
+}
+
+.cat-from img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .fancybox-type-image .fancybox-close {
